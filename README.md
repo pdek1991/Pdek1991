@@ -67,14 +67,14 @@ I specialize in **Kubernetes, Docker, OpenShift, CI/CD pipelines, and system mon
 ---
 
 ## 📊 GitHub Activity
-![Prashant's GitHub stats](https://github-readme-stats.vercel.app/api?username=prashant-kadam-devops&show_icons=true&theme=tokyonight)  
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=prashant-kadam-devops&layout=compact&theme=tokyonight)  
+![Prashant's GitHub stats](https://github-readme-stats.vercel.app/api?username=pdek1991&show_icons=true&theme=tokyonight)  
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=pdek1991&layout=compact&theme=tokyonight)  
 
 ---
 
 ## 📫 Connect With Me
 - 📧 Email: **pdek1991@gmail.com**  
-- 💼 LinkedIn: [linkedin.com/in/prashant-kadam](https://www.linkedin.com/in/pdek1991)  
+- 💼 LinkedIn: [linkedin.com/in/pdek1991](https://www.linkedin.com/in/pdek1991)  
 - 📝 [Download Resume](./PRASHANT%20D%20KADAM_Resume%202025.pdf)  
 
 ---
