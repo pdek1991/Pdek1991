@@ -74,7 +74,7 @@ I specialize in **Kubernetes, Docker, OpenShift, CI/CD pipelines, and system mon
 
 ## 📫 Connect With Me
 - 📧 Email: **pdek1991@gmail.com**  
-- 💼 LinkedIn: [linkedin.com/in/prashant-kadam](https://linkedin.com/in/prashant-kadam)  
+- 💼 LinkedIn: [linkedin.com/in/prashant-kadam](https://www.linkedin.com/in/pdek1991)  
 - 📝 [Download Resume](./PRASHANT%20D%20KADAM_Resume%202025.pdf)  
 
 ---
