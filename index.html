@@ -99,10 +99,9 @@
     <!-- Sticky Navbar -->
     <nav class="sticky top-0 z-50 py-4 glass backdrop-blur-lg">
         <div class="container mx-auto px-4 md:px-8 flex items-center justify-between">
-            <!-- Logo - Top Right -->
-            <a href="#" class="flex items-center space-x-2 lg:absolute lg:right-8 lg:top-1/2 lg:transform lg:-translate-y-1/2">
-                <img src="images/logo.gif" alt="VigilSiddhi Logo" class="w-10 h-10 rounded-full transition-transform hover:scale-110 duration-300">
-                <span class="font-bold text-lg md:text-xl text-white">VigilSiddhi</span>
+            <!-- Logo -->
+            <a href="#" class="flex items-center space-x-2">
+                <img src="images/logo.gif" alt="Logo" class="w-10 h-10 rounded-full transition-transform hover:scale-110 duration-300">
             </a>
 
             <!-- Mobile Menu Button -->
@@ -149,7 +148,7 @@
                 <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight animate-slide-up">Prashant D. Kadam</h1>
                 <p class="text-lg md:text-2xl font-medium text-gray-400 animate-slide-up typing-effect" id="typing-text"></p>
                 <p class="mt-4 text-sm md:text-lg text-gray-400 max-w-2xl animate-slide-up">
-                    Certified Kubernetes Administrator (CKA) with 11+ years of expertise in DevOps and cloud-native solutions, building scalable, high-availability, and automated infrastructures.
+                    Certified Kubernetes Administrator (CKA) with 11+ years in the TV broadcast industry. Specializing in Kubernetes, Docker, OpenShift, and system health monitoring. Proficient in Python and Bash scripting to build scalable, high-availability infrastructures.
                 </p>
                 <div class="mt-8 flex flex-wrap justify-center space-x-4 animate-slide-up">
                     <a href="#projects" class="inline-block bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-indigo-500/50 transition-all duration-300 transform hover:-translate-y-1">
@@ -166,12 +165,13 @@
         <section id="about" class="container mx-auto px-4 md:px-8 max-w-5xl mt-16 animate-fade-in">
             <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12">About Me</h2>
             <div class="glass p-8 md:p-12 rounded-2xl">
-                <p class="text-lg text-gray-300">
-                    I'm a seasoned **Certified Kubernetes Administrator (CKA)** with **11+ years of experience** in the TV broadcast and DevOps industries. My expertise lies in orchestrating complex systems with **Kubernetes, Docker, and OpenShift** while ensuring high availability and optimal performance.
-                </p>
-                <p class="mt-4 text-lg text-gray-300">
-                    I'm passionate about **automation, monitoring, and cloud-native architectures**. By leveraging tools like **Jenkins, Prometheus, and Grafana**, I have a track record of building robust **CI/CD pipelines** and creating real-time dashboards that minimize downtime and enhance service delivery. My background in **Linux administration** and a focus on **reliability and scalability** enables me to design resilient and efficient infrastructure solutions that empower teams.
-                </p>
+                <ul class="list-disc list-inside space-y-2 text-lg text-gray-300">
+                    <li><strong class="text-indigo-400">Passionately</strong> focused on **automation, monitoring, and cloud-native architectures**.</li>
+                    <li><strong class="text-indigo-400">Skilled in building high-availability systems</strong> and optimizing deployments.</li>
+                    <li><strong class="text-indigo-400">Strong background</strong> in **Linux administration** (Ubuntu, RHEL, CentOS).</li>
+                    <li><strong class="text-indigo-400">Experienced with monitoring tools</strong> like Grafana, Kibana, Prometheus, and the ELK Stack.</li>
+                    <li><strong class="text-indigo-400">Dedicated to reliability, scalability,</strong> and reducing downtime.</li>
+                </ul>
             </div>
         </section>
 
@@ -216,57 +216,72 @@
         <!-- Experience Section -->
         <section id="experience" class="container mx-auto px-4 md:px-8 max-w-5xl mt-16 animate-fade-in">
             <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12">Work Experience</h2>
-            <div class="glass p-8 md:p-12 rounded-2xl">
-                <ol class="relative border-s border-gray-700 ml-4">
-                    <li class="mb-8 ms-6">
-                        <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-500 rounded-full -left-3 ring-8 ring-gray-900">
-                            <i data-lucide="briefcase" class="w-4 h-4 text-white"></i>
-                        </span>
-                        <h4 class="mb-1 text-lg font-semibold text-white">Duty Engineer, Sony Pictures Networks <span class="bg-indigo-600 text-white text-xs font-medium me-2 px-2.5 py-0.5 rounded-full ms-2">Current</span></h4>
-                        <time class="block mb-2 text-sm font-normal leading-none text-gray-400">Nov 2023 – Present</time>
-                        <p class="text-sm text-gray-300">Managed playout systems for 50+ channels and live sports events. Automated repetitive tasks using Bash and Python.</p>
-                    </li>
-                    <li class="mb-8 ms-6">
-                        <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-500 rounded-full -left-3 ring-8 ring-gray-900">
-                            <i data-lucide="briefcase" class="w-4 h-4 text-white"></i>
-                        </span>
-                        <h4 class="text-lg font-semibold text-white">Deputy Manager Broadcast, CAS, Jio</h4>
-                        <time class="block mb-2 text-sm font-normal leading-none text-gray-400">Dec 2020 – Oct 2023</time>
-                        <p class="text-sm text-gray-300">Orchestrated a large-scale enterprise CAS system with over 2500 virtual machines using Kubernetes and OpenShift. Automated CI/CD pipelines and managed a real-time monitoring system.</p>
-                    </li>
-                    <li class="mb-8 ms-6">
-                        <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-500 rounded-full -left-3 ring-8 ring-gray-900">
-                            <i data-lucide="briefcase" class="w-4 h-4 text-white"></i>
-                        </span>
-                        <h4 class="text-lg font-semibold text-white">Senior Systems Engineer, Tata Play</h4>
-                        <time class="block mb-2 text-sm font-normal leading-none text-gray-400">Dec 2019 – Dec 2020</time>
-                        <p class="text-sm text-gray-300">Managed the deployment and operations of enterprise-grade Headend and CAS systems, ensuring high availability and performance.</p>
-                    </li>
-                    <li class="mb-8 ms-6">
-                        <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-500 rounded-full -left-3 ring-8 ring-gray-900">
-                            <i data-lucide="briefcase" class="w-4 h-4 text-white"></i>
-                        </span>
-                        <h4 class="text-lg font-semibold text-white">Senior Broadcast Engineer, Reliance Communications</h4>
-                        <time class="block mb-2 text-sm font-normal leading-none text-gray-400">May 2016 – Nov 2019</time>
-                        <p class="text-sm text-gray-300">Responsible for maintaining and troubleshooting broadcast equipment, ensuring seamless transmission and minimal downtime for all channels.</p>
-                    </li>
-                    <li class="mb-8 ms-6">
-                        <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-500 rounded-full -left-3 ring-8 ring-gray-900">
-                            <i data-lucide="briefcase" class="w-4 h-4 text-white"></i>
-                        </span>
-                        <h4 class="text-lg font-semibold text-white">Broadcast Engineer, Prime Focus Technologies (PFT)</h4>
-                        <time class="block mb-2 text-sm font-normal leading-none text-gray-400">Nov 2014 – May 2016</time>
-                        <p class="text-sm text-gray-300">Part of the technical team managing and supporting broadcast systems, focusing on content delivery and signal integrity.</p>
-                    </li>
-                    <li class="ms-6">
-                        <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-500 rounded-full -left-3 ring-8 ring-gray-900">
-                            <i data-lucide="briefcase" class="w-4 h-4 text-white"></i>
-                        </span>
-                        <h4 class="text-lg font-semibold text-white">Headend Engineer, Indusind Media and Communication Ltd</h4>
-                        <time class="block mb-2 text-sm font-normal leading-none text-gray-400">Feb 2013 – Nov 2014</time>
-                        <p class="text-sm text-gray-300">Maintained and monitored the Headend infrastructure, including multiplexers, encoders, and IRDs, to ensure uninterrupted service delivery.</p>
-                    </li>
-                </ol>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Sony -->
+                <div class="glass p-8 rounded-2xl flex flex-col items-start hover:bg-white/5 transition-colors duration-300">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <i data-lucide="tv" class="w-8 h-8 text-indigo-400"></i>
+                        <div>
+                            <h4 class="text-lg font-semibold text-white">Duty Engineer, Sony Pictures Networks</h4>
+                            <time class="block text-sm font-normal leading-none text-gray-400">Nov 2023 – Present</time>
+                        </div>
+                    </div>
+                    <ul class="list-disc list-inside space-y-2 text-sm text-gray-300">
+                        <li>Managed playout systems for **50+ channels** and live sports events (Australian Open, WWE, UFC, Hockey).</li>
+                        <li>**Automated repetitive tasks** using **Bash & Python**.</li>
+                        <li>Built **monitoring dashboards** with Grafana & Prometheus for system health.</li>
+                        <li>Delivered **resilient broadcast infrastructure solutions**.</li>
+                    </ul>
+                </div>
+                <!-- Jio -->
+                <div class="glass p-8 rounded-2xl flex flex-col items-start hover:bg-white/5 transition-colors duration-300">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <i data-lucide="cloud-cog" class="w-8 h-8 text-indigo-400"></i>
+                        <div>
+                            <h4 class="text-lg font-semibold text-white">Deputy Manager Broadcast, CAS, Jio</h4>
+                            <time class="block text-sm font-normal leading-none text-gray-400">Dec 2020 – Oct 2023</time>
+                        </div>
+                    </div>
+                    <ul class="list-disc list-inside space-y-2 text-sm text-gray-300">
+                        <li>Managed **14,000+ service configurations** across 25 Headends.</li>
+                        <li>Automated CAS operations with **Bash scripting**.</li>
+                        <li>Gained hands-on experience with **OpenShift training (DO180, DO280, DO380)**.</li>
+                    </ul>
+                </div>
+                <!-- Tata -->
+                <div class="glass p-8 rounded-2xl flex flex-col items-start hover:bg-white/5 transition-colors duration-300">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <i data-lucide="shield-check" class="w-8 h-8 text-indigo-400"></i>
+                        <div>
+                            <h4 class="text-lg font-semibold text-white">Senior Systems Engineer, Tata Play</h4>
+                            <time class="block text-sm font-normal leading-none text-gray-400">Dec 2019 – Dec 2020</time>
+                        </div>
+                    </div>
+                    <ul class="list-disc list-inside space-y-2 text-sm text-gray-300">
+                        <li>Automated system operations via **Bash scripting**.</li>
+                        <li>Designed **Grafana dashboards** for KPIs.</li>
+                        <li>Implemented **alerting & RCA** for faster issue resolution.</li>
+                    </ul>
+                </div>
+                <!-- Reliance -->
+                <div class="glass p-8 rounded-2xl flex flex-col items-start hover:bg-white/5 transition-colors duration-300">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <i data-lucide="hard-hat" class="w-8 h-8 text-indigo-400"></i>
+                        <div>
+                            <h4 class="text-lg font-semibold text-white">Senior Broadcast Engineer, Reliance Communications</h4>
+                            <time class="block text-sm font-normal leading-none text-gray-400">May 2016 – Nov 2019</time>
+                        </div>
+                    </div>
+                    <ul class="list-disc list-inside space-y-2 text-sm text-gray-300">
+                        <li>Managed the deployment and operations of enterprise-grade Headend and CAS systems.</li>
+                        <li>Ensured high availability and performance of broadcast systems.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center mt-8">
+                <a href="./PRASHANT%20D%20KADAM_Resume%202025.pdf" class="inline-block border border-gray-600 text-gray-300 font-semibold py-3 px-8 rounded-full hover:bg-gray-800 transition-colors duration-300 transform hover:-translate-y-1" download>
+                    View All Experience
+                </a>
             </div>
         </section>
 
@@ -278,56 +293,53 @@
                 <div class="glass p-8 rounded-2xl cursor-pointer hover:bg-white/5 transition-colors duration-300" onclick="toggleDetails('project-1')">
                     <div class="flex justify-between items-center">
                         <div>
-                            <h3 class="text-2xl font-bold text-white">VigilSiddhi Encoder</h3>
-                            <p class="text-gray-400">Desktop App for Video Stream Management</p>
+                            <h3 class="text-2xl font-bold text-white">VigilSiddhi Encoder – Quick Guide</h3>
+                            <p class="text-gray-400">Python Tkinter + FFmpeg desktop app for stream management.</p>
                         </div>
                         <i data-lucide="chevron-down" class="w-6 h-6 transform transition-transform duration-300"></i>
                     </div>
                     <div id="project-1" class="project-details mt-4 text-gray-300">
                         <ul class="list-disc list-inside space-y-2 mt-4 text-sm md:text-base">
-                            <li>**Key Features:** Manages video/audio streams with FFmpeg. Supports a wide range of input/output types including local files, HTTP/RTMP/RTP/UDP, and SRT (caller/listener), as well as direct YouTube and dummy data sources.</li>
-                            <li>**FFmpeg Tools:** Utilizes FFmpeg for advanced tasks like encoding, transcoding, stream copying, resizing, HLS streaming, and two-pass encoding for quality optimization.</li>
-                            <li>**ffprobe & Monitoring:** Integrates ffprobe for detailed media analysis (streams, codecs, format). Features real-time, color-coded indicators (Green = OK, Yellow = Warning, Red = Error, Blue = Info) for live monitoring.</li>
-                            <li>**Configuration & Scalability:** Supports repeatable workflows via YAML/JSON configs, with a future roadmap including GPU acceleration, web/PWA UI, batch processing, and advanced hardware acceleration.</li>
+                            <li>**Key Features:** Supports local files, HTTP/RTMP/RTP/UDP, SRT, and YouTube. Includes FFmpeg and ffprobe tools.</li>
+                            <li>**Usage:** Install FFmpeg, prepare YAML/JSON configs, and run with desired parameters.</li>
+                            <li>**Enhancements:** Future plans include GPU acceleration, web UI, and batch processing.</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Project Card 2: VigilSiddhi_V1 -->
+                <!-- Project Card 2: VigilSiddhi V1 -->
                 <div class="glass p-8 rounded-2xl cursor-pointer hover:bg-white/5 transition-colors duration-300" onclick="toggleDetails('project-2')">
                     <div class="flex justify-between items-center">
                         <div>
-                            <h3 class="text-2xl font-bold text-white">VigilSiddhi: Real-Time Monitoring System</h3>
-                            <p class="text-gray-400">Scalable Multi-Agent Monitoring Platform</p>
+                            <h3 class="text-2xl font-bold text-white">VigilSiddhi_V1 – Multi-Agent Monitoring System</h3>
+                            <p class="text-gray-400">Extensible real-time monitoring and alarm platform.</p>
                         </div>
                         <i data-lucide="chevron-down" class="w-6 h-6 transform transition-transform duration-300"></i>
                     </div>
                     <div id="project-2" class="project-details mt-4 text-gray-300">
                         <ul class="list-disc list-inside space-y-2 mt-4 text-sm md:text-base">
-                            <li>**Architecture:** An extensible real-time monitoring and alarm management platform unifying devices from broadcast, IT, and OT infrastructures.</li>
-                            <li>**Multi-Agent Monitoring:** Collects data via SNMP, traps, and APIs from diverse sources like IRDs, network switches, Windows/Linux servers, and HP iLOs.</li>
-                            <li>**Data Pipeline:** A robust data flow from agents to Redis Streams for event flow, then processed and stored in Elasticsearch for state/analytics and MySQL for configuration.</li>
-                            <li>**Real-Time & Alerts:** Delivers live updates via a WebSocket-based UI and sends critical event notifications via Telegram and Email alerts, ensuring proactive alerting and operational visibility.</li>
-                            <li>**Future Roadmap:** Plans include role-based access control, containerized deployment (Docker/K8s), auto-remediation features, and a mobile UI with push notifications.</li>
+                            <li>**Highlights:** Monitors SNMP, traps, Windows/Linux servers, switches, and HP iLOs. Features real-time console with WebSocket updates.</li>
+                            <li>**Data Pipeline:** Agents → Redis Streams → Processors → Elasticsearch/MySQL → Dashboards.</li>
+                            <li>**Benefits:** Provides unified monitoring, is scalable, and offers proactive alerting.</li>
+                            <li>**Future Roadmap:** Plans include containerization (Docker/K8s), auto-remediation, and a mobile UI.</li>
                         </ul>
                     </div>
                 </div>
-
+                
                 <!-- Project Card 3: mycas_V2 -->
                 <div class="glass p-8 rounded-2xl cursor-pointer hover:bg-white/5 transition-colors duration-300" onclick="toggleDetails('project-3')">
                     <div class="flex justify-between items-center">
                         <div>
-                            <h3 class="text-2xl font-bold text-white">mycas_V2: Modular Python Application Framework</h3>
-                            <p class="text-gray-400">Scalable Python Application Framework</p>
+                            <h3 class="text-2xl font-bold text-white">mycas_V2 – Modular Python Application Framework</h3>
+                            <p class="text-gray-400">Scalable Python-based framework for enterprise applications.</p>
                         </div>
                         <i data-lucide="chevron-down" class="w-6 h-6 transform transition-transform duration-300"></i>
                     </div>
                     <div id="project-3" class="project-details mt-4 text-gray-300">
                         <ul class="list-disc list-inside space-y-2 mt-4 text-sm md:text-base">
-                            <li>**Architecture:** A Python-based, modular framework for enterprise and cloud-native applications. It features distinct layers: API, Core Logic, Database, Authentication, and Integrations.</li>
-                            <li>**Interconnectivity:** Designed with clear separation of concerns, where the API handles requests, the Core Logic processes them, and the Database stores information, all secured by a dedicated Authentication layer.</li>
-                            <li>**Advantages:** Highly modular, secure, and extensible, making it easy to maintain, test, and adapt for various use cases.</li>
-                            <li>**Future Scope:** The roadmap includes a migration to microservices, full support for Docker/Kubernetes, CI/CD integration, and the addition of AI/ML modules for advanced functionality.</li>
+                            <li>**Architecture:** Features modular layers for API, Core Logic, Database, and more.</li>
+                            <li>**Advantages:** Secure, scalable, and extensible design. Easy to maintain, test, and integrate.</li>
+                            <li>**Future Scope:** Migration to microservices, Docker/Kubernetes support, and CI/CD integration.</li>
                         </ul>
                     </div>
                 </div>
