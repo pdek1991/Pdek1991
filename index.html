@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,21 +9,45 @@
     <!-- Google Fonts - Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Lucide Icons CDN -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
+        :root {
+            --bg-color-light: #f3f4f6;
+            --text-color-light: #1f2937;
+            --glass-bg-light: rgba(255, 255, 255, 0.5);
+            --border-color-light: rgba(255, 255, 255, 0.2);
+            --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .dark {
+            --bg-color-dark: #0d1117;
+            --text-color-dark: #e5e7eb;
+            --glass-bg-dark: rgba(255, 255, 255, 0.05);
+            --border-color-dark: rgba(255, 255, 255, 0.1);
+            --shadow-dark: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
         body {
             font-family: 'Inter', sans-serif;
-            background: #0d1117; /* Dark background */
+            background-color: var(--bg-color-light);
+            color: var(--text-color-light);
+            transition: background-color 0.5s, color 0.5s;
+        }
+        .dark body {
+            background-color: var(--bg-color-dark);
+            color: var(--text-color-dark);
         }
         .glass {
-            background-color: rgba(255, 255, 255, 0.05);
+            background-color: var(--glass-bg-light);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            border-radius: 12px;
+            border: 1px solid var(--border-color-light);
+            box-shadow: var(--shadow-light);
+        }
+        .dark .glass {
+            background-color: var(--glass-bg-dark);
+            border: 1px solid var(--border-color-dark);
+            box-shadow: var(--shadow-dark);
         }
         .project-details {
             max-height: 0;
@@ -33,48 +57,115 @@
         .project-details.active {
             max-height: 1000px;
         }
+        .animate-fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        .animate-slide-up {
+            animation: slideUp 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+        .typing-effect {
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: .15em solid #a855f7;
+            width: 0;
+            animation: typing 3.5s steps(40, end) forwards, blink .75s step-end infinite;
+        }
+        .nav-link {
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #a855f7;
+            transform: translateY(-2px);
+        }
     </style>
 </head>
-<body class="text-gray-200">
+<body class="bg-gray-900 text-gray-200 scroll-smooth transition-colors duration-500">
 
-    <!-- Hero Section with Glass effect -->
-    <header class="py-16 md:py-32 flex items-center justify-center bg-cover bg-center" style="background-image: url('https://placehold.co/1920x1080/0d1117/161b22?text=Background');">
-        <div class="container mx-auto px-4 md:px-8 max-w-4xl text-center glass p-8 md:p-12">
-            <div class="flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-8">
-                <div class="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-indigo-500 shadow-xl">
-                    <img src="images/6195207398260590519.jpg" alt="Prashant D. Kadam" class="w-full h-full object-cover">
-                </div>
-                <div>
-                    <img src="images/logo.gif" alt="VigilSiddhi Logo" class="w-24 md:w-32 mx-auto md:mx-0 mb-4 rounded-full">
-                    <h1 class="text-3xl md:text-5xl font-extrabold text-white leading-tight">Prashant D. Kadam</h1>
-                    <p class="mt-2 text-lg md:text-2xl font-medium text-gray-400">
-                        Certified Kubernetes Administrator (CKA)
-                    </p>
-                    <p class="mt-2 text-sm md:text-lg text-gray-400 max-w-2xl mx-auto md:mx-0">
-                        Pioneering **scalable, resilient, and automated infrastructures** with 11+ years of expertise in DevOps and cloud-native solutions.
-                    </p>
-                </div>
+    <!-- Sticky Navbar -->
+    <nav class="sticky top-0 z-50 py-4 glass backdrop-blur-lg">
+        <div class="container mx-auto px-4 md:px-8 flex items-center justify-between">
+            <!-- Logo - Top Right -->
+            <a href="#" class="flex items-center space-x-2 lg:absolute lg:right-8 lg:top-1/2 lg:transform lg:-translate-y-1/2">
+                <img src="images/logo.gif" alt="VigilSiddhi Logo" class="w-10 h-10 rounded-full transition-transform hover:scale-110 duration-300">
+                <span class="font-bold text-lg md:text-xl text-white">VigilSiddhi</span>
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden flex items-center">
+                <button id="menu-toggle" class="text-white focus:outline-none">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
             </div>
-            <div class="mt-8 flex flex-wrap justify-center space-x-2 md:space-x-4">
-                <a href="#projects" class="inline-block bg-indigo-600 text-white font-semibold py-2 px-4 md:py-3 md:px-6 rounded-full hover:bg-indigo-700 transition-colors duration-300">
-                    My Projects
-                </a>
-                <a href="#contact" class="inline-block border border-gray-600 text-gray-300 font-semibold py-2 px-4 md:py-3 md:px-6 rounded-full hover:bg-gray-700 transition-colors duration-300">
-                    Connect With Me
-                </a>
-                <a href="./PRASHANT%20D%20KADAM_Resume%202025.pdf" class="inline-block border border-gray-600 text-gray-300 font-semibold py-2 px-4 md:py-3 md:px-6 rounded-full hover:bg-gray-700 transition-colors duration-300" download>
-                    Download Resume
-                </a>
+
+            <!-- Desktop Menu -->
+            <div id="nav-menu" class="hidden md:flex flex-grow justify-center space-x-6">
+                <a href="#about" class="nav-link text-gray-300 hover:text-indigo-400 font-medium">About</a>
+                <a href="#skills" class="nav-link text-gray-300 hover:text-indigo-400 font-medium">Skills</a>
+                <a href="#experience" class="nav-link text-gray-300 hover:text-indigo-400 font-medium">Experience</a>
+                <a href="#projects" class="nav-link text-gray-300 hover:text-indigo-400 font-medium">Projects</a>
+                <a href="#contact" class="nav-link text-gray-300 hover:text-indigo-400 font-medium">Contact</a>
             </div>
+
+            <!-- Light/Dark Mode Toggle -->
+            <button id="theme-toggle" class="hidden md:flex items-center space-x-2 text-gray-300 hover:text-indigo-400 transition-colors duration-300">
+                <i data-lucide="sun" class="w-5 h-5"></i>
+            </button>
         </div>
-    </header>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden flex flex-col items-center py-4 space-y-4 text-center">
+            <a href="#about" class="nav-link text-gray-300 hover:text-indigo-400 font-medium" onclick="hideMobileMenu()">About</a>
+            <a href="#skills" class="nav-link text-gray-300 hover:text-indigo-400 font-medium" onclick="hideMobileMenu()">Skills</a>
+            <a href="#experience" class="nav-link text-gray-300 hover:text-indigo-400 font-medium" onclick="hideMobileMenu()">Experience</a>
+            <a href="#projects" class="nav-link text-gray-300 hover:text-indigo-400 font-medium" onclick="hideMobileMenu()">Projects</a>
+            <a href="#contact" class="nav-link text-gray-300 hover:text-indigo-400 font-medium" onclick="hideMobileMenu()">Contact</a>
+            <button id="theme-toggle-mobile" class="flex items-center space-x-2 text-gray-300 hover:text-indigo-400 transition-colors duration-300 mt-4">
+                <i data-lucide="sun" class="w-5 h-5"></i>
+            </button>
+        </div>
+    </nav>
 
-    <!-- Main Content Sections -->
     <main class="py-16">
+        <!-- Hero Section -->
+        <section id="hero" class="container mx-auto px-4 md:px-8 max-w-5xl text-center py-20 md:py-32">
+            <div class="flex flex-col items-center justify-center space-y-8 animate-fade-in">
+                <div class="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-indigo-600 shadow-xl transition-transform hover:scale-105 duration-300">
+                    <img src="images/6195207398260590518.jpg" alt="Prashant D. Kadam" class="w-full h-full object-cover">
+                </div>
+                <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight animate-slide-up">Prashant D. Kadam</h1>
+                <p class="text-lg md:text-2xl font-medium text-gray-400 animate-slide-up typing-effect" id="typing-text"></p>
+                <p class="mt-4 text-sm md:text-lg text-gray-400 max-w-2xl animate-slide-up">
+                    Certified Kubernetes Administrator (CKA) with 11+ years of expertise in DevOps and cloud-native solutions, building scalable, high-availability, and automated infrastructures.
+                </p>
+                <div class="mt-8 flex flex-wrap justify-center space-x-4 animate-slide-up">
+                    <a href="#projects" class="inline-block bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-indigo-500/50 transition-all duration-300 transform hover:-translate-y-1">
+                        My Projects
+                    </a>
+                    <a href="./PRASHANT%20D%20KADAM_Resume%202025.pdf" class="inline-block border border-gray-600 text-gray-300 font-semibold py-3 px-8 rounded-full hover:bg-gray-800 transition-colors duration-300 transform hover:-translate-y-1" download>
+                        Download Resume
+                    </a>
+                </div>
+            </div>
+        </section>
+
         <!-- About Section -->
-        <section id="about" class="container mx-auto px-4 md:px-8 max-w-4xl">
+        <section id="about" class="container mx-auto px-4 md:px-8 max-w-5xl mt-16 animate-fade-in">
             <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12">About Me</h2>
-            <div class="glass p-8 md:p-12">
+            <div class="glass p-8 md:p-12 rounded-2xl">
                 <p class="text-lg text-gray-300">
                     I'm a seasoned **Certified Kubernetes Administrator (CKA)** with **11+ years of experience** in the TV broadcast and DevOps industries. My expertise lies in orchestrating complex systems with **Kubernetes, Docker, and OpenShift** while ensuring high availability and optimal performance.
                 </p>
@@ -84,12 +175,107 @@
             </div>
         </section>
 
+        <!-- Skills Section -->
+        <section id="skills" class="container mx-auto px-4 md:px-8 max-w-5xl mt-16 animate-fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12">Key Skills</h2>
+            <div class="glass p-8 md:p-12 rounded-2xl grid grid-cols-2 md:grid-cols-3 gap-6">
+                <!-- Skill Card -->
+                <div class="flex flex-col items-center text-center p-4 rounded-xl hover:bg-white/5 transition-colors duration-300">
+                    <i data-lucide="container" class="w-10 h-10 text-indigo-400 mb-2"></i>
+                    <h3 class="font-bold text-white">Containerization & Orchestration</h3>
+                    <p class="text-gray-400 text-sm">Kubernetes (CKA), Docker, OpenShift</p>
+                </div>
+                <div class="flex flex-col items-center text-center p-4 rounded-xl hover:bg-white/5 transition-colors duration-300">
+                    <i data-lucide="git-fork" class="w-10 h-10 text-indigo-400 mb-2"></i>
+                    <h3 class="font-bold text-white">CI/CD & Automation</h3>
+                    <p class="text-gray-400 text-sm">Jenkins, Git, GitHub Actions, Bash, Python</p>
+                </div>
+                <div class="flex flex-col items-center text-center p-4 rounded-xl hover:bg-white/5 transition-colors duration-300">
+                    <i data-lucide="bar-chart-2" class="w-10 h-10 text-indigo-400 mb-2"></i>
+                    <h3 class="font-bold text-white">Monitoring & Logging</h3>
+                    <p class="text-gray-400 text-sm">Grafana, Prometheus, ELK Stack</p>
+                </div>
+                <div class="flex flex-col items-center text-center p-4 rounded-xl hover:bg-white/5 transition-colors duration-300">
+                    <i data-lucide="cloud" class="w-10 h-10 text-indigo-400 mb-2"></i>
+                    <h3 class="font-bold text-white">Cloud & Infrastructure</h3>
+                    <p class="text-gray-400 text-sm">AWS, Red Hat OpenShift, Linux</p>
+                </div>
+                <div class="flex flex-col items-center text-center p-4 rounded-xl hover:bg-white/5 transition-colors duration-300">
+                    <i data-lucide="database" class="w-10 h-10 text-indigo-400 mb-2"></i>
+                    <h3 class="font-bold text-white">Database & API</h3>
+                    <p class="text-gray-400 text-sm">MySQL, Postman, JMeter</p>
+                </div>
+                <div class="flex flex-col items-center text-center p-4 rounded-xl hover:bg-white/5 transition-colors duration-300">
+                    <i data-lucide="bug" class="w-10 h-10 text-indigo-400 mb-2"></i>
+                    <h3 class="font-bold text-white">Incident Management</h3>
+                    <p class="text-gray-400 text-sm">RCA, System Reliability, Documentation</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="container mx-auto px-4 md:px-8 max-w-5xl mt-16 animate-fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12">Work Experience</h2>
+            <div class="glass p-8 md:p-12 rounded-2xl">
+                <ol class="relative border-s border-gray-700 ml-4">
+                    <li class="mb-8 ms-6">
+                        <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-500 rounded-full -left-3 ring-8 ring-gray-900">
+                            <i data-lucide="briefcase" class="w-4 h-4 text-white"></i>
+                        </span>
+                        <h4 class="mb-1 text-lg font-semibold text-white">Duty Engineer, Sony Pictures Networks <span class="bg-indigo-600 text-white text-xs font-medium me-2 px-2.5 py-0.5 rounded-full ms-2">Current</span></h4>
+                        <time class="block mb-2 text-sm font-normal leading-none text-gray-400">Nov 2023 – Present</time>
+                        <p class="text-sm text-gray-300">Managed playout systems for 50+ channels and live sports events. Automated repetitive tasks using Bash and Python.</p>
+                    </li>
+                    <li class="mb-8 ms-6">
+                        <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-500 rounded-full -left-3 ring-8 ring-gray-900">
+                            <i data-lucide="briefcase" class="w-4 h-4 text-white"></i>
+                        </span>
+                        <h4 class="text-lg font-semibold text-white">Deputy Manager Broadcast, CAS, Jio</h4>
+                        <time class="block mb-2 text-sm font-normal leading-none text-gray-400">Dec 2020 – Oct 2023</time>
+                        <p class="text-sm text-gray-300">Orchestrated a large-scale enterprise CAS system with over 2500 virtual machines using Kubernetes and OpenShift. Automated CI/CD pipelines and managed a real-time monitoring system.</p>
+                    </li>
+                    <li class="mb-8 ms-6">
+                        <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-500 rounded-full -left-3 ring-8 ring-gray-900">
+                            <i data-lucide="briefcase" class="w-4 h-4 text-white"></i>
+                        </span>
+                        <h4 class="text-lg font-semibold text-white">Senior Systems Engineer, Tata Play</h4>
+                        <time class="block mb-2 text-sm font-normal leading-none text-gray-400">Dec 2019 – Dec 2020</time>
+                        <p class="text-sm text-gray-300">Managed the deployment and operations of enterprise-grade Headend and CAS systems, ensuring high availability and performance.</p>
+                    </li>
+                    <li class="mb-8 ms-6">
+                        <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-500 rounded-full -left-3 ring-8 ring-gray-900">
+                            <i data-lucide="briefcase" class="w-4 h-4 text-white"></i>
+                        </span>
+                        <h4 class="text-lg font-semibold text-white">Senior Broadcast Engineer, Reliance Communications</h4>
+                        <time class="block mb-2 text-sm font-normal leading-none text-gray-400">May 2016 – Nov 2019</time>
+                        <p class="text-sm text-gray-300">Responsible for maintaining and troubleshooting broadcast equipment, ensuring seamless transmission and minimal downtime for all channels.</p>
+                    </li>
+                    <li class="mb-8 ms-6">
+                        <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-500 rounded-full -left-3 ring-8 ring-gray-900">
+                            <i data-lucide="briefcase" class="w-4 h-4 text-white"></i>
+                        </span>
+                        <h4 class="text-lg font-semibold text-white">Broadcast Engineer, Prime Focus Technologies (PFT)</h4>
+                        <time class="block mb-2 text-sm font-normal leading-none text-gray-400">Nov 2014 – May 2016</time>
+                        <p class="text-sm text-gray-300">Part of the technical team managing and supporting broadcast systems, focusing on content delivery and signal integrity.</p>
+                    </li>
+                    <li class="ms-6">
+                        <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-500 rounded-full -left-3 ring-8 ring-gray-900">
+                            <i data-lucide="briefcase" class="w-4 h-4 text-white"></i>
+                        </span>
+                        <h4 class="text-lg font-semibold text-white">Headend Engineer, Indusind Media and Communication Ltd</h4>
+                        <time class="block mb-2 text-sm font-normal leading-none text-gray-400">Feb 2013 – Nov 2014</time>
+                        <p class="text-sm text-gray-300">Maintained and monitored the Headend infrastructure, including multiplexers, encoders, and IRDs, to ensure uninterrupted service delivery.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
         <!-- Projects Section -->
-        <section id="projects" class="container mx-auto px-4 md:px-8 max-w-4xl mt-16">
+        <section id="projects" class="container mx-auto px-4 md:px-8 max-w-5xl mt-16 animate-fade-in">
             <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12">Showcased Projects</h2>
             <div class="space-y-8">
                 <!-- Project Card 1: VigilSiddhi Encoder -->
-                <div class="glass p-8 cursor-pointer hover:bg-white/10 transition-colors duration-300" onclick="toggleDetails('project-1')">
+                <div class="glass p-8 rounded-2xl cursor-pointer hover:bg-white/5 transition-colors duration-300" onclick="toggleDetails('project-1')">
                     <div class="flex justify-between items-center">
                         <div>
                             <h3 class="text-2xl font-bold text-white">VigilSiddhi Encoder</h3>
@@ -98,7 +284,7 @@
                         <i data-lucide="chevron-down" class="w-6 h-6 transform transition-transform duration-300"></i>
                     </div>
                     <div id="project-1" class="project-details mt-4 text-gray-300">
-                        <ul class="list-disc list-inside space-y-2 mt-4">
+                        <ul class="list-disc list-inside space-y-2 mt-4 text-sm md:text-base">
                             <li>**Key Features:** Manages video/audio streams with FFmpeg. Supports a wide range of input/output types including local files, HTTP/RTMP/RTP/UDP, and SRT (caller/listener), as well as direct YouTube and dummy data sources.</li>
                             <li>**FFmpeg Tools:** Utilizes FFmpeg for advanced tasks like encoding, transcoding, stream copying, resizing, HLS streaming, and two-pass encoding for quality optimization.</li>
                             <li>**ffprobe & Monitoring:** Integrates ffprobe for detailed media analysis (streams, codecs, format). Features real-time, color-coded indicators (Green = OK, Yellow = Warning, Red = Error, Blue = Info) for live monitoring.</li>
@@ -108,7 +294,7 @@
                 </div>
 
                 <!-- Project Card 2: VigilSiddhi_V1 -->
-                <div class="glass p-8 cursor-pointer hover:bg-white/10 transition-colors duration-300" onclick="toggleDetails('project-2')">
+                <div class="glass p-8 rounded-2xl cursor-pointer hover:bg-white/5 transition-colors duration-300" onclick="toggleDetails('project-2')">
                     <div class="flex justify-between items-center">
                         <div>
                             <h3 class="text-2xl font-bold text-white">VigilSiddhi: Real-Time Monitoring System</h3>
@@ -117,7 +303,7 @@
                         <i data-lucide="chevron-down" class="w-6 h-6 transform transition-transform duration-300"></i>
                     </div>
                     <div id="project-2" class="project-details mt-4 text-gray-300">
-                        <ul class="list-disc list-inside space-y-2 mt-4">
+                        <ul class="list-disc list-inside space-y-2 mt-4 text-sm md:text-base">
                             <li>**Architecture:** An extensible real-time monitoring and alarm management platform unifying devices from broadcast, IT, and OT infrastructures.</li>
                             <li>**Multi-Agent Monitoring:** Collects data via SNMP, traps, and APIs from diverse sources like IRDs, network switches, Windows/Linux servers, and HP iLOs.</li>
                             <li>**Data Pipeline:** A robust data flow from agents to Redis Streams for event flow, then processed and stored in Elasticsearch for state/analytics and MySQL for configuration.</li>
@@ -128,7 +314,7 @@
                 </div>
 
                 <!-- Project Card 3: mycas_V2 -->
-                <div class="glass p-8 cursor-pointer hover:bg-white/10 transition-colors duration-300" onclick="toggleDetails('project-3')">
+                <div class="glass p-8 rounded-2xl cursor-pointer hover:bg-white/5 transition-colors duration-300" onclick="toggleDetails('project-3')">
                     <div class="flex justify-between items-center">
                         <div>
                             <h3 class="text-2xl font-bold text-white">mycas_V2: Modular Python Application Framework</h3>
@@ -137,7 +323,7 @@
                         <i data-lucide="chevron-down" class="w-6 h-6 transform transition-transform duration-300"></i>
                     </div>
                     <div id="project-3" class="project-details mt-4 text-gray-300">
-                        <ul class="list-disc list-inside space-y-2 mt-4">
+                        <ul class="list-disc list-inside space-y-2 mt-4 text-sm md:text-base">
                             <li>**Architecture:** A Python-based, modular framework for enterprise and cloud-native applications. It features distinct layers: API, Core Logic, Database, Authentication, and Integrations.</li>
                             <li>**Interconnectivity:** Designed with clear separation of concerns, where the API handles requests, the Core Logic processes them, and the Database stores information, all secured by a dedicated Authentication layer.</li>
                             <li>**Advantages:** Highly modular, secure, and extensible, making it easy to maintain, test, and adapt for various use cases.</li>
@@ -148,99 +334,36 @@
             </div>
         </section>
 
-        <!-- Experience & Skills Section -->
-        <section id="experience" class="container mx-auto px-4 md:px-8 max-w-4xl mt-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12">Experience & Skills</h2>
-            <div class="glass p-8 md:p-12">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Skills -->
-                    <div>
-                        <h3 class="text-2xl font-bold text-white mb-4">Key Strengths</h3>
-                        <ul class="list-disc list-inside space-y-2 text-gray-300">
-                            <li>**Containerization & Orchestration:** Kubernetes (CKA), Docker, OpenShift, Microservices Architecture</li>
-                            <li>**CI/CD & Automation:** Jenkins, Git, GitHub, Bash & Python Scripting, CI/CD Pipelines</li>
-                            <li>**Monitoring & Logging:** Grafana, Kibana, Prometheus, ELK Stack, Real-time Monitoring</li>
-                            <li>**Cloud & Infrastructure:** AWS (S3, Glacier), Red Hat OpenShift, Linux Administration (Ubuntu, Red Hat, CentOS)</li>
-                            <li>**Database & API:** MySQL, Postman, JMeter, API Testing</li>
-                            <li>**Incident Management:** Root Cause Analysis (RCA), System Reliability, Incident Response</li>
-                            <li>**Broadcast Systems:** Synamedia, VGCAS, DIVA, GBLabs, Headend Equipment (MUX, Encoders, IRD)</li>
-                        </ul>
-                    </div>
-                    <!-- Experience -->
-                    <div>
-                        <h3 class="text-2xl font-bold text-white mb-4">Work Experience</h3>
-                        <ol class="relative border-s border-gray-700 ml-4">
-                            <li class="mb-6 ms-6">
-                                <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-500 rounded-full -left-3 ring-8 ring-gray-900">
-                                    <i data-lucide="briefcase" class="w-4 h-4 text-white"></i>
-                                </span>
-                                <h4 class="mb-1 text-lg font-semibold text-white">Duty Engineer, Sony Pictures Networks <span class="bg-indigo-600 text-white text-xs font-medium me-2 px-2.5 py-0.5 rounded-full ms-2">Current</span></h4>
-                                <time class="block mb-2 text-sm font-normal leading-none text-gray-500">Nov 2023 – Present</time>
-                            </li>
-                            <li class="mb-6 ms-6">
-                                <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-500 rounded-full -left-3 ring-8 ring-gray-900">
-                                    <i data-lucide="briefcase" class="w-4 h-4 text-white"></i>
-                                </span>
-                                <h4 class="text-lg font-semibold text-white">Deputy Manager Broadcast, CAS, Jio</h4>
-                                <time class="block mb-2 text-sm font-normal leading-none text-gray-500">Dec 2020 – Oct 2023</time>
-                            </li>
-                            <li class="mb-6 ms-6">
-                                <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-500 rounded-full -left-3 ring-8 ring-gray-900">
-                                    <i data-lucide="briefcase" class="w-4 h-4 text-white"></i>
-                                </span>
-                                <h4 class="text-lg font-semibold text-white">Senior Systems Engineer, Tata Play</h4>
-                                <time class="block mb-2 text-sm font-normal leading-none text-gray-500">Dec 2019 – Dec 2020</time>
-                            </li>
-                            <li class="mb-6 ms-6">
-                                <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-500 rounded-full -left-3 ring-8 ring-gray-900">
-                                    <i data-lucide="briefcase" class="w-4 h-4 text-white"></i>
-                                </span>
-                                <h4 class="text-lg font-semibold text-white">Senior Broadcast Engineer, Reliance Communications</h4>
-                                <time class="block mb-2 text-sm font-normal leading-none text-gray-500">May 2016 – Nov 2019</time>
-                            </li>
-                            <li class="mb-6 ms-6">
-                                <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-500 rounded-full -left-3 ring-8 ring-gray-900">
-                                    <i data-lucide="briefcase" class="w-4 h-4 text-white"></i>
-                                </span>
-                                <h4 class="text-lg font-semibold text-white">Broadcast Engineer, Prime Focus Technologies (PFT)</h4>
-                                <time class="block mb-2 text-sm font-normal leading-none text-gray-500">Nov 2014 – May 2016</time>
-                            </li>
-                            <li class="ms-6">
-                                <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-500 rounded-full -left-3 ring-8 ring-gray-900">
-                                    <i data-lucide="briefcase" class="w-4 h-4 text-white"></i>
-                                </span>
-                                <h4 class="text-lg font-semibold text-white">Headend Engineer, Indusind Media and Communication Ltd</h4>
-                                <time class="block mb-2 text-sm font-normal leading-none text-gray-500">Feb 2013 – Nov 2014</time>
-                            </li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- GitHub Stats Section -->
-        <section class="container mx-auto px-4 md:px-8 max-w-4xl mt-16 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-8">My GitHub Activity</h2>
-            <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8">
-                <img src="https://github-readme-stats.vercel.app/api?username=pdek1991&show_icons=true&theme=tokyonight" alt="Prashant's GitHub stats" class="w-full md:w-1/2 h-auto glass p-4 rounded-xl">
-                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=pdek1991&layout=compact&theme=tokyonight" alt="Top Languages" class="w-full md:w-1/2 h-auto glass p-4 rounded-xl">
-            </div>
-        </section>
-
         <!-- Contact Section -->
-        <section id="contact" class="container mx-auto px-4 md:px-8 max-w-4xl mt-16">
+        <section id="contact" class="container mx-auto px-4 md:px-8 max-w-5xl mt-16 animate-fade-in">
             <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12">Connect With Me</h2>
-            <div class="glass p-8 md:p-12 text-center">
+            <div class="glass p-8 md:p-12 text-center rounded-2xl">
                 <p class="text-lg text-gray-300">I am always open to discussing new opportunities and challenges. Feel free to reach out to me.</p>
-                <div class="mt-8 flex flex-wrap justify-center space-x-4">
-                    <a href="mailto:pdek1991@gmail.com" class="inline-flex items-center space-x-2 text-lg text-gray-300 hover:text-indigo-400 transition-colors duration-300">
-                        <i data-lucide="mail" class="w-6 h-6"></i>
-                        <span>pdek1991@gmail.com</span>
+                <div class="mt-8 flex flex-wrap justify-center space-x-6 md:space-x-12">
+                    <a href="mailto:pdek1991@gmail.com" class="inline-flex flex-col items-center space-y-2 text-lg text-gray-300 hover:text-indigo-400 transition-colors duration-300">
+                        <i data-lucide="mail" class="w-8 h-8 md:w-10 md:h-10"></i>
+                        <span class="hidden md:block">Email</span>
                     </a>
-                    <a href="https://www.linkedin.com/in/pdek1991" target="_blank" class="inline-flex items-center space-x-2 text-lg text-gray-300 hover:text-indigo-400 transition-colors duration-300">
-                        <i data-lucide="linkedin" class="w-6 h-6"></i>
-                        <span>linkedin.com/in/pdek1991</span>
+                    <a href="https://www.linkedin.com/in/pdek1991" target="_blank" class="inline-flex flex-col items-center space-y-2 text-lg text-gray-300 hover:text-indigo-400 transition-colors duration-300">
+                        <i data-lucide="linkedin" class="w-8 h-8 md:w-10 md:h-10"></i>
+                        <span class="hidden md:block">LinkedIn</span>
                     </a>
+                    <a href="https://github.com/pdek1991" target="_blank" class="inline-flex flex-col items-center space-y-2 text-lg text-gray-300 hover:text-indigo-400 transition-colors duration-300">
+                        <i data-lucide="github" class="w-8 h-8 md:w-10 md:h-10"></i>
+                        <span class="hidden md:block">GitHub</span>
+                    </a>
+                    <a href="https://wa.me/919823340379" target="_blank" class="inline-flex flex-col items-center space-y-2 text-lg text-gray-300 hover:text-indigo-400 transition-colors duration-300">
+                        <i data-lucide="message-circle" class="w-8 h-8 md:w-10 md:h-10"></i>
+                        <span class="hidden md:block">WhatsApp</span>
+                    </a>
+                    <a href="https://t.me/pdek1991" target="_blank" class="inline-flex flex-col items-center space-y-2 text-lg text-gray-300 hover:text-indigo-400 transition-colors duration-300">
+                        <i data-lucide="send" class="w-8 h-8 md:w-10 md:h-10"></i>
+                        <span class="hidden md:block">Telegram</span>
+                    </a>
+                </div>
+                <div class="mt-8 flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8">
+                    <img src="https://github-readme-stats.vercel.app/api?username=pdek1991&show_icons=true&theme=tokyonight" alt="Prashant's GitHub stats" class="w-full md:w-1/2 h-auto glass p-4 rounded-xl">
+                    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=pdek1991&layout=compact&theme=tokyonight" alt="Top Languages" class="w-full md:w-1/2 h-auto glass p-4 rounded-xl">
                 </div>
             </div>
         </section>
@@ -255,6 +378,7 @@
         // Initialize Lucide icons
         lucide.createIcons();
 
+        // Project details toggle
         function toggleDetails(projectId) {
             const details = document.getElementById(projectId);
             const icon = details.parentElement.querySelector('i');
@@ -274,6 +398,83 @@
             details.classList.toggle('active');
             icon.classList.toggle('rotate-180');
         }
+
+        // Hamburger menu toggle for mobile
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        function hideMobileMenu() {
+            mobileMenu.classList.add('hidden');
+        }
+
+        // Light/Dark mode toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+        const html = document.documentElement;
+        let isDarkMode = html.classList.contains('dark');
+
+        const updateIcon = () => {
+            const iconName = isDarkMode ? 'sun' : 'moon';
+            themeToggle.innerHTML = `<i data-lucide="${iconName}" class="w-5 h-5"></i>`;
+            themeToggleMobile.innerHTML = `<i data-lucide="${iconName}" class="w-5 h-5"></i>`;
+            lucide.createIcons();
+        };
+
+        const toggleTheme = () => {
+            isDarkMode = !isDarkMode;
+            if (isDarkMode) {
+                html.classList.add('dark');
+            } else {
+                html.classList.remove('dark');
+            }
+            updateIcon();
+        };
+        
+        themeToggle.addEventListener('click', toggleTheme);
+        themeToggleMobile.addEventListener('click', toggleTheme);
+        updateIcon(); // Set initial icon
+
+        // Typing animation for hero section
+        const roles = ["Certified Kubernetes Administrator (CKA)", "DevOps & Cloud Expert", "CI/CD & Automation Specialist", "System Reliability Engineer"];
+        let roleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingTextElement = document.getElementById("typing-text");
+
+        function type() {
+            const currentRole = roles[roleIndex];
+            const displayText = isDeleting
+                ? currentRole.substring(0, charIndex--)
+                : currentRole.substring(0, charIndex++);
+
+            typingTextElement.textContent = displayText;
+
+            let typingSpeed = 100;
+
+            if (isDeleting) {
+                typingSpeed /= 2;
+            }
+
+            if (!isDeleting && charIndex === currentRole.length + 1) {
+                typingSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === -1) {
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+                typingSpeed = 500;
+            }
+
+            setTimeout(type, typingSpeed);
+        }
+        
+        // Start typing animation on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            type();
+        });
     </script>
 </body>
 </html>
