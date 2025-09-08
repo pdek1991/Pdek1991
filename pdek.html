@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prashant D. Kadam - DevOps & Kubernetes Expert</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .icon {
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .project-details {
+            display: none;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+        .project-details.active {
+            display: block;
+            max-height: 1000px; /* A large value for the transition to work */
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+
+    <!-- Header & Hero Section -->
+    <header class="py-12 md:py-24">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight">Prashant D. Kadam</h1>
+                <p class="mt-4 text-xl md:text-2xl font-medium text-gray-400">
+                    Certified Kubernetes Administrator (CKA)
+                </p>
+                <p class="mt-2 text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
+                    Building **scalable, resilient, and automated infrastructures** for over a decade.
+                </p>
+                <div class="mt-8 flex justify-center space-x-4">
+                    <a href="#projects" class="inline-block bg-indigo-600 text-white font-semibold py-3 px-6 rounded-full hover:bg-indigo-700 transition-colors duration-300">
+                        View Projects
+                    </a>
+                    <a href="#contact" class="inline-block border border-gray-600 text-gray-300 font-semibold py-3 px-6 rounded-full hover:bg-gray-800 transition-colors duration-300">
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-16 md:py-24 bg-gray-900">
+        <div class="container mx-auto px-4 md:px-8 max-w-4xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12">About Me</h2>
+            <div class="bg-gray-800 rounded-xl p-8 shadow-lg">
+                <div class="prose max-w-none text-gray-300">
+                    <p class="text-lg">
+                        I'm a seasoned **Certified Kubernetes Administrator (CKA)** with **11+ years of experience** in the TV broadcast and DevOps industries. My expertise lies in orchestrating complex systems with **Kubernetes, Docker, and OpenShift** while ensuring high availability and optimal performance.
+                    </p>
+                    <p class="mt-4 text-lg">
+                        I am deeply passionate about **automation, monitoring, and cloud-native architectures**. By leveraging tools like **Jenkins, Prometheus, and Grafana**, I have a track record of building robust **CI/CD pipelines** and creating real-time dashboards that minimize downtime and enhance service delivery. My background in **Linux administration** and a focus on **reliability and scalability** enables me to design resilient and efficient infrastructure solutions that empower teams.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Skills Section -->
+    <section id="skills" class="py-16 md:py-24">
+        <div class="container mx-auto px-4 md:px-8 max-w-4xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12">Key Skills</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+                <!-- Skill Card -->
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:bg-gray-700 transition-colors duration-300">
+                    <div class="flex items-center space-x-4">
+                        <i data-lucide="server-cog" class="w-8 h-8 text-indigo-500"></i>
+                        <div>
+                            <h3 class="text-xl font-semibold text-white">Containerization & Orchestration</h3>
+                            <p class="text-gray-400">Kubernetes (CKA), Docker, OpenShift</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Skill Card -->
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:bg-gray-700 transition-colors duration-300">
+                    <div class="flex items-center space-x-4">
+                        <i data-lucide="git-fork" class="w-8 h-8 text-green-500"></i>
+                        <div>
+                            <h3 class="text-xl font-semibold text-white">CI/CD & Automation</h3>
+                            <p class="text-gray-400">Jenkins, Git, GitHub Actions, Bash, Python</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Skill Card -->
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:bg-gray-700 transition-colors duration-300">
+                    <div class="flex items-center space-x-4">
+                        <i data-lucide="line-chart" class="w-8 h-8 text-yellow-500"></i>
+                        <div>
+                            <h3 class="text-xl font-semibold text-white">Monitoring & Logging</h3>
+                            <p class="text-gray-400">Grafana, Kibana, Prometheus, ELK Stack</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Skill Card -->
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:bg-gray-700 transition-colors duration-300">
+                    <div class="flex items-center space-x-4">
+                        <i data-lucide="cloud" class="w-8 h-8 text-blue-500"></i>
+                        <div>
+                            <h3 class="text-xl font-semibold text-white">Cloud & Infrastructure</h3>
+                            <p class="text-gray-400">AWS, Red Hat OpenShift, Linux</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Skill Card -->
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:bg-gray-700 transition-colors duration-300">
+                    <div class="flex items-center space-x-4">
+                        <i data-lucide="database" class="w-8 h-8 text-cyan-500"></i>
+                        <div>
+                            <h3 class="text-xl font-semibold text-white">Database & API</h3>
+                            <p class="text-gray-400">MySQL, Postman, JMeter</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Skill Card -->
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:bg-gray-700 transition-colors duration-300">
+                    <div class="flex items-center space-x-4">
+                        <i data-lucide="siren" class="w-8 h-8 text-red-500"></i>
+                        <div>
+                            <h3 class="text-xl font-semibold text-white">Incident Management</h3>
+                            <p class="text-gray-400">RCA, Documentation, Reliability</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 md:py-24 bg-gray-900">
+        <div class="container mx-auto px-4 md:px-8 max-w-4xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12">Featured Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Project Card 1 -->
+                <div class="project-card bg-gray-800 p-6 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 cursor-pointer" data-project="cas-system">
+                    <i data-lucide="key" class="w-10 h-10 text-indigo-500 mb-4"></i>
+                    <h3 class="text-2xl font-bold text-white mb-2">Basic CAS System</h3>
+                    <p class="text-gray-400">
+                        A simulated microservices architecture for a CAS system, deployed on Kubernetes with a robust CI/CD pipeline and real-time monitoring.
+                    </p>
+                    <div class="mt-4 text-indigo-400 hover:text-indigo-300 transition-colors duration-300 font-semibold">
+                        Read more →
+                    </div>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="project-card bg-gray-800 p-6 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 cursor-pointer" data-project="self-care-portal">
+                    <i data-lucide="monitor" class="w-10 h-10 text-green-500 mb-4"></i>
+                    <h3 class="text-2xl font-bold text-white mb-2">Self-Care Portal for CAS</h3>
+                    <p class="text-gray-400">
+                        A desktop tool to automate STB testing workflows and user management, significantly improving team efficiency.
+                    </p>
+                    <div class="mt-4 text-green-400 hover:text-green-300 transition-colors duration-300 font-semibold">
+                        Read more →
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Details Section (Initially Hidden) -->
+            <div id="project-details-container" class="mt-12 bg-gray-800 rounded-xl p-8 shadow-lg">
+                <!-- Project 1 Details -->
+                <div id="cas-system" class="project-details">
+                    <h3 class="text-3xl font-bold text-white mb-4">Basic CAS System (Microservices + Kubernetes)</h3>
+                    <div class="prose max-w-none text-gray-300">
+                        <p>
+                            This project simulates core Conditional Access System (CAS) functionality using a microservices architecture. It was built to demonstrate proficiency in orchestrating complex, distributed systems.
+                        </p>
+                        <ul class="list-disc list-inside space-y-2 mt-4">
+                            <li>**Architecture:** The system is deployed on Kubernetes using **Helm** charts. It ensures high availability (HA) by utilizing a database with multiple read replicas and horizontal autoscaling to handle varying loads.</li>
+                            <li>**CI/CD Pipeline:** A robust CI/CD pipeline was implemented using **Jenkins** and integrated with **GitHub webhooks**. This streamlined the entire development and deployment process, reducing build and deployment times to less than 10 minutes.</li>
+                            <li>**Monitoring & Logging:** Comprehensive monitoring is a key feature. The system uses the **ELK Stack (Elasticsearch, Logstash, Kibana)** for centralized logging and data analysis. **Grafana dashboards** provide real-time insights into database and system performance.</li>
+                            <li>**Automated Alerts:** A custom **Telegram bot** was developed and integrated with Grafana and **AlertManager**. This bot sends custom, real-time alerts to the engineering team, significantly reducing incident response time and overall downtime.</li>
+                        </ul>
+                        <p class="mt-4 italic">
+                            Result: This project showcases expertise in building a complete, resilient, and automated infrastructure from scratch.
+                        </p>
+                    </div>
+                </div>
+                <!-- Project 2 Details -->
+                <div id="self-care-portal" class="project-details">
+                    <h3 class="text-3xl font-bold text-white mb-4">Self-Care Portal for CAS</h3>
+                    <div class="prose max-w-none text-gray-300">
+                        <p>
+                            This project is a desktop application designed to streamline internal engineering workflows by automating key tasks related to the CAS system.
+                        </p>
+                        <ul class="list-disc list-inside space-y-2 mt-4">
+                            <li>**User Management:** The tool is integrated with the organization's existing **Enterprise LDAP**, providing a secure and seamless way for engineers to authenticate and manage users without manual intervention.</li>
+                            <li>**Automated Workflows:** The application enables testing teams to perform automated STB (Set-Top Box) testing. This functionality allows them to trigger tests directly from the application, eliminating the need for dedicated engineers to perform these tasks manually.</li>
+                            <li>**Efficiency & Productivity:** By automating these processes, the portal **saved significant engineering hours** and **reduced testing time by approximately 25%**. This innovation not only improved efficiency but also helped in fast-tracking delivery timelines.</li>
+                        </ul>
+                        <p class="mt-4 italic">
+                            Result: This tool improved overall team productivity and demonstrated a strong focus on process optimization and automation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Experience Section -->
+    <section id="experience" class="py-16 md:py-24 bg-gray-950">
+        <div class="container mx-auto px-4 md:px-8 max-w-4xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12">Work Experience</h2>
+            <ol class="relative border-s border-gray-700 ml-4 md:ml-0">
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-500 rounded-full -left-3 ring-8 ring-gray-950">
+                        <i data-lucide="briefcase" class="w-4 h-4 text-white"></i>
+                    </span>
+                    <h3 class="flex items-center mb-1 text-2xl font-semibold text-white">Sony Pictures Networks <span class="bg-indigo-600 text-white text-sm font-medium me-2 px-2.5 py-0.5 rounded-full ms-3">Current</span></h3>
+                    <time class="block mb-2 text-sm font-normal leading-none text-gray-500">Nov 2023 – Present</time>
+                    <p class="mb-4 text-gray-400">**Duty Engineer** - Managed playout systems for 50+ channels and live events, automated repetitive tasks using Bash & Python, and built monitoring dashboards with Grafana & Prometheus. Delivered resilient broadcast infrastructure solutions.</p>
+                </li>
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-500 rounded-full -left-3 ring-8 ring-gray-950">
+                        <i data-lucide="briefcase" class="w-4 h-4 text-white"></i>
+                    </span>
+                    <h3 class="text-2xl font-semibold text-white">Jio</h3>
+                    <time class="block mb-2 text-sm font-normal leading-none text-gray-500">Dec 2020 – Oct 2023</time>
+                    <p class="text-base font-normal text-gray-400">**Deputy Manager, Broadcast CAS** - Managed 14,000+ service configurations, automated operations with Bash scripting, and received OpenShift training (DO180, DO280, DO380). Gained exposure to managing a large-scale CAS system.</p>
+                </li>
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-500 rounded-full -left-3 ring-8 ring-gray-950">
+                        <i data-lucide="briefcase" class="w-4 h-4 text-white"></i>
+                    </span>
+                    <h3 class="text-2xl font-semibold text-white">Tata Play</h3>
+                    <time class="block mb-2 text-sm font-normal leading-none text-gray-500">Dec 2019 – Dec 2020</time>
+                    <p class="text-base font-normal text-gray-400">**Senior Systems Engineer** - Automated system operations via Bash, designed Grafana dashboards, and implemented alerting & RCA for faster issue resolution.</p>
+                </li>
+            </ol>
+            <div class="text-center mt-8">
+                <a href="#connect" class="inline-block border border-gray-600 text-gray-300 font-semibold py-3 px-6 rounded-full hover:bg-gray-800 transition-colors duration-300">
+                    Full Resume
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Certifications Section -->
+    <section id="certs" class="py-16 md:py-24 bg-gray-900">
+        <div class="container mx-auto px-4 md:px-8 max-w-4xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12">Education & Certifications</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-bold text-white">Certified Kubernetes Administrator (CKA)</h3>
+                    <p class="text-gray-400">Valid until 2027</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-bold text-white">Red Hat OpenShift Training</h3>
+                    <p class="text-gray-400">DO180, DO280, DO380</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-bold text-white">B.Tech/B.E.</h3>
+                    <p class="text-gray-400">Pune University</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Connect & GitHub Section -->
+    <section id="contact" class="py-16 md:py-24 bg-gray-950">
+        <div class="container mx-auto px-4 md:px-8 max-w-4xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12">Connect With Me</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <!-- Contact Info -->
+                <div class="bg-gray-800 p-8 rounded-xl shadow-lg text-center md:text-left">
+                    <h3 class="text-2xl font-bold text-white mb-4">Let's build something great together.</h3>
+                    <p class="text-lg text-gray-400">
+                        I am always looking for new challenges and opportunities to apply my skills in DevOps and cloud-native technologies.
+                    </p>
+                    <div class="mt-6 space-y-4">
+                        <div class="flex items-center space-x-3 justify-center md:justify-start">
+                            <i data-lucide="mail" class="w-6 h-6 text-indigo-400"></i>
+                            <a href="mailto:pdek1991@gmail.com" class="text-lg text-gray-300 hover:text-indigo-400 transition-colors duration-300">pdek1991@gmail.com</a>
+                        </div>
+                        <div class="flex items-center space-x-3 justify-center md:justify-start">
+                            <i data-lucide="linkedin" class="w-6 h-6 text-indigo-400"></i>
+                            <a href="https://www.linkedin.com/in/pdek1991" target="_blank" class="text-lg text-gray-300 hover:text-indigo-400 transition-colors duration-300">linkedin.com/in/pdek1991</a>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <a href="./PRASHANT%20D%20KADAM_Resume%202025.pdf" class="inline-flex items-center justify-center border border-gray-600 text-gray-300 font-semibold py-3 px-6 rounded-full hover:bg-gray-700 transition-colors duration-300" download>
+                            <i data-lucide="download" class="w-5 h-5 mr-2"></i>
+                            Download Resume
+                        </a>
+                    </div>
+                </div>
+
+                <!-- GitHub Stats -->
+                <div class="text-center md:text-left">
+                    <h3 class="text-2xl font-bold text-white mb-4">My GitHub Activity</h3>
+                    <img src="https://github-readme-stats.vercel.app/api?username=pdek1991&show_icons=true&theme=tokyonight" alt="Prashant's GitHub stats" class="w-full h-auto mb-4 rounded-xl">
+                    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=pdek1991&layout=compact&theme=tokyonight" alt="Top Languages" class="w-full h-auto rounded-xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 text-center text-gray-500 text-sm">
+        <p>Built with ❤️ by Prashant D. Kadam</p>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Project details show/hide functionality
+        const projectCards = document.querySelectorAll('.project-card');
+        const projectDetailsContainer = document.getElementById('project-details-container');
+        let activeProject = null;
+
+        projectCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const projectId = card.dataset.project;
+                const detailsToShow = document.getElementById(projectId);
+
+                // If the same card is clicked, toggle off
+                if (detailsToShow === activeProject) {
+                    detailsToShow.classList.remove('active');
+                    projectDetailsContainer.style.display = 'none';
+                    activeProject = null;
+                } else {
+                    // Hide all details
+                    document.querySelectorAll('.project-details').forEach(details => {
+                        details.classList.remove('active');
+                    });
+                    
+                    // Show the selected project's details
+                    detailsToShow.classList.add('active');
+                    projectDetailsContainer.style.display = 'block';
+                    activeProject = detailsToShow;
+
+                    // Scroll to the project details section
+                    setTimeout(() => {
+                        detailsToShow.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 500);
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>
