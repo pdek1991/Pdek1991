@@ -99,9 +99,10 @@
                     </div>
                     <div id="project-1" class="project-details mt-4 text-gray-300">
                         <ul class="list-disc list-inside space-y-2 mt-4">
-                            <li>**Key Features:** Manages video/audio streams with FFmpeg, supports multiple input/output types (local, HTTP, RTMP, SRT), real-time monitoring, and customizable YAML/JSON configs.</li>
-                            <li>**Technologies:** Python, Tkinter, ttkbootstrap, FFmpeg, ffprobe.</li>
-                            <li>**Future Enhancements:** Roadmap includes GPU acceleration, web UI, batch processing, and advanced stream monitoring.</li>
+                            <li>**Key Features:** Manages video/audio streams with FFmpeg. Supports a wide range of input/output types including local files, HTTP/RTMP/RTP/UDP, and SRT (caller/listener), as well as direct YouTube and dummy data sources.</li>
+                            <li>**FFmpeg Tools:** Utilizes FFmpeg for advanced tasks like encoding, transcoding, stream copying, resizing, HLS streaming, and two-pass encoding for quality optimization.</li>
+                            <li>**ffprobe & Monitoring:** Integrates ffprobe for detailed media analysis (streams, codecs, format). Features real-time, color-coded indicators (Green = OK, Yellow = Warning, Red = Error, Blue = Info) for live monitoring.</li>
+                            <li>**Configuration & Scalability:** Supports repeatable workflows via YAML/JSON configs, with a future roadmap including GPU acceleration, web/PWA UI, batch processing, and advanced hardware acceleration.</li>
                         </ul>
                     </div>
                 </div>
@@ -117,9 +118,11 @@
                     </div>
                     <div id="project-2" class="project-details mt-4 text-gray-300">
                         <ul class="list-disc list-inside space-y-2 mt-4">
-                            <li>**Highlights:** Unified monitoring for broadcast, IT, and OT infrastructures (SNMP, Windows/Linux, IRDs). Real-time console with WebSocket updates and Telegram/Email alerts.</li>
-                            <li>**Data Pipeline:** Agents -> Redis Streams -> Processors -> Elasticsearch/MySQL -> Dashboards.</li>
-                            <li>**Benefits:** Provides unified, scalable, and real-time monitoring with full history for audits. Roadmap includes containerization (Docker/K8s) and auto-remediation.</li>
+                            <li>**Architecture:** An extensible real-time monitoring and alarm management platform unifying devices from broadcast, IT, and OT infrastructures.</li>
+                            <li>**Multi-Agent Monitoring:** Collects data via SNMP, traps, and APIs from diverse sources like IRDs, network switches, Windows/Linux servers, and HP iLOs.</li>
+                            <li>**Data Pipeline:** A robust data flow from agents to Redis Streams for event flow, then processed and stored in Elasticsearch for state/analytics and MySQL for configuration.</li>
+                            <li>**Real-Time & Alerts:** Delivers live updates via a WebSocket-based UI and sends critical event notifications via Telegram and Email alerts, ensuring proactive alerting and operational visibility.</li>
+                            <li>**Future Roadmap:** Plans include role-based access control, containerized deployment (Docker/K8s), auto-remediation features, and a mobile UI with push notifications.</li>
                         </ul>
                     </div>
                 </div>
@@ -128,15 +131,17 @@
                 <div class="glass p-8 cursor-pointer hover:bg-white/10 transition-colors duration-300" onclick="toggleDetails('project-3')">
                     <div class="flex justify-between items-center">
                         <div>
-                            <h3 class="text-2xl font-bold text-white">mycas_V2: Modular Framework</h3>
+                            <h3 class="text-2xl font-bold text-white">mycas_V2: Modular Python Application Framework</h3>
                             <p class="text-gray-400">Scalable Python Application Framework</p>
                         </div>
                         <i data-lucide="chevron-down" class="w-6 h-6 transform transition-transform duration-300"></i>
                     </div>
                     <div id="project-3" class="project-details mt-4 text-gray-300">
                         <ul class="list-disc list-inside space-y-2 mt-4">
-                            <li>**Architecture:** A modular, Python-based framework with distinct layers for API, Core Logic, Database, and Integrations. Emphasizes separation of concerns for security and extensibility.</li>
-                            <li>**Advantages:** Easily maintainable, secure, and scalable. Future plans include migration to microservices, Docker/Kubernetes support, and CI/CD integration.</li>
+                            <li>**Architecture:** A Python-based, modular framework for enterprise and cloud-native applications. It features distinct layers: API, Core Logic, Database, Authentication, and Integrations.</li>
+                            <li>**Interconnectivity:** Designed with clear separation of concerns, where the API handles requests, the Core Logic processes them, and the Database stores information, all secured by a dedicated Authentication layer.</li>
+                            <li>**Advantages:** Highly modular, secure, and extensible, making it easy to maintain, test, and adapt for various use cases.</li>
+                            <li>**Future Scope:** The roadmap includes a migration to microservices, full support for Docker/Kubernetes, CI/CD integration, and the addition of AI/ML modules for advanced functionality.</li>
                         </ul>
                     </div>
                 </div>
@@ -152,12 +157,13 @@
                     <div>
                         <h3 class="text-2xl font-bold text-white mb-4">Key Strengths</h3>
                         <ul class="list-disc list-inside space-y-2 text-gray-300">
-                            <li>**Containerization & Orchestration:** Kubernetes (CKA), Docker, OpenShift</li>
-                            <li>**CI/CD & Automation:** Jenkins, Git, GitHub Actions, Bash, Python</li>
-                            <li>**Monitoring & Logging:** Grafana, Kibana, Prometheus, ELK Stack</li>
-                            <li>**Cloud & Infrastructure:** AWS (S3, Glacier), Red Hat OpenShift, Linux</li>
-                            <li>**Database & API:** MySQL, Postman, JMeter</li>
-                            <li>**Incident Management:** RCA, Service Reliability, Documentation</li>
+                            <li>**Containerization & Orchestration:** Kubernetes (CKA), Docker, OpenShift, Microservices Architecture</li>
+                            <li>**CI/CD & Automation:** Jenkins, Git, GitHub, Bash & Python Scripting, CI/CD Pipelines</li>
+                            <li>**Monitoring & Logging:** Grafana, Kibana, Prometheus, ELK Stack, Real-time Monitoring</li>
+                            <li>**Cloud & Infrastructure:** AWS (S3, Glacier), Red Hat OpenShift, Linux Administration (Ubuntu, Red Hat, CentOS)</li>
+                            <li>**Database & API:** MySQL, Postman, JMeter, API Testing</li>
+                            <li>**Incident Management:** Root Cause Analysis (RCA), System Reliability, Incident Response</li>
+                            <li>**Broadcast Systems:** Synamedia, VGCAS, DIVA, GBLabs, Headend Equipment (MUX, Encoders, IRD)</li>
                         </ul>
                     </div>
                     <!-- Experience -->
@@ -168,22 +174,43 @@
                                 <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-500 rounded-full -left-3 ring-8 ring-gray-900">
                                     <i data-lucide="briefcase" class="w-4 h-4 text-white"></i>
                                 </span>
-                                <h4 class="mb-1 text-lg font-semibold text-white">Sony Pictures Networks <span class="bg-indigo-600 text-white text-xs font-medium me-2 px-2.5 py-0.5 rounded-full ms-2">Current</span></h4>
+                                <h4 class="mb-1 text-lg font-semibold text-white">Duty Engineer, Sony Pictures Networks <span class="bg-indigo-600 text-white text-xs font-medium me-2 px-2.5 py-0.5 rounded-full ms-2">Current</span></h4>
                                 <time class="block mb-2 text-sm font-normal leading-none text-gray-500">Nov 2023 – Present</time>
                             </li>
                             <li class="mb-6 ms-6">
                                 <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-500 rounded-full -left-3 ring-8 ring-gray-900">
                                     <i data-lucide="briefcase" class="w-4 h-4 text-white"></i>
                                 </span>
-                                <h4 class="text-lg font-semibold text-white">Jio</h4>
+                                <h4 class="text-lg font-semibold text-white">Deputy Manager Broadcast, CAS, Jio</h4>
                                 <time class="block mb-2 text-sm font-normal leading-none text-gray-500">Dec 2020 – Oct 2023</time>
                             </li>
                             <li class="mb-6 ms-6">
                                 <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-500 rounded-full -left-3 ring-8 ring-gray-900">
                                     <i data-lucide="briefcase" class="w-4 h-4 text-white"></i>
                                 </span>
-                                <h4 class="text-lg font-semibold text-white">Tata Play</h4>
+                                <h4 class="text-lg font-semibold text-white">Senior Systems Engineer, Tata Play</h4>
                                 <time class="block mb-2 text-sm font-normal leading-none text-gray-500">Dec 2019 – Dec 2020</time>
+                            </li>
+                            <li class="mb-6 ms-6">
+                                <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-500 rounded-full -left-3 ring-8 ring-gray-900">
+                                    <i data-lucide="briefcase" class="w-4 h-4 text-white"></i>
+                                </span>
+                                <h4 class="text-lg font-semibold text-white">Senior Broadcast Engineer, Reliance Communications</h4>
+                                <time class="block mb-2 text-sm font-normal leading-none text-gray-500">May 2016 – Nov 2019</time>
+                            </li>
+                            <li class="mb-6 ms-6">
+                                <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-500 rounded-full -left-3 ring-8 ring-gray-900">
+                                    <i data-lucide="briefcase" class="w-4 h-4 text-white"></i>
+                                </span>
+                                <h4 class="text-lg font-semibold text-white">Broadcast Engineer, Prime Focus Technologies (PFT)</h4>
+                                <time class="block mb-2 text-sm font-normal leading-none text-gray-500">Nov 2014 – May 2016</time>
+                            </li>
+                            <li class="ms-6">
+                                <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-500 rounded-full -left-3 ring-8 ring-gray-900">
+                                    <i data-lucide="briefcase" class="w-4 h-4 text-white"></i>
+                                </span>
+                                <h4 class="text-lg font-semibold text-white">Headend Engineer, Indusind Media and Communication Ltd</h4>
+                                <time class="block mb-2 text-sm font-normal leading-none text-gray-500">Feb 2013 – Nov 2014</time>
                             </li>
                         </ol>
                     </div>
