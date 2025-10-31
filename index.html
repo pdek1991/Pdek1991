@@ -2,6 +2,27 @@
 <html lang="en" class="dark">
 <head>
    
+
+    <link rel="manifest" href="/pdek1991/manifest.json">
+    <meta name="theme-color" content="#000000"/> 
+
+<script>
+    if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        // Crucial: Use the absolute path including the repository name
+        navigator.serviceWorker.register('/pdek1991/sw.js', {scope: '/pdek1991/'})
+        .then(registration => {
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch(err => {
+        console.log('ServiceWorker registration failed: ', err);
+        });
+        });
+        }
+</script>
+
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prashant D. Kadam - DevOps & Kubernetes Expert</title>
