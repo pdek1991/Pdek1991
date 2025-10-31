@@ -1,8 +1,9 @@
 // Change 'pdek1991' to your repository name
 const REPO_PATH = '/pdek1991'; 
 
-// Increment this version number every time you change a cached file!
-const CACHE_NAME = 'pdek1991-cache-v1'; 
+// *** CRITICAL FIX: INCREMENT VERSION TO FORCE UPDATE ***
+// Change this to 'pdek1991-cache-v2' (or higher) every time you change a cached file!
+const CACHE_NAME = 'pdek1991-cache-v2'; 
 
 // List all files that should be cached for offline use.
 const urlsToCache = [
@@ -10,16 +11,16 @@ const urlsToCache = [
   `${REPO_PATH}/`, 
   `${REPO_PATH}/index.html`,
   
-  
-  // The manifest and service worker itself
+  // The manifest and service worker itself (required for PWA)
   `${REPO_PATH}/manifest.json`,
   `${REPO_PATH}/sw.js`, 
   
-  // Your image file
+  // Your image files referenced in the manifest
   `${REPO_PATH}/images/icon-192x192.png`,
-  `${REPO_PATH}/images/icon-512x512.png`,
+  `${REPO_PATH}/images/icon-512x512.png`, // <-- ADDED for completeness
 
   // Add all other essential files (CSS, JS, etc.)
+  // If you have a separate CSS file, add it here:
   // Example: `${REPO_PATH}/css/style.css`, 
 ];
 
@@ -29,6 +30,7 @@ self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => {
+        // This is where the 404 (or network error) causes the 'addAll' TypeError
         return cache.addAll(urlsToCache);
       })
       // Force the new service worker to activate immediately
@@ -38,7 +40,7 @@ self.addEventListener('install', event => {
 
 // 2. Fetch: Intercept requests and serve from cache first (Cache-First Strategy)
 self.addEventListener('fetch', event => {
-  // Only handle requests for this origin (to exclude Google Analytics, etc.)
+  // Only handle requests for this origin (to exclude external services like CDNs)
   if (event.request.url.startsWith(self.location.origin)) {
     event.respondWith(
       caches.match(event.request)
@@ -65,7 +67,5 @@ self.addEventListener('activate', event => {
         })
       );
     })
-    // Ensure the service worker takes control of the page immediately
-    .then(() => self.clients.claim()) 
   );
 });
