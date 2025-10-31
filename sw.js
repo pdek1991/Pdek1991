@@ -1,27 +1,24 @@
-// Change 'pdek1991' to your repository name
-const REPO_PATH = '/pdek1991'; 
+// Removed const REPO_PATH = '/pdek1991'; 
 
 // *** CRITICAL FIX: INCREMENT VERSION TO FORCE UPDATE ***
-// Change this to 'pdek1991-cache-v2' (or higher) every time you change a cached file!
-const CACHE_NAME = 'pdek1991-cache-v2'; 
+// This must change every time you modify the Service Worker or cached file list!
+const CACHE_NAME = 'pdek1991-cache-v4'; 
 
-// List all files that should be cached for offline use.
+// List all files that should be cached for offline use. Use root-relative paths (start with /)
 const urlsToCache = [
-  // The root path of your application
-  `${REPO_PATH}/`, 
-  `${REPO_PATH}/index.html`,
+  // Core application files
+  '/', 
+  '/index.html',
   
-  // The manifest and service worker itself (required for PWA)
-  `${REPO_PATH}/manifest.json`,
-  `${REPO_PATH}/sw.js`, 
+  // PWA files
+  '/manifest.json',
+  '/sw.js', 
   
-  // Your image files referenced in the manifest
-  `${REPO_PATH}/images/icon-192x192.png`,
-  `${REPO_PATH}/images/icon-512x512.png`, // <-- ADDED for completeness
+  // Your image files referenced in the manifest (must be in the /images folder)
+  '/images/icon-192x192.png',
+  '/images/icon-512x512.png', 
 
-  // Add all other essential files (CSS, JS, etc.)
-  // If you have a separate CSS file, add it here:
-  // Example: `${REPO_PATH}/css/style.css`, 
+  // Add any other essential files (CSS, JS, e.g., '/style.css')
 ];
 
 // 1. Installation: Cache all essential assets
@@ -30,7 +27,7 @@ self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => {
-        // This is where the 404 (or network error) causes the 'addAll' TypeError
+        // This is the array that must contain error-free URLs!
         return cache.addAll(urlsToCache);
       })
       // Force the new service worker to activate immediately
