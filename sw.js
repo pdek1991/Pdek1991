@@ -2,7 +2,7 @@
 
 // *** CRITICAL FIX: INCREMENT VERSION TO FORCE UPDATE ***
 // This must change every time you modify the Service Worker or cached file list!
-const CACHE_NAME = 'pdek1991-cache-v6'; 
+const CACHE_NAME = 'pdek1991-cache-v7'; 
 
 // List all files that should be cached for offline use. Use root-relative paths (start with /)
 const urlsToCache = [
