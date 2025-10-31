@@ -9,6 +9,8 @@ const urlsToCache = [
   // The root path of your application
   `${REPO_PATH}/`, 
   `${REPO_PATH}/index.html`,
+  `${REPO_PATH}/images/icon-192x192.png`,
+  `${REPO_PATH}/images/icon-512x512.png`,
   
   // The manifest and service worker itself
   `${REPO_PATH}/manifest.json`,
