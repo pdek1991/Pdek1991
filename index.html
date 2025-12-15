@@ -1,34 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
+
 <head>
-	<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9VD0XJ99HD"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-9VD0XJ99HD');
-</script>
-   
 
-   <link rel="manifest" href="/manifest.json">
-<meta name="theme-color" content="#000000"/> 
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#000000" />
 
-<script>
-    if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        // FIX: Removed /pdek1991/ prefix and set scope to root (/)
-        navigator.serviceWorker.register('/sw.js', {scope: '/'})
-        .then(registration => {
-        console.log('ServiceWorker registration successful with scope: ', registration.scope);
-        })
-        .catch(err => {
-        console.log('ServiceWorker registration failed: ', err);
-        });
-        });
-            }
-</script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                // FIX: Removed /pdek1991/ prefix and set scope to root (/)
+                navigator.serviceWorker.register('/sw.js', { scope: '/' })
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                    })
+                    .catch(err => {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+    </script>
 
 
     <meta charset="UTF-8">
@@ -39,30 +31,35 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
-	<!-- Favicon -->
-	<link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
 
-	<!-- Optional for Safari / Apple devices -->
-	<link rel="apple-touch-icon" sizes="180x180" href="images/favicon.png">
+    <!-- Optional for Safari / Apple devices -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.png">
     <style>
         body {
             font-family: 'Inter', sans-serif;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
+
         .dark {
             background-color: #0d1117;
             color: #f8f9fa;
         }
+
         .light {
             background-color: #f3f4f6;
             color: #1f2937;
         }
+
         .text-gradient {
             background-image: linear-gradient(to right, #6366f1, #3b82f6, #0ea5e9);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
         .typing-container {
             display: inline-block;
             white-space: nowrap;
@@ -70,10 +67,19 @@
             border-right: 2px solid;
             animation: blink-caret 0.75s step-end infinite;
         }
+
         @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: currentColor; }
+
+            from,
+            to {
+                border-color: transparent
+            }
+
+            50% {
+                border-color: currentColor;
+            }
         }
+
         .experience-card {
             opacity: 0;
             transform: translateY(20px);
@@ -83,15 +89,18 @@
             padding: 1.5rem;
             background-color: #17202A;
         }
+
         .experience-card.is-visible {
             opacity: 1;
             transform: translateY(0);
         }
+
         .project-collage {
             display: grid;
             gap: 1rem;
             width: 100%;
         }
+
         .project-collage.collage-6 {
             grid-template-columns: repeat(2, 1fr);
             grid-auto-rows: minmax(100px, auto);
@@ -100,16 +109,35 @@
                 "img3 img4"
                 "img5 img6";
         }
-        .project-collage.collage-6 .collage-item:nth-child(1) { grid-area: img1; }
-        .project-collage.collage-6 .collage-item:nth-child(2) { grid-area: img2; }
-        .project-collage.collage-6 .collage-item:nth-child(3) { grid-area: img3; }
-        .project-collage.collage-6 .collage-item:nth-child(4) { grid-area: img4; }
-        .project-collage.collage-6 .collage-item:nth-child(5) { grid-area: img5; }
-        .project-collage.collage-6 .collage-item:nth-child(6) { grid-area: img6; }
+
+        .project-collage.collage-6 .collage-item:nth-child(1) {
+            grid-area: img1;
+        }
+
+        .project-collage.collage-6 .collage-item:nth-child(2) {
+            grid-area: img2;
+        }
+
+        .project-collage.collage-6 .collage-item:nth-child(3) {
+            grid-area: img3;
+        }
+
+        .project-collage.collage-6 .collage-item:nth-child(4) {
+            grid-area: img4;
+        }
+
+        .project-collage.collage-6 .collage-item:nth-child(5) {
+            grid-area: img5;
+        }
+
+        .project-collage.collage-6 .collage-item:nth-child(6) {
+            grid-area: img6;
+        }
 
         .project-collage.collage-4 {
             grid-template-columns: repeat(2, 1fr);
         }
+
         .collage-item {
             overflow: hidden;
             border-radius: 0.75rem;
@@ -118,19 +146,23 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
         }
+
         .collage-item:hover {
             transform: scale(1.03);
             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
         }
+
         .collage-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: filter 0.3s ease;
         }
+
         .collage-item:hover img {
             filter: brightness(0.9);
         }
+
         /* Zoom Modal */
         .zoom-modal {
             position: fixed;
@@ -147,10 +179,12 @@
             pointer-events: none;
             transition: opacity 0.3s ease;
         }
+
         .zoom-modal.active {
             opacity: 1;
             pointer-events: auto;
         }
+
         .zoom-modal-content {
             position: relative;
             max-width: 90%;
@@ -159,6 +193,7 @@
             flex-direction: column;
             align-items: center;
         }
+
         .zoom-modal-content img {
             width: auto;
             max-height: 80vh;
@@ -166,11 +201,13 @@
             object-fit: contain;
             border-radius: 0.75rem;
         }
+
         .zoom-modal-content h4 {
             color: white;
             margin-top: 1rem;
             text-align: center;
         }
+
         .close-button {
             position: absolute;
             top: 1rem;
@@ -182,9 +219,11 @@
             cursor: pointer;
             transition: color 0.3s ease;
         }
+
         .close-button:hover {
             color: #ff4d4f;
         }
+
         @media (min-width: 768px) {
             .project-collage.collage-6 {
                 grid-template-columns: repeat(3, 1fr);
@@ -193,13 +232,60 @@
                     "img4 img5 img6";
             }
         }
+
+        /* Contact Button Styles */
+        .contact-btn {
+            backdrop-filter: blur(30px) saturate(200%);
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            color: #f8f9fa;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.2), 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(52, 152, 219, 0.5), inset 0 0 16px rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(52, 152, 219, 0.5);
+        }
+
+        .contact-btn img {
+            flex-shrink: 0;
+            height: 24px;
+            width: 24px;
+        }
+
+        @media (max-width: 640px) {
+            .contact-btn {
+                padding: 0.875rem 1.25rem;
+                font-size: 0.95rem;
+            }
+
+            .contact-btn img {
+                height: 24px;
+                width: 24px;
+            }
+        }
     </style>
 </head>
+
 <body class="dark">
 
-    <header class="p-6 md:px-12 flex justify-between items-center fixed top-0 left-0 right-0 z-50 bg-gray-900 bg-opacity-70 backdrop-filter backdrop-blur-lg border-b border-gray-700">
+    <header
+        class="p-6 md:px-12 flex justify-between items-center fixed top-0 left-0 right-0 z-50 bg-gray-900 bg-opacity-70 backdrop-filter backdrop-blur-lg border-b border-gray-700">
         <div class="flex items-center space-x-4">
-            <h1 class="text-2xl md:text-3xl font-bold text-gradient">Prashant D. Kadam - Broadcast Technology Specialist | DevOps | Kubernetes</h1>
+            <h1 class="text-2xl md:text-3xl font-bold text-gradient">Prashant D. Kadam - Broadcast Technology Specialist
+                | DevOps | Kubernetes</h1>
         </div>
         <div class="flex items-center space-x-4">
             <nav class="hidden md:flex space-x-6 text-lg font-medium">
@@ -212,18 +298,24 @@
             <button id="theme-toggle-desktop" class="p-2 rounded-full hover:bg-gray-700 transition-colors duration-300">
                 <i id="theme-icon" data-lucide="sun" class="h-6 w-6"></i>
             </button>
-            <button id="mobile-menu-button" class="md:hidden p-2 rounded-full hover:bg-gray-700 transition-colors duration-300">
+            <button id="mobile-menu-button"
+                class="md:hidden p-2 rounded-full hover:bg-gray-700 transition-colors duration-300">
                 <i data-lucide="menu" class="h-6 w-6"></i>
             </button>
         </div>
     </header>
 
-    <div id="mobile-menu" class="fixed inset-0 z-40 bg-gray-900/90 backdrop-blur-lg hidden md:hidden flex flex-col items-center justify-center space-y-8 text-2xl font-medium transition-transform duration-300">
+    <div id="mobile-menu"
+        class="fixed inset-0 z-40 bg-gray-900/90 backdrop-blur-lg hidden md:hidden flex flex-col items-center justify-center space-y-8 text-2xl font-medium transition-transform duration-300">
         <a href="#about" class="hover:text-blue-500 transition-colors duration-300" onclick="hideMobileMenu()">About</a>
-        <a href="#skills" class="hover:text-blue-500 transition-colors duration-300" onclick="hideMobileMenu()">Skills</a>
-        <a href="#experience" class="hover:text-blue-500 transition-colors duration-300" onclick="hideMobileMenu()">Experience</a>
-        <a href="#projects" class="hover:text-blue-500 transition-colors duration-300" onclick="hideMobileMenu()">Projects</a>
-        <a href="#contact" class="hover:text-blue-500 transition-colors duration-300" onclick="hideMobileMenu()">Contact</a>
+        <a href="#skills" class="hover:text-blue-500 transition-colors duration-300"
+            onclick="hideMobileMenu()">Skills</a>
+        <a href="#experience" class="hover:text-blue-500 transition-colors duration-300"
+            onclick="hideMobileMenu()">Experience</a>
+        <a href="#projects" class="hover:text-blue-500 transition-colors duration-300"
+            onclick="hideMobileMenu()">Projects</a>
+        <a href="#contact" class="hover:text-blue-500 transition-colors duration-300"
+            onclick="hideMobileMenu()">Contact</a>
         <button id="theme-toggle-mobile" class="p-2 rounded-full hover:bg-gray-700 transition-colors duration-300">
             <i id="theme-icon-mobile" data-lucide="sun" class="h-8 w-8"></i>
         </button>
@@ -239,7 +331,8 @@
 
     <main class="pt-24 md:pt-32">
         <section id="hero" class="py-20 md:py-32 px-6 md:px-12 text-center">
-            <img src="images/pdk.png" alt="Prashant D. Kadam Profile" class="h-40 w-40 md:h-56 md:w-56 rounded-full mx-auto mb-6 border-4 border-indigo-500 shadow-lg">
+            <img src="images/pdk.png" alt="Prashant D. Kadam Profile"
+                class="h-40 w-40 md:h-56 md:w-56 rounded-full mx-auto mb-6 border-4 border-indigo-500 shadow-lg">
             <h2 class="text-4xl md:text-6xl font-extrabold leading-tight">
                 <span class="text-gradient">Prashant D. Kadam</span>
             </h2>
@@ -247,14 +340,22 @@
                 <span id="typing-text" class="typing-container"></span>
             </h3>
             <p class="mt-8 max-w-2xl mx-auto text-base md:text-lg text-gray-400">
-                Certified Kubernetes Administrator (CKA) with 11+ years of experience in the TV broadcast and DevOps industry. I specialize in building scalable, resilient, and automated infrastructures, with hands-on expertise in Kubernetes deployments, Bash and Python scripting, CI/CD pipelines, ELK stack management, Grafana & Kibana dashboards, and database administration. Experienced as a Broadcast Technology Specialist and Media Infrastructure Expert, I design and manage infrastructure and streaming systems, ensuring high availability, monitoring, and real-time performance for broadcast and IT environments.
+                Certified Kubernetes Administrator (CKA) with 11+ years of experience in the TV broadcast and DevOps
+                industry. I specialize in building scalable, resilient, and automated infrastructures, with hands-on
+                expertise in Kubernetes deployments, Bash and Python scripting, CI/CD pipelines, ELK stack management,
+                Grafana & Kibana dashboards, and database administration. Experienced as a Broadcast Technology
+                Specialist and Media Infrastructure Expert, I design and manage infrastructure and streaming systems,
+                ensuring high availability, monitoring, and real-time performance for broadcast and IT environments.
         </section>
 
         <section id="about" class="py-16 px-6 md:px-12">
             <div class="max-w-4xl mx-auto">
                 <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center">About Me</h2>
                 <p class="text-base md:text-lg text-gray-300 text-center">
-                    Passionate about automation, monitoring, and cloud-native architectures. I'm skilled in building high-availability systems and optimizing deployments. With a strong background in Linux administration and tools like Grafana, Kibana, and Prometheus, my focus is on reliability, scalability, and reducing downtime to enhance service delivery.
+                    Passionate about automation, monitoring, and cloud-native architectures. I'm skilled in building
+                    high-availability systems and optimizing deployments. With a strong background in Linux
+                    administration and tools like Grafana, Kibana, and Prometheus, my focus is on reliability,
+                    scalability, and reducing downtime to enhance service delivery.
                 </p>
             </div>
         </section>
@@ -264,11 +365,13 @@
                 <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Technical Skills</h2>
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
                     <div class="flex flex-col items-center">
-                        <img src="https://www.vectorlogo.zone/logos/kubernetes/kubernetes-icon.svg" alt="Kubernetes Logo" class="h-10 w-10 mb-2">
+                        <img src="https://www.vectorlogo.zone/logos/kubernetes/kubernetes-icon.svg"
+                            alt="Kubernetes Logo" class="h-10 w-10 mb-2">
                         <span class="text-center">Kubernetes</span>
                     </div>
                     <div class="flex flex-col items-center">
-                        <img src="https://www.vectorlogo.zone/logos/docker/docker-icon.svg" alt="Docker Logo" class="h-10 w-10 mb-2">
+                        <img src="https://www.vectorlogo.zone/logos/docker/docker-icon.svg" alt="Docker Logo"
+                            class="h-10 w-10 mb-2">
                         <span class="text-center">Docker</span>
                     </div>
                     <div class="flex flex-col items-center">
@@ -276,15 +379,18 @@
                         <span class="text-center">OpenShift</span>
                     </div>
                     <div class="flex flex-col items-center">
-                        <img src="https://www.vectorlogo.zone/logos/jenkins/jenkins-icon.svg" alt="Jenkins Logo" class="h-10 w-10 mb-2">
+                        <img src="https://www.vectorlogo.zone/logos/jenkins/jenkins-icon.svg" alt="Jenkins Logo"
+                            class="h-10 w-10 mb-2">
                         <span class="text-center">Jenkins</span>
                     </div>
                     <div class="flex flex-col items-center">
-                        <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="Git Logo" class="h-10 w-10 mb-2">
+                        <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="Git Logo"
+                            class="h-10 w-10 mb-2">
                         <span class="text-center">Git</span>
                     </div>
                     <div class="flex flex-col items-center">
-                        <img src="https://www.vectorlogo.zone/logos/grafana/grafana-icon.svg" alt="Grafana Logo" class="h-10 w-10 mb-2">
+                        <img src="https://www.vectorlogo.zone/logos/grafana/grafana-icon.svg" alt="Grafana Logo"
+                            class="h-10 w-10 mb-2">
                         <span class="text-center">Grafana</span>
                     </div>
                     <div class="flex flex-col items-center">
@@ -292,15 +398,18 @@
                         <span class="text-center">ELK Stack</span>
                     </div>
                     <div class="flex flex-col items-center">
-                        <img src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-icon.svg" alt="AWS Logo" class="h-10 w-10 mb-2">
+                        <img src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-icon.svg" alt="AWS Logo"
+                            class="h-10 w-10 mb-2">
                         <span class="text-center">AWS</span>
                     </div>
                     <div class="flex flex-col items-center">
-                        <img src="https://www.vectorlogo.zone/logos/mysql/mysql-icon.svg" alt="MySQL Logo" class="h-10 w-10 mb-2">
+                        <img src="https://www.vectorlogo.zone/logos/mysql/mysql-icon.svg" alt="MySQL Logo"
+                            class="h-10 w-10 mb-2">
                         <span class="text-center">MySQL</span>
                     </div>
                     <div class="flex flex-col items-center">
-                        <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="Postman Logo" class="h-10 w-10 mb-2">
+                        <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="Postman Logo"
+                            class="h-10 w-10 mb-2">
                         <span class="text-center">Postman</span>
                     </div>
                 </div>
@@ -323,9 +432,14 @@
                             <span class="text-sm font-medium text-gray-500">Nov 2023 - Present</span>
                         </div>
                         <ul class="list-disc list-inside space-y-1 text-sm text-gray-300">
-                            <li>I specialize in leveraging DevOps practices to streamline operations and enhance system reliability.</li>
-                            <li>My expertise includes managing live events (e.g., Australian Open, WWE, UFC, and Hockey), running playout systems for 50+ channels, and handling media asset management using DIVA, GBLabs, and AWS S3 Deep Glacier.</li>
-                            <li>Automating repetitive tasks using BASH and Python. Delivering efficient, scalable, and resilient infrastructure solutions, I work closely with teams to drive continuous improvements across broadcast systems and operations.</li>
+                            <li>I specialize in leveraging DevOps practices to streamline operations and enhance system
+                                reliability.</li>
+                            <li>My expertise includes managing live events (e.g., Australian Open, WWE, UFC, and
+                                Hockey), running playout systems for 50+ channels, and handling media asset management
+                                using DIVA, GBLabs, and AWS S3 Deep Glacier.</li>
+                            <li>Automating repetitive tasks using BASH and Python. Delivering efficient, scalable, and
+                                resilient infrastructure solutions, I work closely with teams to drive continuous
+                                improvements across broadcast systems and operations.</li>
                             <li>Working on Synamedia compression and VGCAS system.</li>
                         </ul>
                     </div>
@@ -345,7 +459,8 @@
                             <li>Working on Verimatrix CAS for 3m+ customer base.</li>
                             <li>Good exposure to automation using BASH scripting.</li>
                             <li>Openshift training on DO180, DO280 and DO380 from Redhat.</li>
-                            <li>Creating Grafana dashboards, Log analysis using Kibana, Prometheus query to manage data.</li>
+                            <li>Creating Grafana dashboards, Log analysis using Kibana, Prometheus query to manage data.
+                            </li>
                             <li>Managing multiple Linux servers and CAS components on them.</li>
                             <li>Planning and execution of regression and sanity testing on application.</li>
                             <li>Creating alerts for critical KPI for business review.</li>
@@ -365,11 +480,15 @@
                             <span class="text-sm font-medium text-gray-500">Dec 2019 - Dec 2020</span>
                         </div>
                         <ul class="list-disc list-inside space-y-1 text-sm text-gray-300">
-                            <li>Installed and configured critical broadcast equipment (MUX, Modulators, Encoders, IRD).</li>
-                            <li>Created Bash scripts to automate routine tasks, reducing manual effort and operational overhead.</li>
+                            <li>Installed and configured critical broadcast equipment (MUX, Modulators, Encoders, IRD).
+                            </li>
+                            <li>Created Bash scripts to automate routine tasks, reducing manual effort and operational
+                                overhead.</li>
                             <li>Designed Grafana dashboards for system health and KPI monitoring.</li>
-                            <li>Utilized Kibana to create monitoring dashboards for tracking critical KPIs, ensuring timely issue identification.</li>
-                            <li>Led RCA (Root Cause Analysis) for errors, minimizing downtime and improving system reliability.</li>
+                            <li>Utilized Kibana to create monitoring dashboards for tracking critical KPIs, ensuring
+                                timely issue identification.</li>
+                            <li>Led RCA (Root Cause Analysis) for errors, minimizing downtime and improving system
+                                reliability.</li>
                             <li>Facilitated deployment of new features by closely collaborating with testing teams.</li>
                         </ul>
                     </div>
@@ -385,9 +504,11 @@
                             <span class="text-sm font-medium text-gray-500">May 2016 - Nov 2019</span>
                         </div>
                         <ul class="list-disc list-inside space-y-1 text-sm text-gray-300">
-                            <li>Installation and configuration of station equipments like MUX, Modulator, Encoders and IRD.</li>
+                            <li>Installation and configuration of station equipments like MUX, Modulator, Encoders and
+                                IRD.</li>
                             <li>Bandwidth utilization and planning for satellite Transponders for BIG TV.</li>
-                            <li>Rectifying faults according to daily channel status report and root cause analysis to ensure minimization of errors.</li>
+                            <li>Rectifying faults according to daily channel status report and root cause analysis to
+                                ensure minimization of errors.</li>
                             <li>Upgradation of new Headend equipment's.</li>
                             <li>Handling XMS and XMU for system monitoring.</li>
                             <li>Implementing proposed technical modification in DTH Headend.</li>
@@ -398,7 +519,7 @@
                     <div class="experience-card">
                         <div class="flex justify-between items-start mb-2">
                             <div class="flex items-center space-x-3">
-								<img src="images/pft.png" alt="PrimeFocus Technologies" class="h-8 w-8">
+                                <img src="images/pft.png" alt="PrimeFocus Technologies" class="h-8 w-8">
                                 <div>
                                     <h3 class="text-xl font-bold">Broadcast Engineer</h3>
                                     <p class="text-sm text-gray-400">Prime Focus Technologies (PFT)</p>
@@ -407,8 +528,10 @@
                             <span class="text-sm font-medium text-gray-500">Nov 2014 - May 2016</span>
                         </div>
                         <ul class="list-disc list-inside space-y-1 text-sm text-gray-300">
-                            <li>Configured Appear TV Encoders, Demodulators, and managed multicast IPs for 400+ channels.</li>
-                            <li>Administered SML servers for ERP data storage and installed C-band antennas for signal reception.</li>
+                            <li>Configured Appear TV Encoders, Demodulators, and managed multicast IPs for 400+
+                                channels.</li>
+                            <li>Administered SML servers for ERP data storage and installed C-band antennas for signal
+                                reception.</li>
                             <li>Performed technical fault analysis, system upgrades, and testing of new equipment.</li>
                             <li>Handled audio watermarking using WMM for secure content distribution.</li>
                             <li>Worked on BARC project.</li>
@@ -417,7 +540,7 @@
                     <div class="experience-card">
                         <div class="flex justify-between items-start mb-2">
                             <div class="flex items-center space-x-3">
-								<img src="images/imcl.png" alt="Reliance Communications Logo" class="h-8 w-8">
+                                <img src="images/imcl.png" alt="Reliance Communications Logo" class="h-8 w-8">
                                 <div>
                                     <h3 class="text-xl font-bold">Headend Engineer</h3>
                                     <p class="text-sm text-gray-400">Indusind Media and Communication Ltd</p>
@@ -426,7 +549,8 @@
                             <span class="text-sm font-medium text-gray-500">Feb 2013 - Nov 2014</span>
                         </div>
                         <ul class="list-disc list-inside space-y-1 text-sm text-gray-300">
-                            <li>Configuration of QAM Modulator, PSI-SI Server, MPEG 2, Encoders, Preventive Maintenance of equipments.</li>
+                            <li>Configuration of QAM Modulator, PSI-SI Server, MPEG 2, Encoders, Preventive Maintenance
+                                of equipments.</li>
                             <li>Installation of New equipments.</li>
                             <li>Addition deletion and swapping of services as per requirement.</li>
                             <li>Handling EPG programs, Fault finding in network.</li>
@@ -439,234 +563,267 @@
         <section id="projects" class="py-16 px-6 md:px-12">
             <div class="max-w-4xl mx-auto">
                 <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Featured Projects</h2>
-                
+
                 <div class="mb-16">
                     <h3 class="text-2xl font-bold mb-4">VigilSiddhi: Infrastructure & Monitoring Solution</h3>
                     <div class="bg-gray-800/60 p-6 rounded-2xl shadow-lg space-y-4">
-  <ul class="space-y-3 text-gray-300 text-left">
-    
-    <li class="flex items-start space-x-2">
-      <span class="text-indigo-400">🤖</span>
-      <span><strong>Multi-Agent Monitoring:</strong> SNMP, traps, Windows/Linux, IRD, switches, iLOs, APIs.</span>
-    </li>
+                        <ul class="space-y-3 text-gray-300 text-left">
 
-    <li class="flex items-start space-x-2">
-      <span class="text-indigo-400">📊</span>
-      <span><strong>Real-Time Console:</strong> Live WebSocket updates with operator-friendly UI.</span>
-    </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-indigo-400">🤖</span>
+                                <span><strong>Multi-Agent Monitoring:</strong> SNMP, traps, Windows/Linux, IRD,
+                                    switches, iLOs, APIs.</span>
+                            </li>
 
-    <li class="flex items-start space-x-2">
-      <span class="text-indigo-400">📨</span>
-      <span><strong>Notifications:</strong> Telegram + Email + Slack + Teams alerts for critical events.</span>
-    </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-indigo-400">📊</span>
+                                <span><strong>Real-Time Console:</strong> Live WebSocket updates with operator-friendly
+                                    UI.</span>
+                            </li>
 
-    <li class="flex items-start space-x-2">
-      <span class="text-indigo-400">🔀</span>
-      <span><strong>Data Pipeline:</strong> Agents → Redis Streams → Processors → Elasticsearch/MySQL → Dashboards.</span>
-    </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-indigo-400">📨</span>
+                                <span><strong>Notifications:</strong> Telegram + Email + Slack + Teams alerts for
+                                    critical events.</span>
+                            </li>
 
-    <li class="flex items-start space-x-2">
-      <span class="text-indigo-400">💾</span>
-      <span><strong>Storage:</strong> Elasticsearch (history/analytics), MySQL (config/metadata), Redis (event flow).</span>
-    </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-indigo-400">🔀</span>
+                                <span><strong>Data Pipeline:</strong> Agents → Redis Streams → Processors →
+                                    Elasticsearch/MySQL → Dashboards.</span>
+                            </li>
 
-    <li class="flex items-start space-x-2">
-      <span class="text-indigo-400">✅</span>
-      <span><strong>Benefits:</strong> Unified monitoring, scalable, full audit history, proactive alerts.</span>
-    </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-indigo-400">💾</span>
+                                <span><strong>Storage:</strong> Elasticsearch (history/analytics), MySQL
+                                    (config/metadata), Redis (event flow).</span>
+                            </li>
 
-    <li class="flex items-start space-x-2">
-      <span class="text-indigo-400">🚀</span>
-      <span><strong>Future Roadmap:</strong> RBAC, Docker/K8s, self-healing, PWA.</span>
-    </li>
-    
-  </ul>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-indigo-400">✅</span>
+                                <span><strong>Benefits:</strong> Unified monitoring, scalable, full audit history,
+                                    proactive alerts.</span>
+                            </li>
+
+                            <li class="flex items-start space-x-2">
+                                <span class="text-indigo-400">🚀</span>
+                                <span><strong>Future Roadmap:</strong> RBAC, Docker/K8s, self-healing, PWA.</span>
+                            </li>
+
+                        </ul>
 
 
 
-                    <div class="project-collage collage-6">
-                        <div class="collage-item" onclick="zoomImage('images/vigil-v1/monitoring_dashboard.jpg', 'Monitoring Dashboard')">
-                            <img src="images/vigil-v1/monitoring_dashboard.jpg" alt="Monitoring Dashboard">
-                        </div>
-						<div class="collage-item" onclick="zoomImage('images/vigil-v1/data_pipeline.jpg', 'Alarm Console Global')">
-                            <img src="images/vigil-v1/data_pipeline.jpg" alt="Alarm Console Global">
-                        </div>
-						<div class="collage-item" onclick="zoomImage('images/vigil-v1/device_agents.jpg', 'IRD Overview')">
-                            <img src="images/vigil-v1/device_agents.jpg" alt="IRD Overview">
-                        </div>
-                        <div class="collage-item" onclick="zoomImage('images/vigil-v1/switch_dashboard.jpg', 'Switch Dashboard')">
-                            <img src="images/vigil-v1/switch_dashboard.jpg" alt="Switch Dashboard">
-                        </div>
-                        
-                        
-                        <div class="collage-item" onclick="zoomImage('images/vigil-v1/switch_details.jpg', 'Switch Interface Details')">
-                            <img src="images/vigil-v1/switch_details.jpg" alt="Switch Interface Details">
-                        </div>
-                        <div class="collage-item" onclick="zoomImage('images/vigil-v1/telegram_alert.jpg', 'Historical Alarms')">
-                            <img src="images/vigil-v1/telegram_alert.jpg" alt="Historical Alarms">
+                        <div class="project-collage collage-6">
+                            <div class="collage-item"
+                                onclick="zoomImage('images/vigil-v1/monitoring_dashboard.jpg', 'Monitoring Dashboard')">
+                                <img src="images/vigil-v1/monitoring_dashboard.jpg" alt="Monitoring Dashboard">
+                            </div>
+                            <div class="collage-item"
+                                onclick="zoomImage('images/vigil-v1/data_pipeline.jpg', 'Alarm Console Global')">
+                                <img src="images/vigil-v1/data_pipeline.jpg" alt="Alarm Console Global">
+                            </div>
+                            <div class="collage-item"
+                                onclick="zoomImage('images/vigil-v1/device_agents.jpg', 'IRD Overview')">
+                                <img src="images/vigil-v1/device_agents.jpg" alt="IRD Overview">
+                            </div>
+                            <div class="collage-item"
+                                onclick="zoomImage('images/vigil-v1/switch_dashboard.jpg', 'Switch Dashboard')">
+                                <img src="images/vigil-v1/switch_dashboard.jpg" alt="Switch Dashboard">
+                            </div>
+
+
+                            <div class="collage-item"
+                                onclick="zoomImage('images/vigil-v1/switch_details.jpg', 'Switch Interface Details')">
+                                <img src="images/vigil-v1/switch_details.jpg" alt="Switch Interface Details">
+                            </div>
+                            <div class="collage-item"
+                                onclick="zoomImage('images/vigil-v1/telegram_alert.jpg', 'Historical Alarms')">
+                                <img src="images/vigil-v1/telegram_alert.jpg" alt="Historical Alarms">
+                            </div>
                         </div>
                     </div>
                 </div>
-				</div>
 
                 <div class="mb-16">
                     <h3 class="text-2xl font-bold mb-4">MYCAS: Conditional Access System</h3>
                     <div class="bg-gray-800/60 p-6 rounded-2xl shadow-lg space-y-4">
-  <ul class="space-y-3 text-gray-300 text-left">
+                        <ul class="space-y-3 text-gray-300 text-left">
 
-  <li class="flex items-start space-x-2">
-    <span class="text-indigo-400">📐</span>
-    <span><strong>Architecture:</strong> Modular microservices with MySQL (primary + replica), Kafka for messaging, Elasticsearch for analytics, Docker, and Kubernetes. Supports environment-specific configs, horizontal scaling, and Istio service mesh.</span>
-  </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-indigo-400">📐</span>
+                                <span><strong>Architecture:</strong> Modular microservices with MySQL (primary +
+                                    replica), Kafka for messaging, Elasticsearch for analytics, Docker, and Kubernetes.
+                                    Supports environment-specific configs, horizontal scaling, and Istio service
+                                    mesh.</span>
+                            </li>
 
-  <li class="flex items-start space-x-2">
-    <span class="text-indigo-400">🔗</span>
-    <span><strong>Interconnectivity:</strong> Services communicate via Kafka; shared MySQL backend; Elasticsearch integrated for analytics; Kubernetes manages deployment, scaling, and networking.</span>
-  </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-indigo-400">🔗</span>
+                                <span><strong>Interconnectivity:</strong> Services communicate via Kafka; shared MySQL
+                                    backend; Elasticsearch integrated for analytics; Kubernetes manages deployment,
+                                    scaling, and networking.</span>
+                            </li>
 
-  <li class="flex items-start space-x-2">
-    <span class="text-indigo-400">⚡</span>
-    <span><strong>Advantages:</strong> High scalability & modularity, real-time streaming via Kafka, easy deployment & monitoring, robust analytics/search, enhanced reliability with DB replication.</span>
-  </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-indigo-400">⚡</span>
+                                <span><strong>Advantages:</strong> High scalability & modularity, real-time streaming
+                                    via Kafka, easy deployment & monitoring, robust analytics/search, enhanced
+                                    reliability with DB replication.</span>
+                            </li>
 
-  <li class="flex items-start space-x-2">
-    <span class="text-indigo-400">🚀</span>
-    <span><strong>Future Scope:</strong> Improved security with network policies & scans, advanced traffic management & observability with Istio, automated scaling via HPA, enhanced backup, monitoring, and cloud-native integrations.</span>
-  </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-indigo-400">🚀</span>
+                                <span><strong>Future Scope:</strong> Improved security with network policies & scans,
+                                    advanced traffic management & observability with Istio, automated scaling via HPA,
+                                    enhanced backup, monitoring, and cloud-native integrations.</span>
+                            </li>
 
-</ul>
+                        </ul>
 
 
 
 
-                    <div class="project-collage collage-4">
-                        <div class="collage-item" onclick="zoomImage('images/mycas-v2/modular_architecture.jpg', 'Modular Architecture - Kiali')">
-                            <img src="images/mycas-v2/modular_architecture.jpg" alt="Modular Architecture - Kiali">
-                        </div>
-                        <div class="collage-item" onclick="zoomImage('images/mycas-v2/authentication_layer.jpg', 'Grafana Dashboard MYSQL')">
-                            <img src="images/mycas-v2/authentication_layer.jpg" alt="Grafana Dashboard MYSQL">
-                        </div>
-                        <div class="collage-item" onclick="zoomImage('images/mycas-v2/api_logic_flow.jpg', 'Grafana Dashboard MYSQL Resources')">
-                            <img src="images/mycas-v2/api_logic_flow.jpg" alt="Grafana Dashboard MYSQL Resources">
-                        </div>
-                        <div class="collage-item" onclick="zoomImage('images/mycas-v2/config_management.jpg', 'Grafana Dashboard MYSQL Performance')">
-                            <img src="images/mycas-v2/config_management.jpg" alt="Grafana Dashboard MYSQL Performance">
-							</div>
+                        <div class="project-collage collage-4">
+                            <div class="collage-item"
+                                onclick="zoomImage('images/mycas-v2/modular_architecture.jpg', 'Modular Architecture - Kiali')">
+                                <img src="images/mycas-v2/modular_architecture.jpg" alt="Modular Architecture - Kiali">
+                            </div>
+                            <div class="collage-item"
+                                onclick="zoomImage('images/mycas-v2/authentication_layer.jpg', 'Grafana Dashboard MYSQL')">
+                                <img src="images/mycas-v2/authentication_layer.jpg" alt="Grafana Dashboard MYSQL">
+                            </div>
+                            <div class="collage-item"
+                                onclick="zoomImage('images/mycas-v2/api_logic_flow.jpg', 'Grafana Dashboard MYSQL Resources')">
+                                <img src="images/mycas-v2/api_logic_flow.jpg" alt="Grafana Dashboard MYSQL Resources">
+                            </div>
+                            <div class="collage-item"
+                                onclick="zoomImage('images/mycas-v2/config_management.jpg', 'Grafana Dashboard MYSQL Performance')">
+                                <img src="images/mycas-v2/config_management.jpg"
+                                    alt="Grafana Dashboard MYSQL Performance">
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="mb-16">
                     <h3 class="text-2xl font-bold mb-4">VigilSiddhi Encoder: Video Encoder over UDP / SRT</h3>
-                   <div class="bg-gray-800/60 p-6 rounded-2xl shadow-lg space-y-4">
-  <ul class="space-y-3 text-gray-300 text-left">
-    
-    <li class="flex items-start space-x-2">
-      <span class="text-indigo-400">⚙️</span>
-      <span>Manage video/audio streams with <strong>FFmpeg</strong> via Python Tkinter + ttkbootstrap.</span>
-    </li>
-    
-    <li class="flex items-start space-x-2">
-      <span class="text-indigo-400">🌐</span>
-      <span>Supports inputs/outputs: Files, HTTP/RTMP/RTP/UDP, SRT, YouTube, dummy data.</span>
-    </li>
-    
-    <li class="flex items-start space-x-2">
-      <span class="text-indigo-400">🔍</span>
-      <span>Built-in <strong>ffprobe</strong> for stream and codec analysis.</span>
-    </li>
-    
-    <li class="flex items-start space-x-2">
-      <span class="text-indigo-400">📑</span>
-      <span>Use YAML/JSON configs for repeatable workflows.</span>
-    </li>
-    
-    <li class="flex items-start space-x-2">
-      <span class="text-indigo-400">🟢</span>
-      <span>Real-time indicators: Green = OK, Yellow = Warning, Red = Error, Blue = Info.</span>
-    </li>
-    
-    <li class="flex items-start space-x-2">
-      <span class="text-indigo-400">🚀</span>
-      <span>Planned: GPU acceleration, PWA/web UI, stream monitoring dashboards.</span>
-    </li>
-    
-  </ul>
+                    <div class="bg-gray-800/60 p-6 rounded-2xl shadow-lg space-y-4">
+                        <ul class="space-y-3 text-gray-300 text-left">
+
+                            <li class="flex items-start space-x-2">
+                                <span class="text-indigo-400">⚙️</span>
+                                <span>Manage video/audio streams with <strong>FFmpeg</strong> via Python Tkinter +
+                                    ttkbootstrap.</span>
+                            </li>
+
+                            <li class="flex items-start space-x-2">
+                                <span class="text-indigo-400">🌐</span>
+                                <span>Supports inputs/outputs: Files, HTTP/RTMP/RTP/UDP, SRT, YouTube, dummy
+                                    data.</span>
+                            </li>
+
+                            <li class="flex items-start space-x-2">
+                                <span class="text-indigo-400">🔍</span>
+                                <span>Built-in <strong>ffprobe</strong> for stream and codec analysis.</span>
+                            </li>
+
+                            <li class="flex items-start space-x-2">
+                                <span class="text-indigo-400">📑</span>
+                                <span>Use YAML/JSON configs for repeatable workflows.</span>
+                            </li>
+
+                            <li class="flex items-start space-x-2">
+                                <span class="text-indigo-400">🟢</span>
+                                <span>Real-time indicators: Green = OK, Yellow = Warning, Red = Error, Blue =
+                                    Info.</span>
+                            </li>
+
+                            <li class="flex items-start space-x-2">
+                                <span class="text-indigo-400">🚀</span>
+                                <span>Planned: GPU acceleration, PWA/web UI, stream monitoring dashboards.</span>
+                            </li>
+
+                        </ul>
 
 
-                    <div class="project-collage collage-4">
-                        <div class="collage-item" onclick="zoomImage('images/vigil-encoder/hls_streaming.png', 'Youtube Stream Encoding')">
-                            <img src="images/vigil-encoder/hls_streaming.png" alt="Youtube Stream Encoding">
-                        </div>
-                        <div class="collage-item" onclick="zoomImage('images/vigil-encoder/ffmpeg_process.jpg', 'FFmpeg Process')">
-                            <img src="images/vigil-encoder/ffmpeg_process.jpg" alt="FFmpeg Process">
-                        </div>
-                        <div class="collage-item" onclick="zoomImage('images/vigil-encoder/encoder_ui.jpg', 'Encoder UI')">
-                            <img src="images/vigil-encoder/encoder_ui.jpg" alt="Encoder UI">
-                        </div>
-                        <div class="collage-item" onclick="zoomImage('images/vigil-encoder/srt_support.PNG', 'SRT Support')">
-                            <img src="images/vigil-encoder/srt_support.PNG" alt="SRT Support">
+                        <div class="project-collage collage-4">
+                            <div class="collage-item"
+                                onclick="zoomImage('images/vigil-encoder/hls_streaming.png', 'Youtube Stream Encoding')">
+                                <img src="images/vigil-encoder/hls_streaming.png" alt="Youtube Stream Encoding">
+                            </div>
+                            <div class="collage-item"
+                                onclick="zoomImage('images/vigil-encoder/ffmpeg_process.jpg', 'FFmpeg Process')">
+                                <img src="images/vigil-encoder/ffmpeg_process.jpg" alt="FFmpeg Process">
+                            </div>
+                            <div class="collage-item"
+                                onclick="zoomImage('images/vigil-encoder/encoder_ui.jpg', 'Encoder UI')">
+                                <img src="images/vigil-encoder/encoder_ui.jpg" alt="Encoder UI">
+                            </div>
+                            <div class="collage-item"
+                                onclick="zoomImage('images/vigil-encoder/srt_support.PNG', 'SRT Support')">
+                                <img src="images/vigil-encoder/srt_support.PNG" alt="SRT Support">
+                            </div>
                         </div>
                     </div>
+                </div>
+        </section>
+
+        <section id="github" class="py-16 px-6 md:px-12 bg-[#0f111a]">
+            <div class="max-w-5xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8">GitHub Activity</h2>
+
+                <!-- Equal-sized GitHub activity cards -->
+                <div class="flex flex-col md:flex-row justify-center items-stretch gap-6">
+
+                    <!-- GitHub Stats -->
+                    <div class="flex-1 glass-card flex justify-center items-center p-4">
+                        <img src="https://github-readme-stats.vercel.app/api?username=pdek1991&show_icons=true&theme=tokyonight"
+                            alt="Prashant's GitHub stats"
+                            class="w-full h-auto max-w-xs rounded-lg shadow-lg transition-transform duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    </div>
+
+                    <!-- Top Languages -->
+                    <div class="flex-1 glass-card flex justify-center items-center p-4">
+                        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=pdek1991&layout=compact&theme=tokyonight"
+                            alt="Top Langs"
+                            class="w-full h-auto max-w-xs rounded-lg shadow-lg transition-transform duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    </div>
+
+                    <!-- GitHub Streak -->
+                    <div class="flex-1 glass-card flex justify-center items-center p-4">
+                        <img src="https://github-readme-streak-stats.herokuapp.com/?user=pdek1991&theme=tokyonight"
+                            alt="GitHub Streak Stats"
+                            class="w-full h-auto max-w-xs rounded-lg shadow-lg transition-transform duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    </div>
+
                 </div>
             </div>
         </section>
 
-        <section id="github" class="py-16 px-6 md:px-12 bg-[#0f111a]">
-  <div class="max-w-5xl mx-auto text-center">
-    <h2 class="text-3xl md:text-4xl font-bold mb-8">GitHub Activity</h2>
+        <style>
+            /* Glass Card Style for GitHub activity */
+            .glass-card {
+                background: rgba(255, 255, 255, 0.05);
+                backdrop-filter: blur(15px) saturate(180%);
+                border-radius: 1.25rem;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                transition: all 0.3s ease;
+            }
 
-    <!-- Equal-sized GitHub activity cards -->
-    <div class="flex flex-col md:flex-row justify-center items-stretch gap-6">
+            .glass-card:hover {
+                background: rgba(255, 255, 255, 0.1);
+                transform: scale(1.03);
+                box-shadow: 0 8px 24px rgba(52, 152, 219, 0.4), inset 0 0 12px rgba(255, 255, 255, 0.2);
+            }
 
-      <!-- GitHub Stats -->
-      <div class="flex-1 glass-card flex justify-center items-center p-4">
-        <img src="https://github-readme-stats.vercel.app/api?username=pdek1991&show_icons=true&theme=tokyonight" 
-             alt="Prashant's GitHub stats" 
-             class="w-full h-auto max-w-xs rounded-lg shadow-lg transition-transform duration-300 transform hover:scale-105 hover:shadow-2xl">
-      </div>
-
-      <!-- Top Languages -->
-      <div class="flex-1 glass-card flex justify-center items-center p-4">
-        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=pdek1991&layout=compact&theme=tokyonight" 
-             alt="Top Langs" 
-             class="w-full h-auto max-w-xs rounded-lg shadow-lg transition-transform duration-300 transform hover:scale-105 hover:shadow-2xl">
-      </div>
-
-      <!-- GitHub Streak -->
-      <div class="flex-1 glass-card flex justify-center items-center p-4">
-        <img src="https://github-readme-streak-stats.herokuapp.com/?user=pdek1991&theme=tokyonight" 
-             alt="GitHub Streak Stats" 
-             class="w-full h-auto max-w-xs rounded-lg shadow-lg transition-transform duration-300 transform hover:scale-105 hover:shadow-2xl">
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<style>
-/* Glass Card Style for GitHub activity */
-.glass-card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(15px) saturate(180%);
-  border-radius: 1.25rem;
-  border: 1px solid rgba(255,255,255,0.2);
-  transition: all 0.3s ease;
-}
-
-.glass-card:hover {
-  background: rgba(255, 255, 255, 0.1);
-  transform: scale(1.03);
-  box-shadow: 0 8px 24px rgba(52,152,219,0.4), inset 0 0 12px rgba(255,255,255,0.2);
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .glass-card img {
-    max-width: 90%;
-  }
-}
-</style>
+            /* Responsive adjustments */
+            @media (max-width: 768px) {
+                .glass-card img {
+                    max-width: 90%;
+                }
+            }
+        </style>
 
 
 
@@ -674,218 +831,454 @@
 
 
         <section id="certifications" class="py-16 px-6 md:px-12 bg-gray-900">
-  <div class="max-w-4xl mx-auto">
-    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-white">Education & Certifications</h2>
-    
-    <!-- Two-column grid for Certifications & Education -->
-    <div class="grid md:grid-cols-2 gap-10">
-      
-      <!-- Certifications List -->
-      <div class="space-y-6">
-        <!-- CKA Certification -->
-        <div class="flex items-center space-x-4">
-          <i data-lucide="check-circle" class="h-6 w-6 text-green-500 flex-shrink-0"></i>
-          <div>
-            <p class="font-semibold text-white">Certified Kubernetes Administrator (CKA)</p>
-            <p class="text-sm text-gray-400">Valid until Jan 2027</p>
-          </div>
-        </div>
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-white">Education & Certifications</h2>
 
-        <!-- RedHat Training -->
-        <div class="flex items-center space-x-4">
-          <i data-lucide="award" class="h-6 w-6 text-yellow-500 flex-shrink-0"></i>
-          <p class="font-semibold text-white">Training from RedHat on OpenShift Administration </p>
-        </div>
-      </div>
+                <!-- Two-column grid for Certifications & Education -->
+                <div class="grid md:grid-cols-2 gap-10">
 
-      <!-- Education -->
-      <div class="space-y-4">
-        <h3 class="text-xl font-bold text-white mb-4">Education</h3>
-        <div class="space-y-2">
-          <div class="flex items-center space-x-4">
-            <i data-lucide="graduation-cap" class="h-6 w-6 text-blue-500 flex-shrink-0"></i>
-            <div>
-              <p class="font-semibold text-white">B.Tech/B.E.</p>
-              <p class="text-sm text-gray-400">Pune University</p>
+                    <!-- Certifications List -->
+                    <div class="space-y-6">
+                        <!-- CKA Certification -->
+                        <div class="flex items-center space-x-4">
+                            <i data-lucide="check-circle" class="h-6 w-6 text-green-500 flex-shrink-0"></i>
+                            <div>
+                                <p class="font-semibold text-white">Certified Kubernetes Administrator (CKA)</p>
+                                <p class="text-sm text-gray-400">Valid until Jan 2027</p>
+                            </div>
+                        </div>
+
+                        <!-- RedHat Training -->
+                        <div class="flex items-center space-x-4">
+                            <i data-lucide="award" class="h-6 w-6 text-yellow-500 flex-shrink-0"></i>
+                            <p class="font-semibold text-white">Training from RedHat on OpenShift Administration </p>
+                        </div>
+                    </div>
+
+                    <!-- Education -->
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-bold text-white mb-4">Education</h3>
+                        <div class="space-y-2">
+                            <div class="flex items-center space-x-4">
+                                <i data-lucide="graduation-cap" class="h-6 w-6 text-blue-500 flex-shrink-0"></i>
+                                <div>
+                                    <p class="font-semibold text-white">B.Tech/B.E.</p>
+                                    <p class="text-sm text-gray-400">Pune University</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Extra space -->
+                <div class="h-2"></div>
+                <div class="h-2"></div>
+                <div class="h-2"></div>
+                <!-- Glass Resume Download Button (blue text like link) -->
+                <div class="fixed bottom-4 right-4 z-50">
+                    <a href="PRASHANT%20D%20KADAM_Resume%202025.pdf" download="PRASHANT_D_KADAM_Resume_2025.pdf"
+                        title="Download Resume - PRASHANT D KADAM (2025)"
+                        class="inner-glass flex items-center gap-2 px-4 py-2 font-medium shadow-lg hover:scale-105 transition-all duration-300">
+
+                        <!-- PDF Icon -->
+                        <i class="fa-solid fa-file-pdf text-red-500"></i>
+                        <span class="text-[#3498DB]">Download Resume</span>
+                    </a>
+                </div>
+
+                <!-- Font Awesome for PDF icon -->
+                <link rel="stylesheet"
+                    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+                <style>
+                    .inner-glass {
+                        backdrop-filter: blur(30px) saturate(200%);
+                        background: rgba(255, 255, 255, 0.25);
+                        border-radius: 1.25rem;
+                        border: 1px solid rgba(255, 255, 255, 0.4);
+                        display: flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                        padding: 0.5rem 1rem;
+                        transition: all 0.3s ease;
+                        box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.3), 0 4px 15px rgba(0, 0, 0, 0.1);
+                    }
+
+                    .inner-glass:hover {
+                        transform: scale(1.05);
+                        box-shadow: 0 8px 24px rgba(52, 152, 219, 0.6), inset 0 0 16px rgba(255, 255, 255, 0.4);
+                        background: rgba(255, 255, 255, 0.35);
+                    }
+                </style>
+        </section>
+
+        <!-- Certifications Marquee Section -->
+        <section id="cert-marquee" class="relative py-24 overflow-hidden bg-slate-900/50">
+
+            <!-- Ambient Moving Background Blobs -->
+            <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
+                <div
+                    class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-purple-600 rounded-full mix-blend-screen filter blur-[120px] opacity-20 animate-blob">
+                </div>
+                <div
+                    class="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-indigo-600 rounded-full mix-blend-screen filter blur-[120px] opacity-20 animate-blob animation-delay-2000">
+                </div>
+                <div
+                    class="absolute bottom-[-20%] left-[30%] w-[500px] h-[500px] bg-blue-600 rounded-full mix-blend-screen filter blur-[120px] opacity-20 animate-blob animation-delay-4000">
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-	
 
-<!-- Extra space -->
-<div class="h-2"></div>
-<div class="h-2"></div>
-<div class="h-2"></div>
-<!-- Glass Resume Download Button (blue text like link) -->
-<div class="fixed bottom-4 right-4 z-50">
-  <a href="PRASHANT%20D%20KADAM_Resume%202025.pdf" 
-     download="PRASHANT_D_KADAM_Resume_2025.pdf" 
-     title="Download Resume - PRASHANT D KADAM (2025)"
-     class="inner-glass flex items-center gap-2 px-4 py-2 font-medium shadow-lg hover:scale-105 transition-all duration-300">
-     
-    <!-- PDF Icon -->
-    <i class="fa-solid fa-file-pdf text-red-500"></i>
-    <span class="text-[#3498DB]">Download Resume</span>
-  </a>
-</div>
+            <div class="relative z-10 container mx-auto px-4">
+                <h3
+                    class="text-4xl md:text-5xl font-bold mb-16 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-white to-blue-200 drop-shadow-lg">
+                    Professional Certifications
+                </h3>
 
-<!-- Font Awesome for PDF icon -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+                <!-- Marquee Scroller -->
+                <div class="scroller w-full overflow-hidden mask-linear-fade">
+                    <div class="scroller-inner flex gap-8 py-4 w-max">
 
-<style>
-.inner-glass {
-  backdrop-filter: blur(30px) saturate(200%);
-  background: rgba(255, 255, 255, 0.25);
-  border-radius: 1.25rem;
-  border: 1px solid rgba(255,255,255,0.4);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  transition: all 0.3s ease;
-  box-shadow: inset 0 0 12px rgba(255,255,255,0.3), 0 4px 15px rgba(0,0,0,0.1);
-}
+                        <!-- --- ORIGINAL SET --- -->
+                        <!-- Cert 1 -->
+                        <div class="glass-card group"
+                            onclick="zoomImage('images/CKA_Certificate.jpg', 'Certified Kubernetes Administrator (CKA)')">
+                            <div class="glass-shine"></div>
+                            <div class="relative w-full aspect-[4/3] overflow-hidden rounded-xl bg-black/20 mb-4">
+                                <img src="images/CKA_Certificate.jpg" alt="CKA"
+                                    class="w-full h-full object-contain transform transition-transform duration-500 group-hover:scale-110">
+                                <div class="absolute top-2 right-2 flex gap-2">
+                                    <a href="https://www.credly.com/badges/d1ec8927-614e-4f38-9d7f-0d0e854e4549/public_url"
+                                        target="_blank" onclick="event.stopPropagation()"
+                                        class="p-2 rounded-full bg-black/50 hover:bg-blue-500 text-white transition-colors backdrop-blur-sm">
+                                        <i data-lucide="external-link" class="w-4 h-4"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <h4
+                                class="text-lg font-semibold text-slate-200 group-hover:text-blue-300 transition-colors text-center">
+                                Kubernetes Administrator</h4>
+                        </div>
 
-.inner-glass:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 24px rgba(52,152,219,0.6), inset 0 0 16px rgba(255,255,255,0.4);
-  background: rgba(255, 255, 255, 0.35);
-}
-</style>
+                        <!-- Cert 2 -->
+                        <div class="glass-card group"
+                            onclick="zoomImage('images/AWSElementalLiveFoundation.PNG', 'AWS Elemental Live Foundation')">
+                            <div class="glass-shine"></div>
+                            <div class="relative w-full aspect-[4/3] overflow-hidden rounded-xl bg-black/20 mb-4">
+                                <img src="images/AWSElementalLiveFoundation.PNG" alt="AWS Live"
+                                    class="w-full h-full object-contain transform transition-transform duration-500 group-hover:scale-110">
+                            </div>
+                            <h4
+                                class="text-lg font-semibold text-slate-200 group-hover:text-blue-300 transition-colors text-center">
+                                AWS Elemental Live</h4>
+                        </div>
+
+                        <!-- Cert 3 -->
+                        <div class="glass-card group" onclick="zoomImage('images/AWSAIcaption.PNG', 'AWS AI Caption')">
+                            <div class="glass-shine"></div>
+                            <div class="relative w-full aspect-[4/3] overflow-hidden rounded-xl bg-black/20 mb-4">
+                                <img src="images/AWSAIcaption.PNG" alt="AWS AI"
+                                    class="w-full h-full object-contain transform transition-transform duration-500 group-hover:scale-110">
+                            </div>
+                            <h4
+                                class="text-lg font-semibold text-slate-200 group-hover:text-blue-300 transition-colors text-center">
+                                AWS AI Caption</h4>
+                        </div>
+
+                        <!-- Cert 4 -->
+                        <div class="glass-card group"
+                            onclick="zoomImage('images/AWSElementalMediaConnect.PNG', 'AWS Elemental MediaConnect')">
+                            <div class="glass-shine"></div>
+                            <div class="relative w-full aspect-[4/3] overflow-hidden rounded-xl bg-black/20 mb-4">
+                                <img src="images/AWSElementalMediaConnect.PNG" alt="AWS MediaConnect"
+                                    class="w-full h-full object-contain transform transition-transform duration-500 group-hover:scale-110">
+                            </div>
+                            <h4
+                                class="text-lg font-semibold text-slate-200 group-hover:text-blue-300 transition-colors text-center">
+                                AWS MediaConnect</h4>
+                        </div>
+
+                        <!-- Cert 5 -->
+                        <div class="glass-card group"
+                            onclick="zoomImage('images/AWSElementalLive.PNG', 'AWS Elemental Live - Conductor')">
+                            <div class="glass-shine"></div>
+                            <div class="relative w-full aspect-[4/3] overflow-hidden rounded-xl bg-black/20 mb-4">
+                                <img src="images/AWSElementalLive.PNG" alt="AWS Conductor"
+                                    class="w-full h-full object-contain transform transition-transform duration-500 group-hover:scale-110">
+                            </div>
+                            <h4
+                                class="text-lg font-semibold text-slate-200 group-hover:text-blue-300 transition-colors text-center">
+                                AWS Live Conductor</h4>
+                        </div>
+
+                        <!-- Cert 6 -->
+                        <div class="glass-card group"
+                            onclick="zoomImage('images/VideoStreamingConcepts.PNG', 'Video Streaming Concepts')">
+                            <div class="glass-shine"></div>
+                            <div class="relative w-full aspect-[4/3] overflow-hidden rounded-xl bg-black/20 mb-4">
+                                <img src="images/VideoStreamingConcepts.PNG" alt="Streaming"
+                                    class="w-full h-full object-contain transform transition-transform duration-500 group-hover:scale-110">
+                            </div>
+                            <h4
+                                class="text-lg font-semibold text-slate-200 group-hover:text-blue-300 transition-colors text-center">
+                                Video Streaming Concepts</h4>
+                        </div>
+
+                        <!-- Cert 7 -->
+                        <div class="glass-card group"
+                            onclick="zoomImage('images/Redhat_DO285.PNG', 'RedHat Openshift Administrator DO285')">
+                            <div class="glass-shine"></div>
+                            <div class="relative w-full aspect-[4/3] overflow-hidden rounded-xl bg-black/20 mb-4">
+                                <img src="images/Redhat_DO285.PNG" alt="OpenShift"
+                                    class="w-full h-full object-contain transform transition-transform duration-500 group-hover:scale-110">
+                            </div>
+                            <h4
+                                class="text-lg font-semibold text-slate-200 group-hover:text-blue-300 transition-colors text-center">
+                                RedHat OpenShift</h4>
+                        </div>
+
+                        <!-- --- DUPLICATE SET FOR SEAMLESS LOOP --- -->
+                        <!-- Cert 1 Copy -->
+                        <div class="glass-card group"
+                            onclick="zoomImage('images/CKA_Certificate.jpg', 'Certified Kubernetes Administrator (CKA)')">
+                            <div class="glass-shine"></div>
+                            <div class="relative w-full aspect-[4/3] overflow-hidden rounded-xl bg-black/20 mb-4">
+                                <img src="images/CKA_Certificate.jpg" alt="CKA"
+                                    class="w-full h-full object-contain transform transition-transform duration-500 group-hover:scale-110">
+                            </div>
+                            <h4
+                                class="text-lg font-semibold text-slate-200 group-hover:text-blue-300 transition-colors text-center">
+                                Kubernetes Administrator</h4>
+                        </div>
+                        <!-- Cert 2 Copy -->
+                        <div class="glass-card group"
+                            onclick="zoomImage('images/AWSElementalLiveFoundation.PNG', 'AWS Elemental Live Foundation')">
+                            <div class="glass-shine"></div>
+                            <div class="relative w-full aspect-[4/3] overflow-hidden rounded-xl bg-black/20 mb-4">
+                                <img src="images/AWSElementalLiveFoundation.PNG" alt="AWS Live"
+                                    class="w-full h-full object-contain transform transition-transform duration-500 group-hover:scale-110">
+                            </div>
+                            <h4
+                                class="text-lg font-semibold text-slate-200 group-hover:text-blue-300 transition-colors text-center">
+                                AWS Elemental Live</h4>
+                        </div>
+                        <!-- Cert 3 Copy -->
+                        <div class="glass-card group" onclick="zoomImage('images/AWSAIcaption.PNG', 'AWS AI Caption')">
+                            <div class="glass-shine"></div>
+                            <div class="relative w-full aspect-[4/3] overflow-hidden rounded-xl bg-black/20 mb-4">
+                                <img src="images/AWSAIcaption.PNG" alt="AWS AI"
+                                    class="w-full h-full object-contain transform transition-transform duration-500 group-hover:scale-110">
+                            </div>
+                            <h4
+                                class="text-lg font-semibold text-slate-200 group-hover:text-blue-300 transition-colors text-center">
+                                AWS AI Caption</h4>
+                        </div>
+                        <!-- Cert 4 Copy -->
+                        <div class="glass-card group"
+                            onclick="zoomImage('images/AWSElementalMediaConnect.PNG', 'AWS Elemental MediaConnect')">
+                            <div class="glass-shine"></div>
+                            <div class="relative w-full aspect-[4/3] overflow-hidden rounded-xl bg-black/20 mb-4">
+                                <img src="images/AWSElementalMediaConnect.PNG" alt="AWS MediaConnect"
+                                    class="w-full h-full object-contain transform transition-transform duration-500 group-hover:scale-110">
+                            </div>
+                            <h4
+                                class="text-lg font-semibold text-slate-200 group-hover:text-blue-300 transition-colors text-center">
+                                AWS MediaConnect</h4>
+                        </div>
+                        <!-- Cert 5 Copy -->
+                        <div class="glass-card group"
+                            onclick="zoomImage('images/AWSElementalLive.PNG', 'AWS Elemental Live - Conductor')">
+                            <div class="glass-shine"></div>
+                            <div class="relative w-full aspect-[4/3] overflow-hidden rounded-xl bg-black/20 mb-4">
+                                <img src="images/AWSElementalLive.PNG" alt="AWS Conductor"
+                                    class="w-full h-full object-contain transform transition-transform duration-500 group-hover:scale-110">
+                            </div>
+                            <h4
+                                class="text-lg font-semibold text-slate-200 group-hover:text-blue-300 transition-colors text-center">
+                                AWS Live Conductor</h4>
+                        </div>
+                        <!-- Cert 6 Copy -->
+                        <div class="glass-card group"
+                            onclick="zoomImage('images/VideoStreamingConcepts.PNG', 'Video Streaming Concepts')">
+                            <div class="glass-shine"></div>
+                            <div class="relative w-full aspect-[4/3] overflow-hidden rounded-xl bg-black/20 mb-4">
+                                <img src="images/VideoStreamingConcepts.PNG" alt="Streaming"
+                                    class="w-full h-full object-contain transform transition-transform duration-500 group-hover:scale-110">
+                            </div>
+                            <h4
+                                class="text-lg font-semibold text-slate-200 group-hover:text-blue-300 transition-colors text-center">
+                                Video Streaming Concepts</h4>
+                        </div>
+                        <!-- Cert 7 Copy -->
+                        <div class="glass-card group"
+                            onclick="zoomImage('images/Redhat_DO285.PNG', 'RedHat Openshift Administrator DO285')">
+                            <div class="glass-shine"></div>
+                            <div class="relative w-full aspect-[4/3] overflow-hidden rounded-xl bg-black/20 mb-4">
+                                <img src="images/Redhat_DO285.PNG" alt="OpenShift"
+                                    class="w-full h-full object-contain transform transition-transform duration-500 group-hover:scale-110">
+                            </div>
+                            <h4
+                                class="text-lg font-semibold text-slate-200 group-hover:text-blue-300 transition-colors text-center">
+                                RedHat OpenShift</h4>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <style>
+            /* Glassmorphism Card Style */
+            .glass-card {
+                position: relative;
+                flex: 0 0 300px;
+                /* Fixed width for consistent marquee */
+                padding: 1rem;
+                border-radius: 1.5rem;
+                background: rgba(255, 255, 255, 0.03);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+                transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                cursor: pointer;
+                overflow: hidden;
+            }
+
+            .glass-card:hover {
+                transform: translateY(-8px) scale(1.02);
+                background: rgba(255, 255, 255, 0.06);
+                border-color: rgba(52, 152, 219, 0.3);
+                box-shadow: 0 20px 40px -10px rgba(52, 152, 219, 0.3);
+            }
+
+            /* Shine Effect Overlay */
+            .glass-shine::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(120deg,
+                        transparent,
+                        rgba(255, 255, 255, 0.1) 40%,
+                        rgba(255, 255, 255, 0.2) 50%,
+                        rgba(255, 255, 255, 0.1) 60%,
+                        transparent);
+                transition: 0.6s;
+                z-index: 2;
+                pointer-events: none;
+            }
+
+            .glass-card:hover .glass-shine::before {
+                left: 100%;
+                transition: 0.6s ease-in-out;
+            }
+
+            /* Infinite Scroll Animation */
+            .scroller-inner {
+                animation: scroll 40s linear infinite;
+            }
+
+            .scroller:hover .scroller-inner {
+                animation-play-state: paused;
+            }
+
+            @keyframes scroll {
+                0% {
+                    transform: translateX(0);
+                }
+
+                100% {
+                    transform: translateX(calc(-300px * 7 - 2rem * 7));
+                }
+
+                /* 7 items * width + 7 * gap */
+            }
+
+            /* Fade mask for edges */
+            .mask-linear-fade {
+                mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+                -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            }
+
+            /* Blob Animation */
+            @keyframes blob {
+                0% {
+                    transform: translate(0px, 0px) scale(1);
+                }
+
+                33% {
+                    transform: translate(30px, -50px) scale(1.1);
+                }
+
+                66% {
+                    transform: translate(-20px, 20px) scale(0.9);
+                }
+
+                100% {
+                    transform: translate(0px, 0px) scale(1);
+                }
+            }
+
+            .animate-blob {
+                animation: blob 7s infinite;
+            }
+
+            .animation-delay-2000 {
+                animation-delay: 2s;
+            }
+
+            .animation-delay-4000 {
+                animation-delay: 4s;
+            }
+        </style>
 
 
+        <section id="contact" class="py-16 px-6 md:px-12 bg-gray-900">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-white">Get In Touch</h2>
 
+                <!-- Contact Buttons Grid - 4 columns for 2 rows -->
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                    <a href="mailto:pdek1991@gmail.com" class="contact-btn">
+                        <img src="https://img.icons8.com/color/48/000000/email.png" alt="Email">
+                        <span>Email</span>
+                    </a>
 
+                    <a href="https://linkedin.com/in/pdek1991" target="_blank" class="contact-btn">
+                        <img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="LinkedIn">
+                        <span>LinkedIn</span>
+                    </a>
 
+                    <a href="https://github.com/pdek1991" target="_blank" class="contact-btn">
+                        <img src="https://img.icons8.com/material-rounded/48/000000/github.png" alt="GitHub">
+                        <span>GitHub</span>
+                    </a>
 
+                    <a href="https://pdek1991.github.io/Pdek1991/" target="_blank" class="contact-btn">
+                        <img src="https://img.icons8.com/color/48/000000/domain.png" alt="Portfolio">
+                        <span>Portfolio</span>
+                    </a>
 
-<!-- Certificate Thumbnails Row -->
-<div class="flex flex-wrap justify-center items-start gap-6 mt-12">
+                    <a href="https://wa.me/919823340379" target="_blank" class="contact-btn">
+                        <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp">
+                        <span>WhatsApp</span>
+                    </a>
 
-  <!-- CKA -->
-  <div class="flex flex-col items-center w-48">
-    <a href="https://www.credly.com/badges/d1ec8927-614e-4f38-9d7f-0d0e854e4549/public_url" target="_blank" class="block group text-center w-full">
-      <div class="bg-white/10 backdrop-blur-md rounded-lg p-2 shadow-md transition-transform duration-300 group-hover:scale-105 group-hover:shadow-xl cursor-pointer">
-        <img src="images/CKA_Certificate.jpg" alt="CKA Certificate" class="h-32 w-full object-contain rounded-lg" onclick="zoomImage('images/CKA_Certificate.jpg', 'CKA Certificate')">
-      </div>
-    </a>
-    <p class="mt-2 text-sm text-blue-400 group-hover:underline break-words text-center">🔗 Verify on Credly</p>
-  </div>
+                    <a href="https://t.me/pdek1991" target="_blank" class="contact-btn">
+                        <img src="https://img.icons8.com/color/48/000000/telegram-app.png" alt="Telegram">
+                        <span>Telegram</span>
+                    </a>
 
-  <!-- AWS Elemental Live -->
-  <div class="flex flex-col items-center w-48">
-    <div class="bg-white/10 backdrop-blur-md rounded-lg p-2 shadow-md transition-transform duration-300 hover:scale-105 hover:shadow-xl cursor-pointer text-center">
-      <img src="images/AWSElementalLive.PNG" alt="AWS Elemental Live" class="h-32 w-full object-contain rounded-lg" onclick="zoomImage('images/AWSElementalLive.PNG', 'AWS Elemental Live - Conductor')">
-    </div>
-    <h2 class="mt-2 text-blue-400 font-semibold text-sm break-words text-center">AWS Elemental Live - Conductor</h2>
-    
-  </div>
-
-  <!-- Video Streaming Concepts -->
-  <div class="flex flex-col items-center w-48">
-    <div class="bg-white/10 backdrop-blur-md rounded-lg p-2 shadow-md transition-transform duration-300 hover:scale-105 hover:shadow-xl cursor-pointer text-center">
-      <img src="images/VideoStreamingConcepts.PNG" alt="Video Streaming Concepts" class="h-32 w-full object-contain rounded-lg" onclick="zoomImage('images/VideoStreamingConcepts.PNG', 'Video Streaming Concepts')">
-    </div>
-    <h2 class="mt-2 text-blue-400 font-semibold text-sm break-words text-center">Video Streaming Concepts</h2>
-    
-  </div>
-
-  <!-- Red Hat DO285 -->
-  <div class="flex flex-col items-center w-48">
-    <div class="bg-white/10 backdrop-blur-md rounded-lg p-2 shadow-md transition-transform duration-300 hover:scale-105 hover:shadow-xl cursor-pointer text-center">
-      <img src="images/Redhat_DO285.PNG" alt="RedHat Openshift Administrator DO285" class="h-32 w-full object-contain rounded-lg" onclick="zoomImage('images/Redhat_DO285.PNG', 'RedHat Openshift Administrator DO285')">
-    </div>
-    <h2 class="mt-2 text-blue-400 font-semibold text-sm break-words text-center">RedHat Openshift Administrator(DO285)</h2>
-    
-  </div>
-
-</div>
-
-<div class="h-2"></div>
-<div class="h-2"></div>
-<div class="h-2"></div>
-<div class="h-2"></div>
-<div class="h-2"></div>
-<div class="h-2"></div>
-
-
-
-<!-- Inner Glass Buttons -->
-<div class="flex flex-nowrap justify-center gap-6 px-8 py-4">
-  <a href="mailto:pdek1991@gmail.com" class="inner-glass flex items-center gap-2">
-    <img src="https://img.icons8.com/color/48/000000/email.png" alt="Email">
-    <span>Email</span>
-  </a>
-
-  <a href="https://linkedin.com/in/pdek1991" target="_blank" class="inner-glass flex items-center gap-2">
-    <img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="LinkedIn">
-    <span>LinkedIn</span>
-  </a>
-
-  <a href="https://github.com/pdek1991" target="_blank" class="inner-glass flex items-center gap-2">
-    <img src="https://img.icons8.com/material-rounded/48/000000/github.png" alt="GitHub">
-    <span>GitHub</span>
-  </a>
-
-  <a href="https://pdek1991.github.io/Pdek1991/" target="_blank" class="inner-glass flex items-center gap-2">
-    <img src="https://img.icons8.com/color/48/000000/domain.png" alt="Portfolio">
-    <span>Portfolio</span>
-  </a>
-
-  <a href="https://wa.me/919823340379" target="_blank" class="inner-glass flex items-center gap-2">
-    <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp">
-    <span>WhatsApp</span>
-  </a>
-
-  <a href="https://t.me/pdek1991" target="_blank" class="inner-glass flex items-center gap-2">
-    <img src="https://img.icons8.com/color/48/000000/telegram-app.png" alt="Telegram">
-    <span>Telegram</span>
-  </a>
-
-  <a href="tel:+919823340379" class="inner-glass flex items-center gap-2">
-    <img src="https://img.icons8.com/color/48/000000/phone.png" alt="Phone">
-    <span>+91 98233 40379</span>
-  </a>
-</div>
-
-<style>
-.inner-glass {
-  backdrop-filter: blur(30px) saturate(200%);
-  background: rgba(255, 255, 255, 0.25);
-  border-radius: 1.25rem;
-  border: 1px solid rgba(255,255,255,0.4);
-  padding: 0.5rem 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: #f8f9fa;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  box-shadow: inset 0 0 12px rgba(255,255,255,0.3), 0 4px 15px rgba(0,0,0,0.1);
-  white-space: nowrap; /* prevent text from wrapping */
-}
-
-.inner-glass:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 24px rgba(52,152,219,0.6), inset 0 0 16px rgba(255,255,255,0.4);
-  background: rgba(255, 255, 255, 0.35);
-}
-
-.inner-glass img {
-  flex-shrink: 0;
-  height: 20px;
-  width: 20px;
-}
-</style>
-
-
-
-
-
-
-
+                    <a href="tel:+919823340379" class="contact-btn col-span-2 md:col-span-1 lg:col-span-2">
+                        <img src="https://img.icons8.com/color/48/000000/phone.png" alt="Phone">
+                        <span>+91 98233 40379</span>
+                    </a>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="py-6 px-6 md:px-12 text-center text-sm text-gray-500">
@@ -981,7 +1374,7 @@
 
             setTimeout(type, typingSpeed);
         }
-        
+
         // Image zoom functionality
         const zoomModal = document.getElementById('zoom-modal');
         const zoomedImage = document.getElementById('zoomed-image');
@@ -999,13 +1392,13 @@
         }
 
         // Close modal when clicking outside the image or pressing ESC
-        zoomModal.addEventListener('click', function(e) {
+        zoomModal.addEventListener('click', function (e) {
             if (e.target === zoomModal || e.target.classList.contains('zoom-modal')) {
                 closeModal();
             }
         });
 
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape') {
                 closeModal();
             }
@@ -1014,7 +1407,7 @@
         // Set up typing animation and observer on DOM content loaded
         document.addEventListener('DOMContentLoaded', () => {
             type();
-            
+
             // IntersectionObserver for the fade-in animation
             const experienceCards = document.querySelectorAll('.experience-card');
             const observerOptions = {
@@ -1037,9 +1430,9 @@
             });
         });
     </script>
-	
-	
-<style>
+
+
+    <style>
         /* CSS to position the visitor counter at the bottom-right of the page */
         #visitor-counter-container {
             position: fixed;
@@ -1049,8 +1442,9 @@
         }
     </style>
 
-<body>
+    <body>
 
 
-</body>
+    </body>
+
 </html>
