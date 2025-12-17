@@ -276,7 +276,276 @@
                 width: 24px;
             }
         }
+
+        /* Shared Split Section Styles (Experience & Projects) */
+        .split-section-layout {
+            display: flex;
+            gap: 4rem;
+            /* More spacing for floating look */
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: flex-start;
+        }
+
+        .sticky-visual-col {
+            flex: 1;
+            position: sticky;
+            top: 200px;
+            /* Adjusted top offset */
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            z-index: 10;
+        }
+
+        .scene-3d {
+            width: 200px;
+            height: 200px;
+            perspective: 1200px;
+            margin-bottom: 2rem;
+        }
+
+        .coin-3d {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: revolve 10s infinite linear;
+            /* Slower, smoother spin */
+        }
+
+        .coin-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            /* Circular for logos */
+            backface-visibility: visible;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Glassy / Floating Coin Look */
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 30px rgba(99, 102, 241, 0.15);
+            /* Subtle glow */
+        }
+
+        /* Square variation for Project thumbnails if needed, but Circle is good for consistency. 
+           We can add a class .is-square if specific projects need it, but let's stick to circle for the "Coin" effect. */
+
+        .coin-face.front {
+            transform: translateZ(15px);
+        }
+
+        .coin-face.back {
+            transform: rotateY(180deg) translateZ(15px);
+        }
+
+        /* Connecting "thickness" simulation could be added here if desired, but face separation works well enough */
+
+        .coin-face img {
+            width: 80%;
+            height: 80%;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.5));
+            border-radius: 10%;
+            /* Slight rounding if image is square */
+        }
+
+        @keyframes revolve {
+            0% {
+                transform: rotateY(0deg);
+            }
+
+            100% {
+                transform: rotateY(360deg);
+            }
+        }
+
+        .visual-info-box {
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .visual-info-box.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .visual-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #f8fafc;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .visual-subtitle {
+            font-size: 1rem;
+            color: #94a3b8;
+            font-weight: 500;
+            display: block;
+        }
+
+        .scroll-content-col {
+            flex: 2;
+            padding-bottom: 5rem;
+            /* No border line for "floating" feel, or very subtle */
+            border-left: 1px dashed rgba(255, 255, 255, 0.05);
+            padding-left: 3rem;
+        }
+
+        .content-block {
+            min-height: 50vh;
+            /* Reduced slightly */
+            padding: 1rem 0;
+            /* Minimal padding */
+            margin-bottom: 4rem;
+
+            /* "Free Floating" - No Background/Border */
+            background: transparent;
+            border: none;
+            box-shadow: none;
+
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            opacity: 0.2;
+            /* Dim inactive items more */
+            transform: translateX(20px);
+            /* Slide in effect */
+            filter: blur(2px);
+        }
+
+        .content-block.active {
+            opacity: 1;
+            transform: translateX(0);
+            filter: blur(0);
+        }
+
+        /* --- Stylish Text Effects --- */
+        .content-block h3 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            /* Gradient Text */
+            background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            /* Glow */
+            text-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.02em;
+        }
+
+        .content-block h4 {
+            font-size: 1.4rem;
+            color: #818cf8;
+            /* Indigo-400 */
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .content-block h4::before {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background: #818cf8;
+            opacity: 0.7;
+        }
+
+        .content-block p {
+            font-size: 1.15rem;
+            color: #cbd5e1;
+            /* Slate-300 */
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        /* Styled List Items */
+        .content-block ul li {
+            position: relative;
+            padding: 0.75rem 1rem 0.75rem 1.25rem;
+            margin-bottom: 0.75rem;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 100%);
+            border-left: 3px solid rgba(99, 102, 241, 0.5);
+            /* Indigo border */
+            border-radius: 0 8px 8px 0;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(2px);
+        }
+
+        .content-block ul li:hover {
+            border-left-color: #f472b6;
+            /* Pink border on hover */
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 100%);
+            transform: translateX(10px);
+            padding-left: 1.5rem;
+        }
+
+        .content-block ul li span strong {
+            color: #e2e8f0;
+            font-weight: 600;
+        }
+
+        /* Hover effect for interactive feel on the text itself */
+        .content-block.active:hover {
+            transform: scale(1.005);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .split-section-layout {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .scroll-content-col {
+                border-left: none;
+                padding-left: 0;
+            }
+
+            .sticky-visual-col {
+                position: relative;
+                top: 0;
+                height: auto;
+                flex-direction: row;
+                justify-content: center;
+                gap: 1.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .scene-3d {
+                width: 100px;
+                height: 100px;
+                margin-bottom: 0;
+            }
+
+            .visual-info-box {
+                text-align: left;
+            }
+
+            .content-block {
+                min-height: auto;
+                margin-bottom: 3rem;
+                opacity: 0.8;
+                /* More visible by default on mobile */
+                transform: none;
+                filter: none;
+            }
+        }
     </style>
+
+
 </head>
 
 <body class="dark">
@@ -360,413 +629,494 @@
             </div>
         </section>
 
-        <section id="skills" class="py-16 px-6 md:px-12">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Technical Skills</h2>
-                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-                    <div class="flex flex-col items-center">
-                        <img src="https://www.vectorlogo.zone/logos/kubernetes/kubernetes-icon.svg"
-                            alt="Kubernetes Logo" class="h-10 w-10 mb-2">
-                        <span class="text-center">Kubernetes</span>
+        <style>
+            .skills-section {
+                height: 500px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+                perspective: 1000px;
+                position: relative;
+            }
+
+            .scene-skills {
+                width: 300px;
+                /* Reduced from 500px for better mobile fit */
+                height: 300px;
+                position: relative;
+                transform-style: preserve-3d;
+                /* Tilted slightly for a "table-top" or "ring" view */
+                transform: rotateX(-5deg);
+            }
+
+            .carousel-ring {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                transform-style: preserve-3d;
+                animation: spin-ring 25s infinite linear;
+            }
+
+            /* Pause on hover to let users look at skills */
+            .carousel-ring:hover {
+                animation-play-state: paused;
+            }
+
+            @keyframes spin-ring {
+                from {
+                    transform: rotateY(0deg);
+                }
+
+                to {
+                    transform: rotateY(360deg);
+                }
+            }
+
+            .skill-item {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 100px;
+                /* Increased size */
+                height: 120px;
+                /* Increased size to accommodate text */
+                margin-left: -50px;
+                margin-top: -60px;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                /* Glassmorph Card Style */
+                /* Transform logic will be set inline or via nth-child in a generic way, but inline style is best for precise distribution */
+                transform-style: preserve-3d;
+            }
+
+            .skill-item img {
+                width: 70px;
+                /* Larger Logos */
+                height: 70px;
+                object-fit: contain;
+                margin-bottom: 0.5rem;
+                filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5));
+                transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                /* Bouncy Pop */
+            }
+
+            .skill-item span {
+                font-size: 1rem;
+                font-weight: 700;
+                color: #e0e7ff;
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+                opacity: 0.8;
+                transition: opacity 0.3s;
+            }
+
+            /* Remove card background/border */
+            .skill-item:hover {
+                background: transparent;
+                border: none;
+                box-shadow: none;
+            }
+
+            /* Pop Effect on constraints */
+            .skill-item:hover img {
+                transform: scale(1.5);
+                filter: drop-shadow(0 0 20px rgba(129, 140, 248, 0.6));
+            }
+
+            .skill-item:hover span {
+                opacity: 1;
+                color: #fff;
+            }
+        </style>
+
+        <section id="skills" class="skills-section bg-gradient-to-b from-gray-900 to-transparent">
+            <div class="max-w-4xl mx-auto mb-12 relative z-10">
+                <h2 class="text-3xl md:text-5xl font-bold text-center text-gradient">Technical Skills</h2>
+            </div>
+
+            <div class="scene-skills">
+                <div class="carousel-ring">
+                    <!-- 
+                       10 Items. 
+                       360 degrees / 10 = 36 degrees apart.
+                       TranslateZ roughly = (Width of item / 2) / tan(18deg) 
+                       Width ~100px + gap. Let's use translateZ(350px) for a nice wide circle.
+                    -->
+
+                    <!-- Item 1: 0 deg -->
+                    <div class="skill-item" style="transform: rotateY(0deg) translateZ(350px);">
+                        <img src="https://www.vectorlogo.zone/logos/kubernetes/kubernetes-icon.svg" alt="Kubernetes">
+                        <span>Kubernetes</span>
                     </div>
-                    <div class="flex flex-col items-center">
-                        <img src="https://www.vectorlogo.zone/logos/docker/docker-icon.svg" alt="Docker Logo"
-                            class="h-10 w-10 mb-2">
-                        <span class="text-center">Docker</span>
+
+                    <!-- Item 2: 36 deg -->
+                    <div class="skill-item" style="transform: rotateY(36deg) translateZ(350px);">
+                        <img src="https://www.vectorlogo.zone/logos/docker/docker-icon.svg" alt="Docker">
+                        <span>Docker</span>
                     </div>
-                    <div class="flex flex-col items-center">
-                        <img src="images/openshift.png" alt="OpenShift Logo" class="h-10 w-10 mb-2">
-                        <span class="text-center">OpenShift</span>
+
+                    <!-- Item 3: 72 deg -->
+                    <div class="skill-item" style="transform: rotateY(72deg) translateZ(350px);">
+                        <img src="images/openshift.png" alt="OpenShift">
+                        <span>OpenShift</span>
                     </div>
-                    <div class="flex flex-col items-center">
-                        <img src="https://www.vectorlogo.zone/logos/jenkins/jenkins-icon.svg" alt="Jenkins Logo"
-                            class="h-10 w-10 mb-2">
-                        <span class="text-center">Jenkins</span>
+
+                    <!-- Item 4: 108 deg -->
+                    <div class="skill-item" style="transform: rotateY(108deg) translateZ(350px);">
+                        <img src="https://www.vectorlogo.zone/logos/jenkins/jenkins-icon.svg" alt="Jenkins">
+                        <span>Jenkins</span>
                     </div>
-                    <div class="flex flex-col items-center">
-                        <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="Git Logo"
-                            class="h-10 w-10 mb-2">
-                        <span class="text-center">Git</span>
+
+                    <!-- Item 5: 144 deg -->
+                    <div class="skill-item" style="transform: rotateY(144deg) translateZ(350px);">
+                        <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="Git">
+                        <span>Git</span>
                     </div>
-                    <div class="flex flex-col items-center">
-                        <img src="https://www.vectorlogo.zone/logos/grafana/grafana-icon.svg" alt="Grafana Logo"
-                            class="h-10 w-10 mb-2">
-                        <span class="text-center">Grafana</span>
+
+                    <!-- Item 6: 180 deg -->
+                    <div class="skill-item" style="transform: rotateY(180deg) translateZ(350px);">
+                        <img src="https://www.vectorlogo.zone/logos/grafana/grafana-icon.svg" alt="Grafana">
+                        <span>Grafana</span>
                     </div>
-                    <div class="flex flex-col items-center">
-                        <img src="images/elk.png" alt="ELK Stack Logo" class="h-10 w-10 mb-2">
-                        <span class="text-center">ELK Stack</span>
+
+                    <!-- Item 7: 216 deg -->
+                    <div class="skill-item" style="transform: rotateY(216deg) translateZ(350px);">
+                        <img src="images/elk.png" alt="ELK Stack">
+                        <span>ELK Stack</span>
                     </div>
-                    <div class="flex flex-col items-center">
-                        <img src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-icon.svg" alt="AWS Logo"
-                            class="h-10 w-10 mb-2">
-                        <span class="text-center">AWS</span>
+
+                    <!-- Item 8: 252 deg -->
+                    <div class="skill-item" style="transform: rotateY(252deg) translateZ(350px);">
+                        <img src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-icon.svg" alt="AWS">
+                        <span>AWS</span>
                     </div>
-                    <div class="flex flex-col items-center">
-                        <img src="https://www.vectorlogo.zone/logos/mysql/mysql-icon.svg" alt="MySQL Logo"
-                            class="h-10 w-10 mb-2">
-                        <span class="text-center">MySQL</span>
+
+                    <!-- Item 9: 288 deg -->
+                    <div class="skill-item" style="transform: rotateY(288deg) translateZ(350px);">
+                        <img src="https://www.vectorlogo.zone/logos/mysql/mysql-icon.svg" alt="MySQL">
+                        <span>MySQL</span>
                     </div>
-                    <div class="flex flex-col items-center">
-                        <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="Postman Logo"
-                            class="h-10 w-10 mb-2">
-                        <span class="text-center">Postman</span>
+
+                    <!-- Item 10: 324 deg -->
+                    <div class="skill-item" style="transform: rotateY(324deg) translateZ(350px);">
+                        <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="Postman">
+                        <span>Postman</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="experience" class="py-16 px-6 md:px-12">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Work Experience</h2>
-                <div class="grid md:grid-cols-1 gap-8">
-                    <div class="experience-card">
-                        <div class="flex justify-between items-start mb-2">
-                            <div class="flex items-center space-x-3">
-                                <img src="images/Sony.png" alt="Sony Pictures Logo" class="h-8 w-8">
-                                <div>
-                                    <h3 class="text-xl font-bold">Duty Engineer</h3>
-                                    <p class="text-sm text-gray-400">Sony Pictures Networks</p>
+        <section id="experience" class="py-16 px-6 md:px-12 bg-gradient-to-b from-transparent to-gray-900/50">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-3xl md:text-5xl font-bold mb-16 text-center text-gradient">Professional Journey</h2>
+
+                <div class="split-section-layout">
+                    <!-- Left Sticky Column: 3D Visuals -->
+                    <div class="sticky-visual-col">
+                        <div class="scene-3d">
+                            <div class="coin-3d" id="exp-coin">
+                                <div class="coin-face front">
+                                    <img id="exp-img-front" src="images/Sony.png" alt="Company Logo">
+                                </div>
+                                <div class="coin-face back">
+                                    <img id="exp-img-back" src="images/Sony.png" alt="Company Logo">
                                 </div>
                             </div>
-                            <span class="text-sm font-medium text-gray-500">Nov 2023 - Present</span>
                         </div>
-                        <ul class="list-disc list-inside space-y-1 text-sm text-gray-300">
-                            <li>I specialize in leveraging DevOps practices to streamline operations and enhance system
-                                reliability.</li>
-                            <li>My expertise includes managing live events (e.g., Australian Open, WWE, UFC, and
-                                Hockey), running playout systems for 50+ channels, and handling media asset management
-                                using DIVA, GBLabs, and AWS S3 Deep Glacier.</li>
-                            <li>Automating repetitive tasks using BASH and Python. Delivering efficient, scalable, and
-                                resilient infrastructure solutions, I work closely with teams to drive continuous
-                                improvements across broadcast systems and operations.</li>
-                            <li>Working on Synamedia compression and VGCAS system.</li>
-                        </ul>
+                        <div class="visual-info-box visible" id="exp-visual-info">
+                            <div class="visual-title" id="exp-visual-year">Nov 2023 - Present</div>
+                            <span class="visual-subtitle" id="exp-visual-duration">2+ Years</span>
+                        </div>
                     </div>
-                    <div class="experience-card">
-                        <div class="flex justify-between items-start mb-2">
-                            <div class="flex items-center space-x-3">
-                                <img src="images/jio.png" alt="Jio Logo" class="h-8 w-8">
-                                <div>
-                                    <h3 class="text-xl font-bold">Deputy Manager Broadcast, CAS</h3>
-                                    <p class="text-sm text-gray-400">Jio</p>
-                                </div>
-                            </div>
-                            <span class="text-sm font-medium text-gray-500">Dec 2020 - Oct 2023</span>
+
+                    <!-- Right Scroll Column: Details -->
+                    <div class="scroll-content-col" id="experience-scroll-container">
+
+                        <!-- Sony -->
+                        <div class="content-block active" data-company="Sony" data-img="images/Sony.png"
+                            data-year="Nov 2023 - Present" data-duration="2+ Years">
+                            <h3 class="text-3xl font-bold mb-2">Duty Engineer</h3>
+                            <h4 class="text-xl mb-4">Sony Pictures Networks</h4>
+                            <!-- Original: Duty Engineer, Sony Pictures Networks -->
+                            <ul class="list-disc list-inside space-y-3 text-lg leading-relaxed">
+                                <li>I specialize in leveraging DevOps practices to streamline operations and enhance
+                                    system reliability.</li>
+                                <li>My expertise includes managing live events (e.g., Australian Open, WWE, UFC, and
+                                    Hockey), running playout systems for 50+ channels, and handling media asset
+                                    management using DIVA, GBLabs, and AWS S3 Deep Glacier.</li>
+                                <li>Automating repetitive tasks using BASH and Python. Delivering efficient, scalable,
+                                    and resilient infrastructure solutions, I work closely with teams to drive
+                                    continuous improvements across broadcast systems and operations.</li>
+                                <li>Working on Synamedia compression and VGCAS system.</li>
+                            </ul>
                         </div>
-                        <ul class="list-disc list-inside space-y-1 text-sm text-gray-300">
-                            <li>Manging more than 14000 service configuration for 25+ Headends.</li>
-                            <li>Working on Verimatrix CAS for 3m+ customer base.</li>
-                            <li>Good exposure to automation using BASH scripting.</li>
-                            <li>Openshift training on DO180, DO280 and DO380 from Redhat.</li>
-                            <li>Creating Grafana dashboards, Log analysis using Kibana, Prometheus query to manage data.
-                            </li>
-                            <li>Managing multiple Linux servers and CAS components on them.</li>
-                            <li>Planning and execution of regression and sanity testing on application.</li>
-                            <li>Creating alerts for critical KPI for business review.</li>
-                            <li>Managing the OpenShift cluster that with autoscaling and HA.</li>
-                            <li>Taking cluster wide backups.</li>
-                        </ul>
-                    </div>
-                    <div class="experience-card">
-                        <div class="flex justify-between items-start mb-2">
-                            <div class="flex items-center space-x-3">
-                                <img src="images/tata.png" alt="Tata Play Logo" class="h-8 w-8">
-                                <div>
-                                    <h3 class="text-xl font-bold">Senior Systems Engineer</h3>
-                                    <p class="text-sm text-gray-400">Tata Play</p>
-                                </div>
-                            </div>
-                            <span class="text-sm font-medium text-gray-500">Dec 2019 - Dec 2020</span>
+
+                        <!-- Jio -->
+                        <div class="content-block" data-company="Jio" data-img="images/jio.png"
+                            data-year="Dec 2020 - Oct 2023" data-duration="2 Years 10 Months">
+                            <h3 class="text-3xl font-bold mb-2">Deputy Manager Broadcast, CAS</h3>
+                            <h4 class="text-xl mb-4">Jio</h4>
+                            <ul class="list-disc list-inside space-y-3 text-lg leading-relaxed">
+                                <li>Manging more than 14000 service configuration for 25+ Headends.</li>
+                                <li>Working on Verimatrix CAS for 3m+ customer base.</li>
+                                <li>Good exposure to automation using BASH scripting.</li>
+                                <li>Openshift training on DO180, DO280 and DO380 from Redhat.</li>
+                                <li>Creating Grafana dashboards, Log analysis using Kibana, Prometheus query to manage
+                                    data.</li>
+                                <li>Managing multiple Linux servers and CAS components on them.</li>
+                                <li>Planning and execution of regression and sanity testing on application.</li>
+                                <li>Creating alerts for critical KPI for business review.</li>
+                                <li>Managing the OpenShift cluster that with autoscaling and HA.</li>
+                                <li>Taking cluster wide backups.</li>
+                            </ul>
                         </div>
-                        <ul class="list-disc list-inside space-y-1 text-sm text-gray-300">
-                            <li>Installed and configured critical broadcast equipment (MUX, Modulators, Encoders, IRD).
-                            </li>
-                            <li>Created Bash scripts to automate routine tasks, reducing manual effort and operational
-                                overhead.</li>
-                            <li>Designed Grafana dashboards for system health and KPI monitoring.</li>
-                            <li>Utilized Kibana to create monitoring dashboards for tracking critical KPIs, ensuring
-                                timely issue identification.</li>
-                            <li>Led RCA (Root Cause Analysis) for errors, minimizing downtime and improving system
-                                reliability.</li>
-                            <li>Facilitated deployment of new features by closely collaborating with testing teams.</li>
-                        </ul>
-                    </div>
-                    <div class="experience-card">
-                        <div class="flex justify-between items-start mb-2">
-                            <div class="flex items-center space-x-3">
-                                <img src="images/rcom.png" alt="Reliance Communications Logo" class="h-8 w-8">
-                                <div>
-                                    <h3 class="text-xl font-bold">Senior Broadcast Engineer</h3>
-                                    <p class="text-sm text-gray-400">Reliance Communications / Independent TV</p>
-                                </div>
-                            </div>
-                            <span class="text-sm font-medium text-gray-500">May 2016 - Nov 2019</span>
+
+                        <!-- Tata Play -->
+                        <div class="content-block" data-company="Tata Play" data-img="images/tata.png"
+                            data-year="Dec 2019 - Dec 2020" data-duration="1 Year">
+                            <h3 class="text-3xl font-bold mb-2">Senior Systems Engineer</h3>
+                            <h4 class="text-xl mb-4">Tata Play</h4>
+                            <ul class="list-disc list-inside space-y-3 text-lg leading-relaxed">
+                                <li>Installed and configured critical broadcast equipment (MUX, Modulators, Encoders,
+                                    IRD).</li>
+                                <li>Created Bash scripts to automate routine tasks, reducing manual effort and
+                                    operational overhead.</li>
+                                <li>Designed Grafana dashboards for system health and KPI monitoring.</li>
+                                <li>Utilized Kibana to create monitoring dashboards for tracking critical KPIs, ensuring
+                                    timely issue identification.</li>
+                                <li>Led RCA (Root Cause Analysis) for errors, minimizing downtime and improving system
+                                    reliability.</li>
+                                <li>Facilitated deployment of new features by closely collaborating with testing teams.
+                                </li>
+                            </ul>
                         </div>
-                        <ul class="list-disc list-inside space-y-1 text-sm text-gray-300">
-                            <li>Installation and configuration of station equipments like MUX, Modulator, Encoders and
-                                IRD.</li>
-                            <li>Bandwidth utilization and planning for satellite Transponders for BIG TV.</li>
-                            <li>Rectifying faults according to daily channel status report and root cause analysis to
-                                ensure minimization of errors.</li>
-                            <li>Upgradation of new Headend equipment's.</li>
-                            <li>Handling XMS and XMU for system monitoring.</li>
-                            <li>Implementing proposed technical modification in DTH Headend.</li>
-                            <li>Highly organized planning for smooth and timely completion of goals.</li>
-                            <li>Software Release Testing & OTA testing with STB Team.</li>
-                        </ul>
-                    </div>
-                    <div class="experience-card">
-                        <div class="flex justify-between items-start mb-2">
-                            <div class="flex items-center space-x-3">
-                                <img src="images/pft.png" alt="PrimeFocus Technologies" class="h-8 w-8">
-                                <div>
-                                    <h3 class="text-xl font-bold">Broadcast Engineer</h3>
-                                    <p class="text-sm text-gray-400">Prime Focus Technologies (PFT)</p>
-                                </div>
-                            </div>
-                            <span class="text-sm font-medium text-gray-500">Nov 2014 - May 2016</span>
+
+                        <!-- Reliance -->
+                        <div class="content-block" data-company="Reliance" data-img="images/rcom.png"
+                            data-year="May 2016 - Nov 2019" data-duration="3 Years 6 Months">
+                            <h3 class="text-3xl font-bold mb-2">Senior Broadcast Engineer</h3>
+                            <h4 class="text-xl mb-4">Reliance Communications / Independent TV</h4>
+                            <ul class="list-disc list-inside space-y-3 text-lg leading-relaxed">
+                                <li>Installation and configuration of station equipments like MUX, Modulator, Encoders
+                                    and IRD.</li>
+                                <li>Bandwidth utilization and planning for satellite Transponders for BIG TV.</li>
+                                <li>Rectifying faults according to daily channel status report and root cause analysis
+                                    to ensure minimization of errors.</li>
+                                <li>Upgradation of new Headend equipment's.</li>
+                                <li>Handling XMS and XMU for system monitoring.</li>
+                                <li>Implementing proposed technical modification in DTH Headend.</li>
+                                <li>Highly organized planning for smooth and timely completion of goals.</li>
+                                <li>Software Release Testing & OTA testing with STB Team.</li>
+                            </ul>
                         </div>
-                        <ul class="list-disc list-inside space-y-1 text-sm text-gray-300">
-                            <li>Configured Appear TV Encoders, Demodulators, and managed multicast IPs for 400+
-                                channels.</li>
-                            <li>Administered SML servers for ERP data storage and installed C-band antennas for signal
-                                reception.</li>
-                            <li>Performed technical fault analysis, system upgrades, and testing of new equipment.</li>
-                            <li>Handled audio watermarking using WMM for secure content distribution.</li>
-                            <li>Worked on BARC project.</li>
-                        </ul>
-                    </div>
-                    <div class="experience-card">
-                        <div class="flex justify-between items-start mb-2">
-                            <div class="flex items-center space-x-3">
-                                <img src="images/imcl.png" alt="Reliance Communications Logo" class="h-8 w-8">
-                                <div>
-                                    <h3 class="text-xl font-bold">Headend Engineer</h3>
-                                    <p class="text-sm text-gray-400">Indusind Media and Communication Ltd</p>
-                                </div>
-                            </div>
-                            <span class="text-sm font-medium text-gray-500">Feb 2013 - Nov 2014</span>
+
+                        <!-- PFT -->
+                        <div class="content-block" data-company="PFT" data-img="images/pft.png"
+                            data-year="Nov 2014 - May 2016" data-duration="1 Year 6 Months">
+                            <h3 class="text-3xl font-bold mb-2">Broadcast Engineer</h3>
+                            <h4 class="text-xl mb-4">Prime Focus Technologies (PFT)</h4>
+                            <ul class="list-disc list-inside space-y-3 text-lg leading-relaxed">
+                                <li>Configured Appear TV Encoders, Demodulators, and managed multicast IPs for 400+
+                                    channels.</li>
+                                <li>Administered SML servers for ERP data storage and installed C-band antennas for
+                                    signal reception.</li>
+                                <li>Performed technical fault analysis, system upgrades, and testing of new equipment.
+                                </li>
+                                <li>Handled audio watermarking using WMM for secure content distribution.</li>
+                                <li>Worked on BARC project.</li>
+                            </ul>
                         </div>
-                        <ul class="list-disc list-inside space-y-1 text-sm text-gray-300">
-                            <li>Configuration of QAM Modulator, PSI-SI Server, MPEG 2, Encoders, Preventive Maintenance
-                                of equipments.</li>
-                            <li>Installation of New equipments.</li>
-                            <li>Addition deletion and swapping of services as per requirement.</li>
-                            <li>Handling EPG programs, Fault finding in network.</li>
-                        </ul>
+
+                        <!-- IMCL -->
+                        <div class="content-block" data-company="IMCL" data-img="images/imcl.png"
+                            data-year="Feb 2013 - Nov 2014" data-duration="1 Year 9 Months">
+                            <h3 class="text-3xl font-bold mb-2">Headend Engineer</h3>
+                            <h4 class="text-xl mb-4">Indusind Media and Communication Ltd</h4>
+                            <ul class="list-disc list-inside space-y-3 text-lg leading-relaxed">
+                                <li>Configuration of QAM Modulator, PSI-SI Server, MPEG 2, Encoders, Preventive
+                                    Maintenance of equipments.</li>
+                                <li>Installation of New equipments.</li>
+                                <li>Addition deletion and swapping of services as per requirement.</li>
+                                <li>Handling EPG programs, Fault finding in network.</li>
+                            </ul>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="projects" class="py-16 px-6 md:px-12">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Featured Projects</h2>
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-3xl md:text-5xl font-bold mb-16 text-center text-gradient">Featured Projects</h2>
 
-                <div class="mb-16">
-                    <h3 class="text-2xl font-bold mb-4">VigilSiddhi: Infrastructure & Monitoring Solution</h3>
-                    <div class="bg-gray-800/60 p-6 rounded-2xl shadow-lg space-y-4">
-                        <ul class="space-y-3 text-gray-300 text-left">
-
-                            <li class="flex items-start space-x-2">
-                                <span class="text-indigo-400">🤖</span>
-                                <span><strong>Multi-Agent Monitoring:</strong> SNMP, traps, Windows/Linux, IRD,
-                                    switches, iLOs, APIs.</span>
-                            </li>
-
-                            <li class="flex items-start space-x-2">
-                                <span class="text-indigo-400">📊</span>
-                                <span><strong>Real-Time Console:</strong> Live WebSocket updates with operator-friendly
-                                    UI.</span>
-                            </li>
-
-                            <li class="flex items-start space-x-2">
-                                <span class="text-indigo-400">📨</span>
-                                <span><strong>Notifications:</strong> Telegram + Email + Slack + Teams alerts for
-                                    critical events.</span>
-                            </li>
-
-                            <li class="flex items-start space-x-2">
-                                <span class="text-indigo-400">🔀</span>
-                                <span><strong>Data Pipeline:</strong> Agents → Redis Streams → Processors →
-                                    Elasticsearch/MySQL → Dashboards.</span>
-                            </li>
-
-                            <li class="flex items-start space-x-2">
-                                <span class="text-indigo-400">💾</span>
-                                <span><strong>Storage:</strong> Elasticsearch (history/analytics), MySQL
-                                    (config/metadata), Redis (event flow).</span>
-                            </li>
-
-                            <li class="flex items-start space-x-2">
-                                <span class="text-indigo-400">✅</span>
-                                <span><strong>Benefits:</strong> Unified monitoring, scalable, full audit history,
-                                    proactive alerts.</span>
-                            </li>
-
-                            <li class="flex items-start space-x-2">
-                                <span class="text-indigo-400">🚀</span>
-                                <span><strong>Future Roadmap:</strong> RBAC, Docker/K8s, self-healing, PWA.</span>
-                            </li>
-
-                        </ul>
-
-
-
-                        <div class="project-collage collage-6">
-                            <div class="collage-item"
-                                onclick="zoomImage('images/vigil-v1/monitoring_dashboard.jpg', 'Monitoring Dashboard')">
-                                <img src="images/vigil-v1/monitoring_dashboard.jpg" alt="Monitoring Dashboard">
-                            </div>
-                            <div class="collage-item"
-                                onclick="zoomImage('images/vigil-v1/data_pipeline.jpg', 'Alarm Console Global')">
-                                <img src="images/vigil-v1/data_pipeline.jpg" alt="Alarm Console Global">
-                            </div>
-                            <div class="collage-item"
-                                onclick="zoomImage('images/vigil-v1/device_agents.jpg', 'IRD Overview')">
-                                <img src="images/vigil-v1/device_agents.jpg" alt="IRD Overview">
-                            </div>
-                            <div class="collage-item"
-                                onclick="zoomImage('images/vigil-v1/switch_dashboard.jpg', 'Switch Dashboard')">
-                                <img src="images/vigil-v1/switch_dashboard.jpg" alt="Switch Dashboard">
-                            </div>
-
-
-                            <div class="collage-item"
-                                onclick="zoomImage('images/vigil-v1/switch_details.jpg', 'Switch Interface Details')">
-                                <img src="images/vigil-v1/switch_details.jpg" alt="Switch Interface Details">
-                            </div>
-                            <div class="collage-item"
-                                onclick="zoomImage('images/vigil-v1/telegram_alert.jpg', 'Historical Alarms')">
-                                <img src="images/vigil-v1/telegram_alert.jpg" alt="Historical Alarms">
+                <div class="split-section-layout">
+                    <!-- Left Sticky Column: Project Visuals (Revolving) -->
+                    <div class="sticky-visual-col">
+                        <div class="scene-3d">
+                            <div class="coin-3d" id="proj-coin">
+                                <div class="coin-face front">
+                                    <img id="proj-img-front" src="images/vigil-v1/monitoring_dashboard.jpg"
+                                        alt="Project Visual">
+                                </div>
+                                <div class="coin-face back">
+                                    <img id="proj-img-back" src="images/vigil-v1/monitoring_dashboard.jpg"
+                                        alt="Project Visual">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="mb-16">
-                    <h3 class="text-2xl font-bold mb-4">MYCAS: Conditional Access System</h3>
-                    <div class="bg-gray-800/60 p-6 rounded-2xl shadow-lg space-y-4">
-                        <ul class="space-y-3 text-gray-300 text-left">
-
-                            <li class="flex items-start space-x-2">
-                                <span class="text-indigo-400">📐</span>
-                                <span><strong>Architecture:</strong> Modular microservices with MySQL (primary +
-                                    replica), Kafka for messaging, Elasticsearch for analytics, Docker, and Kubernetes.
-                                    Supports environment-specific configs, horizontal scaling, and Istio service
-                                    mesh.</span>
-                            </li>
-
-                            <li class="flex items-start space-x-2">
-                                <span class="text-indigo-400">🔗</span>
-                                <span><strong>Interconnectivity:</strong> Services communicate via Kafka; shared MySQL
-                                    backend; Elasticsearch integrated for analytics; Kubernetes manages deployment,
-                                    scaling, and networking.</span>
-                            </li>
-
-                            <li class="flex items-start space-x-2">
-                                <span class="text-indigo-400">⚡</span>
-                                <span><strong>Advantages:</strong> High scalability & modularity, real-time streaming
-                                    via Kafka, easy deployment & monitoring, robust analytics/search, enhanced
-                                    reliability with DB replication.</span>
-                            </li>
-
-                            <li class="flex items-start space-x-2">
-                                <span class="text-indigo-400">🚀</span>
-                                <span><strong>Future Scope:</strong> Improved security with network policies & scans,
-                                    advanced traffic management & observability with Istio, automated scaling via HPA,
-                                    enhanced backup, monitoring, and cloud-native integrations.</span>
-                            </li>
-
-                        </ul>
-
-
-
-
-                        <div class="project-collage collage-4">
-                            <div class="collage-item"
-                                onclick="zoomImage('images/mycas-v2/modular_architecture.jpg', 'Modular Architecture - Kiali')">
-                                <img src="images/mycas-v2/modular_architecture.jpg" alt="Modular Architecture - Kiali">
-                            </div>
-                            <div class="collage-item"
-                                onclick="zoomImage('images/mycas-v2/authentication_layer.jpg', 'Grafana Dashboard MYSQL')">
-                                <img src="images/mycas-v2/authentication_layer.jpg" alt="Grafana Dashboard MYSQL">
-                            </div>
-                            <div class="collage-item"
-                                onclick="zoomImage('images/mycas-v2/api_logic_flow.jpg', 'Grafana Dashboard MYSQL Resources')">
-                                <img src="images/mycas-v2/api_logic_flow.jpg" alt="Grafana Dashboard MYSQL Resources">
-                            </div>
-                            <div class="collage-item"
-                                onclick="zoomImage('images/mycas-v2/config_management.jpg', 'Grafana Dashboard MYSQL Performance')">
-                                <img src="images/mycas-v2/config_management.jpg"
-                                    alt="Grafana Dashboard MYSQL Performance">
-                            </div>
+                        <div class="visual-info-box visible" id="proj-visual-info">
+                            <div class="visual-title" id="proj-title">VigilSiddhi</div>
+                            <span class="visual-subtitle" id="proj-desc">Monitoring Solution</span>
                         </div>
                     </div>
-                </div>
 
-                <div class="mb-16">
-                    <h3 class="text-2xl font-bold mb-4">VigilSiddhi Encoder: Video Encoder over UDP / SRT</h3>
-                    <div class="bg-gray-800/60 p-6 rounded-2xl shadow-lg space-y-4">
-                        <ul class="space-y-3 text-gray-300 text-left">
+                    <!-- Right Scroll Column: Project Details -->
+                    <div class="scroll-content-col" id="projects-scroll-container">
 
-                            <li class="flex items-start space-x-2">
-                                <span class="text-indigo-400">⚙️</span>
-                                <span>Manage video/audio streams with <strong>FFmpeg</strong> via Python Tkinter +
-                                    ttkbootstrap.</span>
-                            </li>
+                        <!-- VigilSiddhi -->
+                        <div class="content-block active" data-project="VigilSiddhi" data-title="VigilSiddhi"
+                            data-desc="Monitoring Solution"
+                            data-images="images/vigil-v1/monitoring_dashboard.jpg,images/vigil-v1/data_pipeline.jpg,images/vigil-v1/device_agents.jpg,images/vigil-v1/switch_dashboard.jpg,images/vigil-v1/switch_details.jpg,images/vigil-v1/telegram_alert.jpg">
 
-                            <li class="flex items-start space-x-2">
-                                <span class="text-indigo-400">🌐</span>
-                                <span>Supports inputs/outputs: Files, HTTP/RTMP/RTP/UDP, SRT, YouTube, dummy
-                                    data.</span>
-                            </li>
+                            <h3 class="text-3xl font-bold mb-2">VigilSiddhi: Infrastructure & Monitoring</h3>
+                            <h4 class="text-xl mb-4">Unified Tech Stack</h4>
+                            <p class="text-lg mb-6">A unified multi-agent monitoring system for broadcast
+                                infrastructure.</p>
 
-                            <li class="flex items-start space-x-2">
-                                <span class="text-indigo-400">🔍</span>
-                                <span>Built-in <strong>ffprobe</strong> for stream and codec analysis.</span>
-                            </li>
+                            <ul class="space-y-3 text-left mb-8">
+                                <li class="flex items-start space-x-2"><span
+                                        class="text-indigo-400">🤖</span><span><strong>Multi-Agent:</strong> SNMP,
+                                        Windows/Linux, IRD, switches, APIs.</span></li>
+                                <li class="flex items-start space-x-2"><span
+                                        class="text-indigo-400">📊</span><span><strong>Real-Time:</strong> Live
+                                        WebSocket updates.</span></li>
+                                <li class="flex items-start space-x-2"><span
+                                        class="text-indigo-400">📨</span><span><strong>Alerts:</strong> Telegram, Email,
+                                        Slack, Teams.</span></li>
+                                <li class="flex items-start space-x-2"><span
+                                        class="text-indigo-400">🚀</span><span><strong>Stack:</strong> Redis Streams,
+                                        Elasticsearch, MySQL.</span></li>
+                            </ul>
 
-                            <li class="flex items-start space-x-2">
-                                <span class="text-indigo-400">📑</span>
-                                <span>Use YAML/JSON configs for repeatable workflows.</span>
-                            </li>
-
-                            <li class="flex items-start space-x-2">
-                                <span class="text-indigo-400">🟢</span>
-                                <span>Real-time indicators: Green = OK, Yellow = Warning, Red = Error, Blue =
-                                    Info.</span>
-                            </li>
-
-                            <li class="flex items-start space-x-2">
-                                <span class="text-indigo-400">🚀</span>
-                                <span>Planned: GPU acceleration, PWA/web UI, stream monitoring dashboards.</span>
-                            </li>
-
-                        </ul>
-
-
-                        <div class="project-collage collage-4">
-                            <div class="collage-item"
-                                onclick="zoomImage('images/vigil-encoder/hls_streaming.png', 'Youtube Stream Encoding')">
-                                <img src="images/vigil-encoder/hls_streaming.png" alt="Youtube Stream Encoding">
-                            </div>
-                            <div class="collage-item"
-                                onclick="zoomImage('images/vigil-encoder/ffmpeg_process.jpg', 'FFmpeg Process')">
-                                <img src="images/vigil-encoder/ffmpeg_process.jpg" alt="FFmpeg Process">
-                            </div>
-                            <div class="collage-item"
-                                onclick="zoomImage('images/vigil-encoder/encoder_ui.jpg', 'Encoder UI')">
-                                <img src="images/vigil-encoder/encoder_ui.jpg" alt="Encoder UI">
-                            </div>
-                            <div class="collage-item"
-                                onclick="zoomImage('images/vigil-encoder/srt_support.PNG', 'SRT Support')">
-                                <img src="images/vigil-encoder/srt_support.PNG" alt="SRT Support">
+                            <div class="project-collage collage-6">
+                                <div class="collage-item"
+                                    onclick="zoomImage('images/vigil-v1/monitoring_dashboard.jpg', 'Monitoring Dashboard')">
+                                    <img src="images/vigil-v1/monitoring_dashboard.jpg" alt="Monitoring Dashboard">
+                                </div>
+                                <div class="collage-item"
+                                    onclick="zoomImage('images/vigil-v1/data_pipeline.jpg', 'Data Pipeline')">
+                                    <img src="images/vigil-v1/data_pipeline.jpg" alt="Data Pipeline">
+                                </div>
+                                <div class="collage-item"
+                                    onclick="zoomImage('images/vigil-v1/device_agents.jpg', 'Agents')">
+                                    <img src="images/vigil-v1/device_agents.jpg" alt="Agents">
+                                </div>
+                                <div class="collage-item"
+                                    onclick="zoomImage('images/vigil-v1/switch_dashboard.jpg', 'Switch Dashboard')">
+                                    <img src="images/vigil-v1/switch_dashboard.jpg" alt="Switch Dashboard">
+                                </div>
+                                <div class="collage-item"
+                                    onclick="zoomImage('images/vigil-v1/switch_details.jpg', 'Switch Details')">
+                                    <img src="images/vigil-v1/switch_details.jpg" alt="Switch Details">
+                                </div>
+                                <div class="collage-item"
+                                    onclick="zoomImage('images/vigil-v1/telegram_alert.jpg', 'Alerts')">
+                                    <img src="images/vigil-v1/telegram_alert.jpg" alt="Alerts">
+                                </div>
                             </div>
                         </div>
+
+                        <!-- MYCAS -->
+                        <div class="content-block" data-project="MYCAS" data-title="MYCAS"
+                            data-desc="Conditional Access System"
+                            data-images="images/mycas-v2/modular_architecture.jpg,images/mycas-v2/authentication_layer.jpg,images/mycas-v2/api_logic_flow.jpg,images/mycas-v2/config_management.jpg">
+
+                            <h3 class="text-3xl font-bold mb-2">MYCAS: Conditional Access System</h3>
+                            <h4 class="text-xl mb-4">Secure & Scalable Architecture</h4>
+                            <p class="text-lg mb-6">Modular microservices architecture for secure content delivery.</p>
+
+                            <ul class="space-y-3 text-left mb-8">
+                                <li class="flex items-start space-x-2"><span
+                                        class="text-indigo-400">📐</span><span><strong>Architecture:</strong>
+                                        Microservices, Kubernetes, Istio.</span></li>
+                                <li class="flex items-start space-x-2"><span
+                                        class="text-indigo-400">🔗</span><span><strong>Tech:</strong> Kafka, MySQL,
+                                        Elasticsearch, Docker.</span></li>
+                                <li class="flex items-start space-x-2"><span
+                                        class="text-indigo-400">⚡</span><span><strong>Scale:</strong> Horizontal
+                                        scaling, robust analytics.</span></li>
+                            </ul>
+
+                            <div class="project-collage collage-4">
+                                <div class="collage-item"
+                                    onclick="zoomImage('images/mycas-v2/modular_architecture.jpg', 'Architecture')">
+                                    <img src="images/mycas-v2/modular_architecture.jpg" alt="Architecture">
+                                </div>
+                                <div class="collage-item"
+                                    onclick="zoomImage('images/mycas-v2/authentication_layer.jpg', 'Auth Layer')">
+                                    <img src="images/mycas-v2/authentication_layer.jpg" alt="Auth Layer">
+                                </div>
+                                <div class="collage-item"
+                                    onclick="zoomImage('images/mycas-v2/api_logic_flow.jpg', 'API Logic')">
+                                    <img src="images/mycas-v2/api_logic_flow.jpg" alt="API Logic">
+                                </div>
+                                <div class="collage-item"
+                                    onclick="zoomImage('images/mycas-v2/config_management.jpg', 'Config Mgmt')">
+                                    <img src="images/mycas-v2/config_management.jpg" alt="Config Mgmt">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- VigilSiddhi Encoder -->
+                        <div class="content-block" data-project="Encoder" data-title="VigilSiddhi Encoder"
+                            data-desc="Video Processing"
+                            data-images="images/vigil-encoder/hls_streaming.png,images/vigil-encoder/ffmpeg_process.jpg,images/vigil-encoder/encoder_ui.jpg,images/vigil-encoder/srt_support.PNG">
+
+                            <h3 class="text-3xl font-bold mb-2">VigilSiddhi Encoder</h3>
+                            <h4 class="text-xl mb-4">Advanced FFmpeg Automation</h4>
+                            <p class="text-lg mb-6">Video Encoder over UDP / SRT using FFmpeg and Python.</p>
+
+                            <ul class="space-y-3 text-left mb-8">
+                                <li class="flex items-start space-x-2"><span
+                                        class="text-indigo-400">⚙️</span><span><strong>Core:</strong> FFmpeg + Python
+                                        Tkinter.</span></li>
+                                <li class="flex items-start space-x-2"><span
+                                        class="text-indigo-400">🌐</span><span><strong>Protocols:</strong> UDP, SRT,
+                                        RTMP, HLS.</span></li>
+                                <li class="flex items-start space-x-2"><span
+                                        class="text-indigo-400">🔍</span><span><strong>Analysis:</strong> Built-in
+                                        ffprobe analysis.</span></li>
+                            </ul>
+
+                            <div class="project-collage collage-4">
+                                <div class="collage-item"
+                                    onclick="zoomImage('images/vigil-encoder/hls_streaming.png', 'Input Output Preview')">
+                                    <img src="images/vigil-encoder/hls_streaming.png" alt="Input Output Preview">
+                                </div>
+                                <div class="collage-item"
+                                    onclick="zoomImage('images/vigil-encoder/ffmpeg_process.jpg', 'Output Preview UDP')">
+                                    <img src="images/vigil-encoder/ffmpeg_process.jpg" alt="Output Preview UDP">
+                                </div>
+                                <div class="collage-item"
+                                    onclick="zoomImage('images/vigil-encoder/encoder_ui.jpg', 'UI')">
+                                    <img src="images/vigil-encoder/encoder_ui.jpg" alt="UI">
+                                </div>
+                                <div class="collage-item"
+                                    onclick="zoomImage('images/vigil-encoder/srt_support.PNG', 'SRT Support')">
+                                    <img src="images/vigil-encoder/srt_support.PNG" alt="SRT Support">
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
+            </div>
         </section>
 
         <section id="github" class="py-16 px-6 md:px-12 bg-[#0f111a]">
@@ -814,7 +1164,7 @@
             .glass-card:hover {
                 background: rgba(255, 255, 255, 0.1);
                 transform: scale(1.03);
-                box-shadow: 0 8px 24px rgba(52, 152, 219, 0.4), inset 0 0 12px rgba(255, 255, 255, 0.2);
+                box-shadow: 0 8px 24px rgba(52, 152, 219, 0.4), inset 0 0 16px rgba(255, 255, 255, 0.3);
             }
 
             /* Responsive adjustments */
@@ -1444,6 +1794,140 @@
 
     <body>
 
+
+        <script>
+            // Universal Scroll Observer for Split Sections
+            document.addEventListener('DOMContentLoaded', () => {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '-40% 0px -40% 0px',
+                    threshold: 0
+                };
+
+                const setupObserver = (selector, callback) => {
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                // Highlight active block
+                                document.querySelectorAll(selector).forEach(b => b.classList.remove('active'));
+                                entry.target.classList.add('active');
+
+                                // Trigger Visual Update
+                                callback(entry.target);
+                            }
+                        });
+                    }, observerOptions);
+
+                    document.querySelectorAll(selector).forEach(block => observer.observe(block));
+                };
+
+                /* --- Experience Section Logic --- */
+                const expImgFront = document.getElementById('exp-img-front');
+                const expImgBack = document.getElementById('exp-img-back');
+                const expYear = document.getElementById('exp-visual-year');
+                const expDuration = document.getElementById('exp-visual-duration');
+                const expInfoBox = document.getElementById('exp-visual-info');
+                let currentCompany = '';
+
+                setupObserver('.content-block[data-company]', (target) => {
+                    const company = target.dataset.company;
+                    if (company === currentCompany) return;
+                    currentCompany = company;
+
+                    const img = target.dataset.img;
+                    const year = target.dataset.year;
+                    const duration = target.dataset.duration;
+
+                    expInfoBox.classList.remove('visible');
+
+                    setTimeout(() => {
+                        expYear.textContent = year;
+                        expDuration.textContent = duration;
+                        expImgFront.src = img;
+                        expImgBack.src = img;
+                        expInfoBox.classList.add('visible');
+                    }, 300);
+                });
+
+                /* --- Projects Section Logic --- */
+                const projImgFront = document.getElementById('proj-img-front');
+                const projImgBack = document.getElementById('proj-img-back');
+                const projCoin = document.getElementById('proj-coin'); // Target for hover events
+                const projTitle = document.getElementById('proj-title');
+                const projDesc = document.getElementById('proj-desc');
+                const projInfoBox = document.getElementById('proj-visual-info');
+
+                let currentProject = '';
+                let imageCycleInterval = null;
+                let currentImagesList = [];
+                let currentImageIndex = 0;
+                let isPaused = false;
+
+                // Image Switching Function
+                function startImageCycle() {
+                    if (imageCycleInterval) clearInterval(imageCycleInterval);
+
+                    // Don't cycle if only 1 image
+                    if (currentImagesList.length <= 1) return;
+
+                    imageCycleInterval = setInterval(() => {
+                        if (isPaused) return;
+
+                        currentImageIndex = (currentImageIndex + 1) % currentImagesList.length;
+                        const nextImg = currentImagesList[currentImageIndex];
+
+                        // Update both faces for continuous seamless look
+                        // (Or strict flip logic: Update Back -> Flip -> Update Front -> Reset Flip)
+                        // For the "video-like" continuous spin, updating src directly is effective.
+                        projImgFront.src = nextImg;
+                        projImgBack.src = nextImg;
+                    }, 1000); // Switch every 1 second
+                }
+
+                // Hover Events to Pause
+                projCoin.addEventListener('mouseenter', () => {
+                    isPaused = true;
+                    projCoin.style.animationPlayState = 'paused'; // Also pause the 3D spin for better view
+                });
+
+                projCoin.addEventListener('mouseleave', () => {
+                    isPaused = false;
+                    projCoin.style.animationPlayState = 'running';
+                });
+
+                setupObserver('.content-block[data-project]', (target) => {
+                    const project = target.dataset.project;
+                    if (project === currentProject) return;
+                    currentProject = project;
+
+                    const title = target.dataset.title;
+                    const desc = target.dataset.desc;
+
+                    // Get list of images
+                    const rawImages = target.dataset.images || "";
+                    currentImagesList = rawImages.split(',').filter(s => s.trim() !== "");
+                    currentImageIndex = 0;
+
+                    const firstImg = currentImagesList.length > 0 ? currentImagesList[0] : "";
+
+                    projInfoBox.classList.remove('visible');
+
+                    setTimeout(() => {
+                        projTitle.textContent = title;
+                        projDesc.textContent = desc;
+
+                        // Reset to first image immediately
+                        projImgFront.src = firstImg;
+                        projImgBack.src = firstImg;
+
+                        projInfoBox.classList.add('visible');
+
+                        // Start cycling
+                        startImageCycle();
+                    }, 300);
+                });
+            });
+        </script>
 
     </body>
 
