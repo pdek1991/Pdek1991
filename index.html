@@ -435,6 +435,7 @@
             /* Gradient Text */
             background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 100%);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             /* Glow */
             text-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
@@ -960,27 +961,80 @@
                     <div class="sticky-visual-col">
                         <div class="scene-3d">
                             <div class="coin-3d" id="proj-coin">
+
                                 <div class="coin-face front">
-                                    <img id="proj-img-front" src="images/vigil-v1/monitoring_dashboard.jpg"
+                                    <img id="proj-img-front" src="images/VigilSiddhi%20Intellisub/UI_Menu.jpeg"
                                         alt="Project Visual">
                                 </div>
                                 <div class="coin-face back">
-                                    <img id="proj-img-back" src="images/vigil-v1/monitoring_dashboard.jpg"
+                                    <img id="proj-img-back" src="images/VigilSiddhi%20Intellisub/UI_Menu.jpeg"
                                         alt="Project Visual">
                                 </div>
                             </div>
                         </div>
                         <div class="visual-info-box visible" id="proj-visual-info">
-                            <div class="visual-title" id="proj-title">VigilSiddhi</div>
-                            <span class="visual-subtitle" id="proj-desc">Monitoring Solution</span>
+                            <div class="visual-title" id="proj-title">VigilSiddhi IntilliSub</div>
+                            <span class="visual-subtitle" id="proj-desc">Local AI Subtitle Platform</span>
                         </div>
                     </div>
 
                     <!-- Right Scroll Column: Project Details -->
                     <div class="scroll-content-col" id="projects-scroll-container">
 
+
+                        <!-- VigilSiddhi IntilliSub -->
+                        <div class="content-block active" data-project="VigilSiddhi IntilliSub"
+                            data-title="VigilSiddhi IntilliSub" data-desc="Local AI Subtitle Platform"
+                            data-images="images/VigilSiddhi%20Intellisub/UI_Menu.jpeg,images/VigilSiddhi%20Intellisub/Editor_UI.jpeg,images/VigilSiddhi%20Intellisub/UI_Edit.jpeg,images/VigilSiddhi%20Intellisub/Subtitle1.jpeg,images/VigilSiddhi%20Intellisub/Subtitle2.jpeg">
+
+                            <h3 class="text-3xl font-bold mb-2">VigilSiddhi IntilliSub</h3>
+                            <h4 class="text-xl mb-4">Local AI Subtitle Generation Platform</h4>
+                            <p class="text-lg mb-6">A privacy-focused, fully offline speech-to-subtitle solution capable
+                                of
+                                running on local CPU/GPU hardware. It combines Whisper-based ASR with a professional
+                                refinement workflow, ensuring high security for sensitive content.</p>
+
+                            <ul class="space-y-3 text-left mb-8">
+                                <li class="flex items-start space-x-2"><span
+                                        class="text-indigo-400">🔒</span><span><strong>Offline & Secure:</strong>
+                                        Operates without internet, ensuring 100% data privacy.</span></li>
+                                <li class="flex items-start space-x-2"><span
+                                        class="text-indigo-400">🎯</span><span><strong>High Precision ASR:</strong>
+                                        Whisper-based model with 75-85% accuracy.</span></li>
+                                <li class="flex items-start space-x-2"><span
+                                        class="text-indigo-400">🧠</span><span><strong>Continuous Learning:</strong>
+                                        Built-in training engine for domain-specific fine-tuning.</span></li>
+                                <li class="flex items-start space-x-2"><span
+                                        class="text-indigo-400">🎬</span><span><strong>Professional Editor:</strong> Web
+                                        UI for precise timing and manual refinement.</span></li>
+                            </ul>
+
+                            <div class="project-collage collage-6">
+                                <div class="collage-item"
+                                    onclick="zoomImage('images/VigilSiddhi%20Intellisub/UI_Menu.jpeg', 'System Dashboard')">
+                                    <img src="images/VigilSiddhi%20Intellisub/UI_Menu.jpeg" alt="System Dashboard">
+                                </div>
+                                <div class="collage-item"
+                                    onclick="zoomImage('images/VigilSiddhi%20Intellisub/Editor_UI.jpeg', 'Subtitle Editor UI')">
+                                    <img src="images/VigilSiddhi%20Intellisub/Editor_UI.jpeg" alt="Subtitle Editor UI">
+                                </div>
+                                <div class="collage-item"
+                                    onclick="zoomImage('images/VigilSiddhi%20Intellisub/UI_Edit.jpeg', 'Refinement Station')">
+                                    <img src="images/VigilSiddhi%20Intellisub/UI_Edit.jpeg" alt="Refinement Station">
+                                </div>
+                                <div class="collage-item"
+                                    onclick="zoomImage('images/VigilSiddhi%20Intellisub/Subtitle1.jpeg', 'Preview: Content 1')">
+                                    <img src="images/VigilSiddhi%20Intellisub/Subtitle1.jpeg" alt="Preview: Content 1">
+                                </div>
+                                <div class="collage-item"
+                                    onclick="zoomImage('images/VigilSiddhi%20Intellisub/Subtitle2.jpeg', 'Preview: Content 2')">
+                                    <img src="images/VigilSiddhi%20Intellisub/Subtitle2.jpeg" alt="Preview: Content 2">
+                                </div>
+                            </div>
+                        </div>
+
                         <!-- VigilSiddhi -->
-                        <div class="content-block active" data-project="VigilSiddhi" data-title="VigilSiddhi"
+                        <div class="content-block" data-project="VigilSiddhi" data-title="VigilSiddhi"
                             data-desc="Monitoring Solution"
                             data-images="images/vigil-v1/monitoring_dashboard.jpg,images/vigil-v1/data_pipeline.jpg,images/vigil-v1/device_agents.jpg,images/vigil-v1/switch_dashboard.jpg,images/vigil-v1/switch_details.jpg,images/vigil-v1/telegram_alert.jpg">
 
@@ -1142,7 +1196,7 @@
 
                     <!-- GitHub Streak -->
                     <div class="flex-1 glass-card flex justify-center items-center p-4">
-                        <img src="https://github-readme-streak-stats.herokuapp.com/?user=pdek1991&theme=tokyonight"
+                        <img src="https://streak-stats.demolab.com?user=pdek1991&theme=tokyonight"
                             alt="GitHub Streak Stats"
                             class="w-full h-auto max-w-xs rounded-lg shadow-lg transition-transform duration-300 transform hover:scale-105 hover:shadow-2xl">
                     </div>
