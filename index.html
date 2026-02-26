@@ -31,6 +31,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- AOS for Scroll Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
@@ -544,6 +548,71 @@
                 filter: none;
             }
         }
+
+        /* Terminal UI animation blinking cursor */
+        .terminal-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 16px;
+            background-color: #4ade80;
+            /* Tailwind green-400 */
+            animation: terminalBlink 1s step-end infinite;
+            vertical-align: middle;
+            margin-left: 2px;
+        }
+
+        @keyframes terminalBlink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* Ambient Footer Animation */
+        .footer-ambient {
+            background: linear-gradient(270deg, #0d1117, #1f2937, #111827, #0d1117);
+            background-size: 800% 800%;
+            animation: ambientBg 15s ease infinite;
+        }
+
+        @keyframes ambientBg {
+            0% {
+                background-position: 0% 50%
+            }
+
+            50% {
+                background-position: 100% 50%
+            }
+
+            100% {
+                background-position: 0% 50%
+            }
+        }
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        /* Modern Glass Card enhancements */
+        .glass-card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .glass-card-hover:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(52, 152, 219, 0.2), inset 0 0 20px rgba(255, 255, 255, 0.1);
+            border-color: rgba(99, 102, 241, 0.5);
+        }
     </style>
 
 
@@ -600,33 +669,134 @@
     </div>
 
     <main class="pt-24 md:pt-32">
-        <section id="hero" class="py-20 md:py-32 px-6 md:px-12 text-center">
-            <img src="images/pdk.png" alt="Prashant D. Kadam Profile"
-                class="h-40 w-40 md:h-56 md:w-56 rounded-full mx-auto mb-6 border-4 border-indigo-500 shadow-lg">
-            <h2 class="text-4xl md:text-6xl font-extrabold leading-tight">
-                <span class="text-gradient">Prashant D. Kadam</span>
-            </h2>
-            <h3 class="text-xl md:text-2xl mt-4 font-medium">
-                <span id="typing-text" class="typing-container"></span>
-            </h3>
-            <p class="mt-8 max-w-2xl mx-auto text-base md:text-lg text-gray-400">
-                Certified Kubernetes Administrator (CKA) with 11+ years of experience in the TV broadcast and DevOps
-                industry. I specialize in building scalable, resilient, and automated infrastructures, with hands-on
-                expertise in Kubernetes deployments, Bash and Python scripting, CI/CD pipelines, ELK stack management,
-                Grafana & Kibana dashboards, and database administration. Experienced as a Broadcast Technology
-                Specialist and Media Infrastructure Expert, I design and manage infrastructure and streaming systems,
-                ensuring high availability, monitoring, and real-time performance for broadcast and IT environments.
+        <section id="hero"
+            class="relative py-20 md:py-32 px-6 md:px-12 text-center min-h-[90vh] flex flex-col justify-center items-center overflow-hidden">
+            <div id="particles-js"></div>
+            <div class="relative z-10 w-full" data-aos="zoom-in" data-aos-duration="1200">
+                <img src="images/pdk.png" alt="Prashant D. Kadam Profile"
+                    class="h-40 w-40 md:h-56 md:w-56 rounded-full mx-auto mb-6 border-4 border-indigo-500 shadow-[0_0_30px_rgba(99,102,241,0.6)] transform transition-transform duration-500 hover:scale-110">
+                <h2 class="text-4xl md:text-7xl font-extrabold leading-tight tracking-tight mb-2">
+                    <span class="text-gradient drop-shadow-lg">Prashant D. Kadam</span>
+                </h2>
+                <h3 class="text-xl md:text-3xl mt-4 font-medium text-gray-200">
+                    <span id="typing-text" class="typing-container border-indigo-400 text-indigo-300"></span>
+                </h3>
+                <p class="mt-8 max-w-3xl mx-auto text-base md:text-xl text-gray-300 leading-relaxed font-light backdrop-blur-sm bg-gray-900/30 p-6 rounded-2xl border border-gray-700/50 shadow-xl"
+                    data-aos="fade-up" data-aos-delay="400">
+                    Certified Kubernetes Administrator (CKA) with <strong class="text-white">11+ years</strong> of
+                    experience in the TV broadcast and DevOps
+                    industry. I specialize in building scalable, resilient, and automated infrastructures, with hands-on
+                    expertise in Kubernetes deployments, Bash and Python scripting, CI/CD pipelines, and ELK stack
+                    management.
+                </p>
+                <div class="mt-10 flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="600">
+                    <a href="#projects"
+                        class="inner-glass flex items-center justify-center gap-2 px-6 lg:px-8 py-3 text-[#3498DB] hover:text-white font-semibold text-base md:text-lg hover:scale-105 transition-all duration-300 !rounded-full">
+                        <i data-lucide="briefcase" class="w-5 h-5"></i> View Work
+                    </a>
+                    <a href="#experience"
+                        class="inner-glass flex items-center justify-center gap-2 px-6 lg:px-8 py-3 text-[#3498DB] hover:text-white font-semibold text-base md:text-lg hover:scale-105 transition-all duration-300 !rounded-full">
+                        <i data-lucide="award" class="w-5 h-5"></i> Work Experience
+                    </a>
+                    <a href="#contact"
+                        class="inner-glass flex items-center justify-center gap-2 px-6 lg:px-8 py-3 text-[#3498DB] hover:text-white font-semibold text-base md:text-lg hover:scale-105 transition-all duration-300 !rounded-full">
+                        <i data-lucide="mail" class="w-5 h-5"></i> Contact Me
+                    </a>
+                </div>
+            </div>
         </section>
 
-        <section id="about" class="py-16 px-6 md:px-12">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center">About Me</h2>
-                <p class="text-base md:text-lg text-gray-300 text-center">
-                    Passionate about automation, monitoring, and cloud-native architectures. I'm skilled in building
-                    high-availability systems and optimizing deployments. With a strong background in Linux
-                    administration and tools like Grafana, Kibana, and Prometheus, my focus is on reliability,
-                    scalability, and reducing downtime to enhance service delivery.
-                </p>
+        <section id="about" class="py-20 px-6 md:px-12 relative overflow-hidden" data-aos="fade-up">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-3xl md:text-5xl font-bold mb-10 text-center text-gradient">About & Capabilities</h2>
+
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div data-aos="fade-right" data-aos-delay="200">
+                        <p class="text-base md:text-lg text-gray-300 leading-relaxed mb-6">
+                            Passionate about <span class="text-indigo-400 font-semibold">automation, monitoring, and
+                                cloud-native architectures</span>. I'm skilled in building high-availability systems and
+                            optimizing deployments to ensure peak performance.
+                        </p>
+                        <p class="text-base md:text-lg text-gray-300 leading-relaxed mb-6">
+                            With a strong background in Linux administration and tools like <span
+                                class="text-blue-400">Grafana, Kibana, and Prometheus</span>, my focus is on
+                            reliability, scalability, and reducing downtime to enhance service delivery across dynamic
+                            environments.
+                        </p>
+
+                        <ul class="space-y-4 mt-8">
+                            <li class="flex items-center space-x-3 transform transition-transform hover:translate-x-2"
+                                data-aos="fade-up" data-aos-delay="300">
+                                <i data-lucide="check-circle" class="text-green-400 w-5 h-5"></i>
+                                <span class="text-gray-200">Docker and Kubernetes</span>
+                            </li>
+                            <li class="flex items-center space-x-3 transform transition-transform hover:translate-x-2"
+                                data-aos="fade-up" data-aos-delay="400">
+                                <i data-lucide="check-circle" class="text-green-400 w-5 h-5"></i>
+                                <span class="text-gray-200">Zero-downtime Deployments</span>
+                            </li>
+                            <li class="flex items-center space-x-3 transform transition-transform hover:translate-x-2"
+                                data-aos="fade-up" data-aos-delay="500">
+                                <i data-lucide="check-circle" class="text-green-400 w-5 h-5"></i>
+                                <span class="text-gray-200">Broadcast Systems Architecture</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div data-aos="fade-left" data-aos-delay="400">
+                        <!-- Animated Terminal UI -->
+                        <div
+                            class="terminal-window bg-[#0d1117] rounded-xl shadow-[0_10px_40px_rgba(0,0,0,0.5)] border border-gray-700 overflow-hidden text-left hover:border-indigo-500/50 transition-colors duration-500">
+                            <div class="flex items-center px-4 py-3 bg-gray-800 border-b border-gray-700">
+                                <div class="flex space-x-2">
+                                    <div class="w-3 h-3 rounded-full bg-red-500 shadow-sm"></div>
+                                    <div class="w-3 h-3 rounded-full bg-yellow-500 shadow-sm"></div>
+                                    <div class="w-3 h-3 rounded-full bg-green-500 shadow-sm"></div>
+                                </div>
+                                <div class="mx-auto text-xs text-gray-400 font-mono tracking-wider">devops@prashant: ~
+                                </div>
+                            </div>
+                            <div class="p-5 font-mono text-sm text-green-400 h-64 overflow-y-auto bg-black/50">
+                                <p class="mb-2"><span class="text-blue-400 font-bold">devops@prashant:~$</span>
+                                    ./system-status.sh</p>
+                                <div id="terminal-stats" class="mt-2 text-gray-300">
+                                    <!-- Animated typing logic handled in JS -->
+                                </div>
+                                <span class="terminal-cursor"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Stats Showcase -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20 max-w-4xl mx-auto text-center">
+                    <div class="p-8 inner-glass rounded-2xl glass-card-hover border border-indigo-500/30"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <div
+                            class="text-5xl font-extrabold text-blue-400 mb-2 drop-shadow-[0_0_10px_rgba(96,165,250,0.5)]">
+                            <span class="counter" data-target="11">0</span>+
+                        </div>
+                        <div class="text-gray-300 font-medium uppercase tracking-wider text-sm mt-4">Years Experience
+                        </div>
+                    </div>
+                    <div class="p-8 inner-glass rounded-2xl glass-card-hover border border-indigo-500/30"
+                        data-aos="zoom-in" data-aos-delay="200">
+                        <div
+                            class="text-5xl font-extrabold text-indigo-400 mb-2 drop-shadow-[0_0_10px_rgba(129,140,248,0.5)]">
+                            <span class="counter" data-target="50">0</span>+
+                        </div>
+                        <div class="text-gray-300 font-medium uppercase tracking-wider text-sm mt-4">Projects Completed
+                        </div>
+                    </div>
+                    <div class="p-8 inner-glass rounded-2xl glass-card-hover border border-indigo-500/30"
+                        data-aos="zoom-in" data-aos-delay="300">
+                        <div
+                            class="text-5xl font-extrabold text-purple-400 mb-2 drop-shadow-[0_0_10px_rgba(192,132,252,0.5)]">
+                            <span class="counter" data-target="25">0</span>+
+                        </div>
+                        <div class="text-gray-300 font-medium uppercase tracking-wider text-sm mt-4">Technologies</div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -812,8 +982,8 @@
             </div>
         </section>
 
-        <section id="experience" class="py-16 px-6 md:px-12 bg-gradient-to-b from-transparent to-gray-900/50">
-            <div class="max-w-7xl mx-auto">
+        <section id="experience" class="py-24 px-6 md:px-12 bg-gradient-to-b from-transparent to-gray-900/50">
+            <div class="max-w-7xl mx-auto" data-aos="fade-up">
                 <h2 class="text-3xl md:text-5xl font-bold mb-16 text-center text-gradient">Professional Journey</h2>
 
                 <div class="split-section-layout">
@@ -952,8 +1122,8 @@
             </div>
         </section>
 
-        <section id="projects" class="py-16 px-6 md:px-12">
-            <div class="max-w-7xl mx-auto">
+        <section id="projects" class="py-24 px-6 md:px-12">
+            <div class="max-w-7xl mx-auto" data-aos="fade-up">
                 <h2 class="text-3xl md:text-5xl font-bold mb-16 text-center text-gradient">Featured Projects</h2>
 
                 <div class="split-section-layout">
@@ -1173,27 +1343,27 @@
             </div>
         </section>
 
-        <section id="github" class="py-16 px-6 md:px-12 bg-[#0f111a]">
-            <div class="max-w-5xl mx-auto text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-8">GitHub Activity</h2>
+        <section id="github" class="py-24 px-6 md:px-12 bg-[#0f111a]" data-aos="fade-up">
+            <div class="max-w-7xl mx-auto text-center">
+                <h2 class="text-3xl md:text-5xl font-bold text-gradient mb-12">GitHub Activity</h2>
 
                 <!-- Equal-sized GitHub activity cards -->
-                <div class="flex flex-col md:flex-row justify-center items-stretch gap-6">
-
-
+                <div class="flex flex-col lg:flex-row justify-center items-stretch gap-8">
 
                     <!-- Top Languages -->
-                    <div class="flex-1 glass-card flex justify-center items-center p-4">
+                    <div class="flex-1 glass-card flex justify-center items-center p-6 cursor-pointer"
+                        onclick="zoomImage('https://github-readme-activity-graph.vercel.app/graph?username=pdek1991&theme=tokyo-night', 'Readme Activity Graphs')">
                         <img src="https://github-readme-activity-graph.vercel.app/graph?username=pdek1991&theme=tokyo-night"
                             alt="Readme Activity Graphs"
-                            class="w-full h-auto max-w-xs rounded-lg shadow-lg transition-transform duration-300 transform hover:scale-105 hover:shadow-2xl">
+                            class="w-full h-auto rounded-lg shadow-lg transition-transform duration-300 transform hover:scale-105 hover:shadow-2xl">
                     </div>
 
                     <!-- GitHub Streak -->
-                    <div class="flex-1 glass-card flex justify-center items-center p-4">
+                    <div class="flex-1 glass-card flex justify-center items-center p-6 cursor-pointer"
+                        onclick="zoomImage('https://streak-stats.demolab.com?user=pdek1991&theme=tokyonight', 'GitHub Streak Stats')">
                         <img src="https://streak-stats.demolab.com?user=pdek1991&theme=tokyonight"
                             alt="GitHub Streak Stats"
-                            class="w-full h-auto max-w-xs rounded-lg shadow-lg transition-transform duration-300 transform hover:scale-105 hover:shadow-2xl">
+                            class="w-full h-auto rounded-lg shadow-lg transition-transform duration-300 transform hover:scale-105 hover:shadow-2xl">
                     </div>
 
                 </div>
@@ -1219,7 +1389,7 @@
             /* Responsive adjustments */
             @media (max-width: 768px) {
                 .glass-card img {
-                    max-width: 90%;
+                    width: 100%;
                 }
             }
         </style>
@@ -1436,6 +1606,18 @@
                                 RedHat OpenShift</h4>
                         </div>
 
+                        <!-- Cert 8 -->
+                        <div class="glass-card group" onclick="zoomImage('images/TAGadmin.PNG', 'TAG Admin')">
+                            <div class="glass-shine"></div>
+                            <div class="relative w-full aspect-[4/3] overflow-hidden rounded-xl bg-black/20 mb-4">
+                                <img src="images/TAGadmin.PNG" alt="TAG Admin"
+                                    class="w-full h-full object-contain transform transition-transform duration-500 group-hover:scale-110">
+                            </div>
+                            <h4
+                                class="text-lg font-semibold text-slate-200 group-hover:text-blue-300 transition-colors text-center">
+                                TAG Admin</h4>
+                        </div>
+
                         <!-- --- DUPLICATE SET FOR SEAMLESS LOOP --- -->
                         <!-- Cert 1 Copy -->
                         <div class="glass-card group"
@@ -1520,6 +1702,29 @@
                                 class="text-lg font-semibold text-slate-200 group-hover:text-blue-300 transition-colors text-center">
                                 RedHat OpenShift</h4>
                         </div>
+                        <!-- Cert 8 Copy -->
+                        <div class="glass-card group" onclick="zoomImage('images/TAGadmin.PNG', 'TAG Admin')">
+                            <div class="glass-shine"></div>
+                            <div class="relative w-full aspect-[4/3] overflow-hidden rounded-xl bg-black/20 mb-4">
+                                <img src="images/TAGadmin.PNG" alt="TAG Admin"
+                                    class="w-full h-full object-contain transform transition-transform duration-500 group-hover:scale-110">
+                            </div>
+                            <h4
+                                class="text-lg font-semibold text-slate-200 group-hover:text-blue-300 transition-colors text-center">
+                                TAG Admin</h4>
+                        </div>
+                        <!-- Cert 7 Copy -->
+                        <div class="glass-card group"
+                            onclick="zoomImage('images/Redhat_DO285.PNG', 'RedHat Openshift Administrator DO285')">
+                            <div class="glass-shine"></div>
+                            <div class="relative w-full aspect-[4/3] overflow-hidden rounded-xl bg-black/20 mb-4">
+                                <img src="images/Redhat_DO285.PNG" alt="OpenShift"
+                                    class="w-full h-full object-contain transform transition-transform duration-500 group-hover:scale-110">
+                            </div>
+                            <h4
+                                class="text-lg font-semibold text-slate-200 group-hover:text-blue-300 transition-colors text-center">
+                                RedHat OpenShift</h4>
+                        </div>
 
                     </div>
                 </div>
@@ -1590,10 +1795,10 @@
                 }
 
                 100% {
-                    transform: translateX(calc(-300px * 7 - 2rem * 7));
+                    transform: translateX(calc(-300px * 8 - 2rem * 8));
                 }
 
-                /* 7 items * width + 7 * gap */
+                /* 8 items * width + 8 * gap */
             }
 
             /* Fade mask for edges */
@@ -1635,9 +1840,9 @@
         </style>
 
 
-        <section id="contact" class="py-16 px-6 md:px-12 bg-gray-900">
-            <div class="max-w-5xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-white">Get In Touch</h2>
+        <section id="contact" class="py-24 px-6 md:px-12 bg-gray-900 relative">
+            <div class="max-w-5xl mx-auto relative z-10" data-aos="zoom-in">
+                <h2 class="text-3xl md:text-5xl font-bold text-gradient mb-16 text-center">Get In Touch</h2>
 
                 <!-- Contact Buttons Grid - 4 columns for 2 rows -->
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
@@ -1680,8 +1885,12 @@
         </section>
     </main>
 
-    <footer class="py-6 px-6 md:px-12 text-center text-sm text-gray-500">
-        &copy; 2025 Prashant D. Kadam. All rights reserved.
+    <footer
+        class="py-10 px-6 md:px-12 text-center text-sm text-gray-500 footer-ambient relative overflow-hidden text-gray-400">
+        <div class="relative z-10 flex flex-col items-center">
+            <p class="mb-4 text-lg">Designed & Built by Prashant D. Kadam</p>
+            <p>&copy; 2025 Prashant D. Kadam. All rights reserved.</p>
+        </div>
     </footer>
 
     <script>
@@ -1742,7 +1951,7 @@
         mobileMenuButton.addEventListener('click', showMobileMenu);
 
         // Typing animation for hero section
-        const roles = ["Certified Kubernetes Administrator (CKA)", "DevOps & Cloud Expert", "CI/CD & Automation Specialist", "System Reliability Engineer"];
+        const roles = ["Certified Kubernetes Administrator (CKA)", "DevOps & Cloud Expert", "CI/CD & Automation Specialist", "Site Reliability Engineer"];
         let roleIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
@@ -1976,7 +2185,140 @@
                     }, 300);
                 });
             });
+
+            // Script dynamically loaded checks
+            document.addEventListener('DOMContentLoaded', () => {
+                if (window.AOS) {
+                    AOS.init({
+                        once: true,
+                        offset: 50,
+                        duration: 800,
+                        easing: 'ease-in-out-cubic',
+                    });
+                }
+
+                // Particles.js Initialization
+                setTimeout(() => {
+                    if (typeof particlesJS !== 'undefined') {
+                        particlesJS('particles-js', {
+                            "particles": {
+                                "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+                                "color": { "value": "#6366f1" },
+                                "shape": { "type": "circle" },
+                                "opacity": { "value": 0.4, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false } },
+                                "size": { "value": 3, "random": true, "anim": { "enable": false } },
+                                "line_linked": { "enable": true, "distance": 150, "color": "#6366f1", "opacity": 0.2, "width": 1 },
+                                "move": { "enable": true, "speed": 1.5, "direction": "none", "random": true, "straight": false, "out_mode": "out", "bounce": false }
+                            },
+                            "interactivity": {
+                                "detect_on": "canvas",
+                                "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+                                "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 0.8 } }, "push": { "particles_nb": 3 } }
+                            },
+                            "retina_detect": true
+                        });
+                    }
+                }, 500);
+            });
+
+            // Animated Counters
+            const counters = document.querySelectorAll('.counter');
+            const speed = 200; // lower is slower
+
+            const animateCounters = () => {
+                counters.forEach(counter => {
+                    const updateCount = () => {
+                        const target = +counter.getAttribute('data-target');
+                        const count = +counter.innerText;
+                        const inc = target / speed;
+
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count + inc);
+                            setTimeout(updateCount, 20);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+                    updateCount();
+                });
+            };
+
+            // Observer for Counters
+            const counterObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounters();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            if (counters.length > 0) {
+                // Find parent container to observe
+                const countersSection = document.querySelector('#about');
+                if (countersSection) counterObserver.observe(countersSection);
+            }
+
+            // Terminal Typing Animation
+            const terminalLines = [
+                "> Checking system clusters... [OK]",
+                "> Gathering deployment metrics... [OK]",
+                "> Analyzing cloud infrastructure...",
+                "  - Kubernetes Status: Active (11 yrs exp)",
+                "  - Deployed Services: 50+",
+                "  - Automation Scripts: ~1000+",
+                "> System optimal. Ready for new challenges."
+            ];
+            const terminalContainer = document.getElementById('terminal-stats');
+            let termLineIndex = 0;
+            let termCharIndex = 0;
+
+            function typeTerminal() {
+                if (!terminalContainer) return;
+
+                if (termLineIndex < terminalLines.length) {
+                    const currentLineStr = terminalLines[termLineIndex];
+
+                    if (termCharIndex === 0) {
+                        const p = document.createElement('p');
+                        p.className = "mb-1 text-gray-300";
+                        terminalContainer.appendChild(p);
+                    }
+
+                    const p = terminalContainer.lastChild;
+                    p.innerHTML += currentLineStr.charAt(termCharIndex);
+                    termCharIndex++;
+
+                    let typingDelay = Math.random() * 30 + 20;
+
+                    if (termCharIndex >= currentLineStr.length) {
+                        termCharIndex = 0;
+                        termLineIndex++;
+                        typingDelay = 400; // Pause at end of line
+                    }
+
+                    setTimeout(typeTerminal, typingDelay);
+                } else {
+                    const cursor = document.querySelector('.terminal-cursor');
+                    if (cursor) cursor.style.animation = 'terminalBlink 1s step-end infinite';
+                }
+            }
+
+            const termObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setTimeout(typeTerminal, 600); // Start after box fades in
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            const terminalElem = document.querySelector('.terminal-window');
+            if (terminalElem) termObserver.observe(terminalElem);
+
         </script>
+
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     </body>
 
